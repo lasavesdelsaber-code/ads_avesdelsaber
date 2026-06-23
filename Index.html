@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Admin — Aves del Saber 500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #0D1929;
+  --gold: #C9A227;
+  --gold-light: #F0C84A;
+  --cream: #F5F0E8;
+  --white: #FFFFFF;
+  --gray: #6B7280;
+  --success: #10B981;
+  --danger: #EF4444;
+  --warning: #F59E0B;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--navy-deep);
+  color: var(--white);
+  line-height: 1.6;
+}
+
+.admin-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: var(--navy);
+  padding: 30px 20px;
+  border-right: 1px solid rgba(201,162,39,0.2);
+}
+
+.sidebar-logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-item {
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .25s;
+  color: rgba(255,255,255,0.6);
+  border-left: 3px solid transparent;
+}
+
+.sidebar-item:hover, .sidebar-item.active {
+  background: rgba(201,162,39,0.1);
+  border-left-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.sidebar-item i {
+  margin-right: 10px;
+  width: 20px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* HEADER */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(201,162,39,0.2);
+}
+
+.admin-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+}
+
+.logout-btn {
+  background: rgba(239,68,68,0.15);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #EF4444;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all .25s;
+}
+
+.logout-btn:hover {
+  background: rgba(239,68,68,0.25);
+  border-color: #EF4444;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(201,162,39,0.2);
+  padding-bottom: 0;
+}
+
+.tab {
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  color: rgba(255,255,255,0.5);
+  font-weight: 700;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all .25s;
+}
+
+.tab:hover, .tab.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
+}
+
+/* TAB CONTENT */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* FORM */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(201,162,39,0.3);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: var(--white);
+  font-family: 'Nunito', sans-serif;
+  transition: all .25s;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(201,162,39,0.08);
+}
+
+.form-group input::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all .25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--navy-deep);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,162,39,0.3);
+}
+
+.btn-secondary {
+  background: rgba(201,162,39,0.15);
+  border: 1px solid rgba(201,162,39,0.3);
+  color: var(--gold-light);
+}
+
+.btn-secondary:hover {
+  background: rgba(201,162,39,0.25);
+}
+
+.btn-danger {
+  background: rgba(239,68,68,0.15);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #EF4444;
+}
+
+.btn-danger:hover {
+  background: rgba(239,68,68,0.25);
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* TABLE */
+.table-container {
+  background: rgba(27,42,74,0.4);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: rgba(13,25,41,0.8);
+  border-bottom: 1px solid rgba(201,162,39,0.2);
+}
+
+.table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.8);
+}
+
+.table tbody tr:hover {
+  background: rgba(201,162,39,0.08);
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+/* CARDS */
+.card {
+  background: rgba(27,42,74,0.5);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+
+/* ALERT */
+.alert {
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alert-success {
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: #10B981;
+}
+
+.alert-error {
+  background: rgba(239,68,68,0.15);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #EF4444;
+}
+
+.alert i {
+  font-size: 1.2rem;
+}
+
+/* STATS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, rgba(27,42,74,0.8) 0%, rgba(13,25,41,0.9) 100%);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5rem;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .admin-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN VIEW -->
+<div id="loginView" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px;">
+  <div style="background: linear-gradient(135deg, rgba(27,42,74,0.9) 0%, rgba(13,25,41,0.95) 100%); border: 2px solid rgba(201,162,39,0.25); border-radius: 20px; padding: 50px 40px; max-width: 400px; width: 100%; box-shadow: 0 0 60px rgba(201,162,39,0.15);">
+    <div style="text-align: center; margin-bottom: 30px;">
+      <div style="font-family: 'Bebas Neue'; font-size: 1.8rem; color: var(--gold-light); letter-spacing: 2px; margin-bottom: 8px;">🦅 AVES DEL SABER</div>
+      <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">PANEL ADMINISTRADOR</p>
+    </div>
+    
+    <div class="form-group">
+      <label>Usuario</label>
+      <input type="text" id="loginUser" placeholder="admin">
+    </div>
+    
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" id="loginPass" placeholder="Ingresa tu contraseña">
+    </div>
+    
+    <button class="btn btn-primary" onclick="login()" style="width: 100%; justify-content: center; margin-top: 20px;">
+      <i class="fa-solid fa-sign-in-alt"></i> Ingresar
+    </button>
+    
+    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(201,162,39,0.2);">
+      <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); text-align: center;">Demo: Usuario: admin | Contraseña: ads2024</p>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN VIEW -->
+<div id="adminView" style="display: none;">
+  <div class="admin-container">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        <span>🦅 ADS</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-item active" onclick="switchTab('dashboard', this)">
+          <i class="fa-solid fa-chart-line"></i> Dashboard
+        </li>
+        <li class="sidebar-item" onclick="switchTab('agregar', this)">
+          <i class="fa-solid fa-user-plus"></i> Agregar Estudiante
+        </li>
+        <li class="sidebar-item" onclick="switchTab('editar', this)">
+          <i class="fa-solid fa-user-edit"></i> Editar Estudiante
+        </li>
+        <li class="sidebar-item" onclick="switchTab('resultados', this)">
+          <i class="fa-solid fa-ranking-star"></i> Subir Resultados
+        </li>
+        <li class="sidebar-item" onclick="switchTab('estudiantes', this)">
+          <i class="fa-solid fa-users"></i> Estudiantes
+        </li>
+      </ul>
+    </div>
+    
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <!-- HEADER -->
+      <div class="admin-header">
+        <div class="admin-title">📊 PANEL DE CONTROL</div>
+        <button class="logout-btn" onclick="logout()">
+          <i class="fa-solid fa-sign-out-alt"></i> Cerrar sesión
+        </button>
+      </div>
+      
+      <!-- DASHBOARD TAB -->
+      <div id="dashboardTab" class="tab-content active">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="totalEstudiantes">7</div>
+            <div class="stat-label">Total de Estudiantes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="promedioPuntaje">400</div>
+            <div class="stat-label">Promedio de Puntaje</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="puntuacionAlta">425</div>
+            <div class="stat-label">Puntuación Más Alta</div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-title">🏆 Top 5 Estudiantes</div>
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Posición</th>
+                  <th>Nombre</th>
+                  <th>T.I.</th>
+                  <th>Puntaje</th>
+                </tr>
+              </thead>
+              <tbody id="topEstudiantesBody">
+                <!-- Llenado por JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- AGREGAR ESTUDIANTE TAB -->
+      <div id="agregarTab" class="tab-content">
+        <div class="card">
+          <div class="card-title">➕ Agregar Nuevo Estudiante</div>
+          <div id="addAlert"></div>
+          
+          <div class="form-group">
+            <label>Nombre Completo</label>
+            <input type="text" id="addNombre" placeholder="Ej: Juan Pérez">
+          </div>
+          
+          <div class="form-group">
+            <label>Número de T.I.</label>
+            <input type="text" id="addTI" placeholder="Ej: 1023456789">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Matemáticas</label>
+              <input type="number" id="addMath" placeholder="0-100" min="0" max="100">
+            </div>
+            <div class="form-group">
+              <label>Lectura Crítica</label>
+              <input type="number" id="addReading" placeholder="0-100" min="0" max="100">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Sociales</label>
+              <input type="number" id="addSocial" placeholder="0-100" min="0" max="100">
+            </div>
+            <div class="form-group">
+              <label>Ciencias Naturales</label>
+              <input type="number" id="addScience" placeholder="0-100" min="0" max="100">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Inglés</label>
+            <input type="number" id="addEnglish" placeholder="0-100" min="0" max="100">
+          </div>
+          
+          <div class="btn-group">
+            <button class="btn btn-primary" onclick="agregarEstudiante()">
+              <i class="fa-solid fa-check"></i> Guardar Estudiante
+            </button>
+            <button class="btn btn-secondary" onclick="limpiarFormulario()">
+              <i class="fa-solid fa-times"></i> Limpiar
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- EDITAR ESTUDIANTE TAB -->
+      <div id="editarTab" class="tab-content">
+        <div class="card">
+          <div class="card-title">✏️ Editar Estudiante</div>
+          <div id="editAlert"></div>
+          
+          <div class="form-group">
+            <label>Buscar por T.I.</label>
+            <input type="text" id="searchTI" placeholder="Ingresa T.I." oninput="buscarEstudianteEditar()">
+          </div>
+          
+          <div id="editForm" style="display: none;">
+            <div class="form-group">
+              <label>Nombre Completo</label>
+              <input type="text" id="editNombre" placeholder="Nombre">
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Matemáticas</label>
+                <input type="number" id="editMath" placeholder="0-100" min="0" max="100">
+              </div>
+              <div class="form-group">
+                <label>Lectura Crítica</label>
+                <input type="number" id="editReading" placeholder="0-100" min="0" max="100">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Sociales</label>
+                <input type="number" id="editSocial" placeholder="0-100" min="0" max="100">
+              </div>
+              <div class="form-group">
+                <label>Ciencias Naturales</label>
+                <input type="number" id="editScience" placeholder="0-100" min="0" max="100">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Inglés</label>
+              <input type="number" id="editEnglish" placeholder="0-100" min="0" max="100">
+            </div>
+            
+            <div class="btn-group">
+              <button class="btn btn-primary" onclick="guardarCambios()">
+                <i class="fa-solid fa-save"></i> Guardar Cambios
+              </button>
+              <button class="btn btn-danger" onclick="eliminarEstudiante()">
+                <i class="fa-solid fa-trash"></i> Eliminar Estudiante
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SUBIR RESULTADOS TAB -->
+      <div id="resultadosTab" class="tab-content">
+        <div class="card">
+          <div class="card-title">📤 Subir Resultados en Lote</div>
+          <p style="color: rgba(255,255,255,0.6); margin-bottom: 16px;">Pegua aquí tus datos en formato JSON</p>
+          
+          <div class="form-group">
+            <label>Datos JSON</label>
+            <textarea id="jsonData" placeholder='[{"ti":"1023456789","nombre":"Nombre","matematicas":85,"lectura":78,"sociales":90,"ciencias":80,"ingles":88}]' rows="8"></textarea>
+          </div>
+          
+          <div class="btn-group">
+            <button class="btn btn-primary" onclick="subirJSON()">
+              <i class="fa-solid fa-upload"></i> Subir Datos
+            </button>
+          </div>
+          
+          <div id="uploadAlert"></div>
+        </div>
+      </div>
+      
+      <!-- ESTUDIANTES TAB -->
+      <div id="estudiantesTab" class="tab-content">
+        <div class="card">
+          <div class="card-title">👥 Lista de Estudiantes</div>
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>T.I.</th>
+                  <th>Puntaje Total</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="estudiantesTableBody">
+                <!-- Llenado por JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// DATOS
+let estudiantesDB = [
+  { ti: '1023456789', nombre: 'Juan Pérez', matematicas: 85, lectura: 78, sociales: 90, ciencias: 80, ingles: 88 },
+  { ti: '1087654321', nombre: 'María López', matematicas: 82, lectura: 85, sociales: 88, ciencias: 87, ingles: 81 },
+  { ti: '1098765432', nombre: 'Carlos Ruiz', matematicas: 80, lectura: 80, sociales: 85, ciencias: 82, ingles: 79 },
+  { ti: '1111111111', nombre: 'Ana Martínez', matematicas: 88, lectura: 90, sociales: 92, ciencias: 89, ingles: 91 },
+  { ti: '1222222222', nombre: 'Luis Gómez', matematicas: 78, lectura: 75, sociales: 80, ciencias: 76, ingles: 74 },
+  { ti: '1333333333', nombre: 'Sofía García', matematicas: 90, lectura: 88, sociales: 89, ciencias: 87, ingles: 89 },
+  { ti: '1444444444', nombre: 'Pedro Sánchez', matematicas: 76, lectura: 72, sociales: 78, ciencias: 75, ingles: 73 },
+];
+
+let currentEditTI = null;
+const ADMIN_USER = 'admin';
+const ADMIN_PASS = 'ads2024';
+
+// LOGIN
+function login() {
+  const user = document.getElementById('loginUser').value;
+  const pass = document.getElementById('loginPass').value;
+  
+  if (user === ADMIN_USER && pass === ADMIN_PASS) {
+    document.getElementById('loginView').style.display = 'none';
+    document.getElementById('adminView').style.display = 'block';
+    cargarDashboard();
+    llenarTablaEstudiantes();
+  } else {
+    alert('Usuario o contraseña incorrectos');
+  }
+}
+
+function logout() {
+  document.getElementById('loginView').style.display = 'flex';
+  document.getElementById('adminView').style.display = 'none';
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+}
+
+// TABS
+function switchTab(tabName, element) {
+  // Ocultar todos los tabs
+  document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
+  
+  // Mostrar tab seleccionado
+  document.getElementById(tabName + 'Tab').classList.add('active');
+  element.classList.add('active');
+}
+
+// CALCULAR TOTAL
+function calcularTotal(est) {
+  return est.matematicas + est.lectura + est.sociales + est.ciencias + est.ingles;
+}
+
+// OBTENER RANKING
+function obtenerRanking() {
+  return estudiantesDB.map(est => ({
+    ...est,
+    total: calcularTotal(est)
+  })).sort((a, b) => b.total - a.total);
+}
+
+// CARGAR DASHBOARD
+function cargarDashboard() {
+  const ranking = obtenerRanking();
+  document.getElementById('totalEstudiantes').textContent = estudiantesDB.length;
+  
+  const promedio = Math.round(ranking.reduce((sum, e) => sum + e.total, 0) / ranking.length);
+  document.getElementById('promedioPuntaje').textContent = promedio;
+  document.getElementById('puntuacionAlta').textContent = ranking[0].total;
+  
+  const tbody = document.getElementById('topEstudiantesBody');
+  tbody.innerHTML = '';
+  
+  ranking.slice(0, 5).forEach((est, idx) => {
+    const row = `
+      <tr>
+        <td>${idx + 1}</td>
+        <td>${est.nombre}</td>
+        <td>${est.ti}</td>
+        <td><strong>${est.total}</strong></td>
+      </tr>
+    `;
+    tbody.innerHTML += row;
+  });
+}
+
+// LLENAR TABLA ESTUDIANTES
+function llenarTablaEstudiantes() {
+  const ranking = obtenerRanking();
+  const tbody = document.getElementById('estudiantesTableBody');
+  tbody.innerHTML = '';
+  
+  ranking.forEach(est => {
+    const row = `
+      <tr>
+        <td>${est.nombre}</td>
+        <td>${est.ti}</td>
+        <td><strong>${est.total}</strong></td>
+        <td class="table-actions">
+          <button class="btn btn-secondary btn-sm" onclick="editarEstudiante('${est.ti}')"><i class="fa-solid fa-edit"></i> Editar</button>
+          <button class="btn btn-danger btn-sm" onclick="confirmarEliminar('${est.ti}')"><i class="fa-solid fa-trash"></i> Eliminar</button>
+        </td>
+      </tr>
+    `;
+    tbody.innerHTML += row;
+  });
+}
+
+// AGREGAR ESTUDIANTE
+function agregarEstudiante() {
+  const nombre = document.getElementById('addNombre').value.trim();
+  const ti = document.getElementById('addTI').value.trim();
+  const math = parseInt(document.getElementById('addMath').value) || 0;
+  const reading = parseInt(document.getElementById('addReading').value) || 0;
+  const social = parseInt(document.getElementById('addSocial').value) || 0;
+  const science = parseInt(document.getElementById('addScience').value) || 0;
+  const english = parseInt(document.getElementById('addEnglish').value) || 0;
+  
+  if (!nombre || !ti) {
+    mostrarAlerta('addAlert', 'error', 'Complete todos los campos');
+    return;
+  }
+  
+  if (estudiantesDB.find(e => e.ti === ti)) {
+    mostrarAlerta('addAlert', 'error', 'Este T.I. ya existe');
+    return;
+  }
+  
+  estudiantesDB.push({
+    ti, nombre,
+    matematicas: math,
+    lectura: reading,
+    sociales: social,
+    ciencias: science,
+    ingles: english
+  });
+  
+  mostrarAlerta('addAlert', 'success', 'Estudiante agregado correctamente');
+  limpiarFormulario();
+  cargarDashboard();
+  llenarTablaEstudiantes();
+}
+
+// LIMPIAR FORMULARIO
+function limpiarFormulario() {
+  document.getElementById('addNombre').value = '';
+  document.getElementById('addTI').value = '';
+  document.getElementById('addMath').value = '';
+  document.getElementById('addReading').value = '';
+  document.getElementById('addSocial').value = '';
+  document.getElementById('addScience').value = '';
+  document.getElementById('addEnglish').value = '';
+}
+
+// BUSCAR ESTUDIANTE
+function buscarEstudianteEditar() {
+  const ti = document.getElementById('searchTI').value.trim();
+  const est = estudiantesDB.find(e => e.ti === ti);
+  
+  if (est) {
+    currentEditTI = ti;
+    document.getElementById('editNombre').value = est.nombre;
+    document.getElementById('editMath').value = est.matematicas;
+    document.getElementById('editReading').value = est.lectura;
+    document.getElementById('editSocial').value = est.sociales;
+    document.getElementById('editScience').value = est.ciencias;
+    document.getElementById('editEnglish').value = est.ingles;
+    document.getElementById('editForm').style.display = 'block';
+  } else {
+    document.getElementById('editForm').style.display = 'none';
+  }
+}
+
+// EDITAR ESTUDIANTE
+function editarEstudiante(ti) {
+  document.getElementById('searchTI').value = ti;
+  buscarEstudianteEditar();
+  switchTab('editar', document.querySelectorAll('.sidebar-item')[2]);
+}
+
+// GUARDAR CAMBIOS
+function guardarCambios() {
+  const est = estudiantesDB.find(e => e.ti === currentEditTI);
+  if (!est) return;
+  
+  est.nombre = document.getElementById('editNombre').value;
+  est.matematicas = parseInt(document.getElementById('editMath').value) || 0;
+  est.lectura = parseInt(document.getElementById('editReading').value) || 0;
+  est.sociales = parseInt(document.getElementById('editSocial').value) || 0;
+  est.ciencias = parseInt(document.getElementById('editScience').value) || 0;
+  est.ingles = parseInt(document.getElementById('editEnglish').value) || 0;
+  
+  mostrarAlerta('editAlert', 'success', 'Estudiante actualizado correctamente');
+  cargarDashboard();
+  llenarTablaEstudiantes();
+}
+
+// ELIMINAR ESTUDIANTE
+function eliminarEstudiante() {
+  if (confirm('¿Estás seguro de que deseas eliminar este estudiante?')) {
+    estudiantesDB = estudiantesDB.filter(e => e.ti !== currentEditTI);
+    mostrarAlerta('editAlert', 'success', 'Estudiante eliminado correctamente');
+    document.getElementById('editForm').style.display = 'none';
+    document.getElementById('searchTI').value = '';
+    cargarDashboard();
+    llenarTablaEstudiantes();
+  }
+}
+
+function confirmarEliminar(ti) {
+  if (confirm('¿Estás seguro de que deseas eliminar este estudiante?')) {
+    estudiantesDB = estudiantesDB.filter(e => e.ti !== ti);
+    cargarDashboard();
+    llenarTablaEstudiantes();
+  }
+}
+
+// SUBIR JSON
+function subirJSON() {
+  try {
+    const json = JSON.parse(document.getElementById('jsonData').value);
+    if (!Array.isArray(json)) throw new Error('Debe ser un array');
+    
+    json.forEach(est => {
+      if (!est.ti || !est.nombre) throw new Error('Faltan campos requeridos');
+      const existing = estudiantesDB.findIndex(e => e.ti === est.ti);
+      if (existing !== -1) {
+        estudiantesDB[existing] = est;
+      } else {
+        estudiantesDB.push(est);
+      }
+    });
+    
+    mostrarAlerta('uploadAlert', 'success', 'Datos importados correctamente');
+    document.getElementById('jsonData').value = '';
+    cargarDashboard();
+    llenarTablaEstudiantes();
+  } catch (e) {
+    mostrarAlerta('uploadAlert', 'error', 'Error: ' + e.message);
+  }
+}
+
+// MOSTRAR ALERTA
+function mostrarAlerta(elementId, tipo, mensaje) {
+  const el = document.getElementById(elementId);
+  const clase = tipo === 'success' ? 'alert-success' : 'alert-error';
+  const icono = tipo === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+  
+  el.innerHTML = `<i class="fa-solid ${icono}"></i><span>${mensaje}</span>`;
+  el.className = `alert ${clase}`;
+  
+  setTimeout(() => {
+    el.innerHTML = '';
+    el.className = 'alert';
+  }, 4000);
+}
+
+// CARGAR AL INICIO
+cargarDashboard();
+</script>
+</body>
+</html>
