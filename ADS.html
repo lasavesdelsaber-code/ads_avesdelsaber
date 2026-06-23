@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aves del Saber 500 — Pre ICFES</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #0D1929;
+  --gold: #C9A227;
+  --gold-light: #F0C84A;
+  --gold-pale: #FFF3CC;
+  --cream: #F5F0E8;
+  --white: #FFFFFF;
+  --gray: #6B7280;
+  --gray-light: #F3F4F6;
+  --success: #10B981;
+  --danger: #EF4444;
+  --shadow: 0 8px 32px rgba(13,25,41,0.18);
+  --shadow-gold: 0 4px 24px rgba(201,162,39,0.25);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--navy-deep);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ─── NAV ─── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5%;
+  height: 68px;
+  background: rgba(13,25,41,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,162,39,0.2);
+}
+.nav-brand {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-brand img { height: 38px; }
+.nav-links { display: flex; gap: 6px; }
+.nav-link {
+  font-size: 0.82rem; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(255,255,255,0.75);
+  padding: 7px 12px; border-radius: 6px; cursor: pointer;
+  transition: all .25s; text-decoration: none; border: none; background: none;
+}
+.nav-link:hover { color: var(--gold-light); background: rgba(201,162,39,0.12); }
+.nav-link.active { color: var(--gold-light); }
+.nav-cta {
+  background: var(--gold); color: var(--navy-deep);
+  font-size: 0.82rem; font-weight: 800; letter-spacing: 1px;
+  padding: 8px 16px; border-radius: 8px; text-decoration: none;
+  transition: all .25s; white-space: nowrap;
+}
+.nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--gold); border-radius: 2px; transition: all .3s; }
+.mobile-menu {
+  display: none; flex-direction: column; gap: 4px;
+  position: fixed; top: 68px; left: 0; right: 0; z-index: 999;
+  background: var(--navy-deep); padding: 16px 5%; border-bottom: 1px solid rgba(201,162,39,0.15);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu .nav-link { font-size: 0.9rem; padding: 10px 14px; }
+
+/* ─── SCREENS ─── */
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 70% 40%, rgba(201,162,39,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 80%, rgba(27,42,74,0.8) 0%, transparent 50%),
+    var(--navy-deep);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 100px 5% 60px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A227' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-eagle {
+  width: 200px; height: 200px;
+  margin: 0 auto 24px;
+  animation: floatEagle 4s ease-in-out infinite;
+  filter: drop-shadow(0 12px 32px rgba(201,162,39,0.35));
+}
+@keyframes floatEagle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(201,162,39,0.15);
+  border: 1px solid rgba(201,162,39,0.4);
+  color: var(--gold-light);
+  font-size: 0.78rem; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; padding: 6px 16px; border-radius: 20px;
+  margin-bottom: 18px;
+}
+.hero-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+}
+.hero-title .gold { color: var(--gold-light); }
+.hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: rgba(255,255,255,0.75);
+  max-width: 580px; margin: 0 auto 16px;
+  font-style: italic;
+}
+.hero-motivational {
+  font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+  font-weight: 900;
+  color: var(--gold-light);
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+.hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--navy-deep);
+  font-weight: 800; font-size: 0.95rem; letter-spacing: 1px;
+  padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
+  transition: all .3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: var(--shadow-gold);
+}
+.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(201,162,39,0.45); }
+.btn-outline {
+  background: transparent; color: var(--white);
+  border: 2px solid rgba(255,255,255,0.35);
+  font-weight: 700; font-size: 0.95rem;
+  padding: 14px 28px; border-radius: 10px; cursor: pointer;
+  transition: all .3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-3px); }
+.hero-stats {
+  display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 32px;
+}
+.stat { text-align: center; }
+.stat-num { font-family: 'Bebas Neue', cursive; font-size: 2.2rem; color: var(--gold-light); display: block; }
+.stat-lbl { font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+
+/* ─── MOTIVATIONAL TICKER ─── */
+.ticker-wrap {
+  background: var(--gold);
+  overflow: hidden; white-space: nowrap;
+  padding: 11px 0;
+}
+.ticker-inner {
+  display: inline-flex; gap: 80px;
+  animation: tickerMove 30s linear infinite;
+}
+.ticker-inner span { font-weight: 800; color: var(--navy-deep); font-size: 0.88rem; letter-spacing: 1px; }
+.ticker-inner span i { margin-right: 8px; }
+@keyframes tickerMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── SECTIONS ─── */
+.section {
+  padding: 80px 5%;
+  max-width: 1100px; margin: 0 auto;
+}
+.section-full { padding: 80px 5%; }
+.section-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 2px;
+  text-align: center; margin-bottom: 8px;
+}
+.section-title .gold { color: var(--gold-light); }
+.section-sub {
+  text-align: center; color: rgba(255,255,255,0.55);
+  font-size: 1rem; margin-bottom: 50px;
+}
+.divider {
+  width: 60px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  margin: 12px auto 20px; border-radius: 2px;
+}
+
+/* ─── PRESENTACION ─── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+}
+.about-visual {
+  background: linear-gradient(135deg, var(--navy) 0%, rgba(27,42,74,0.5) 100%);
+  border: 1px solid rgba(201,162,39,0.25);
+  border-radius: 20px; padding: 40px 30px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.about-visual::before {
+  content: '🦅';
+  position: absolute; top: -20px; right: -20px;
+  font-size: 8rem; opacity: 0.06;
+}
+.about-visual-img { width: 160px; margin-bottom: 20px; filter: drop-shadow(0 8px 20px rgba(201,162,39,0.3)); }
+.about-visual h3 {
+  font-family: 'Bebas Neue', cursive; font-size: 1.8rem;
+  letter-spacing: 2px; color: var(--gold-light); margin-bottom: 8px;
+}
+.about-visual p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+.about-text h3 {
+  font-family: 'Bebas Neue', cursive; font-size: 2rem; letter-spacing: 2px;
+  color: var(--gold-light); margin-bottom: 14px;
+}
+.about-text p { color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 14px; font-size: 1rem; }
+.about-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.pill {
+  background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+  color: var(--gold-light); font-size: 0.82rem; font-weight: 700;
+  padding: 6px 14px; border-radius: 20px; letter-spacing: 0.5px;
+}
+
+/* ─── VENTA CARD ─── */
+.sale-section {
+  background: linear-gradient(135deg, var(--navy) 0%, #0D1929 100%);
+  border-top: 1px solid rgba(201,162,39,0.15);
+  border-bottom: 1px solid rgba(201,162,39,0.15);
+}
+.sale-card {
+  background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(27,42,74,0.9) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 24px; padding: 50px 40px; text-align: center;
+  max-width: 600px; margin: 0 auto; position: relative;
+  box-shadow: 0 0 60px rgba(201,162,39,0.15);
+}
+.sale-badge {
+  position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: var(--navy-deep);
+  font-weight: 800; font-size: 0.82rem; letter-spacing: 2px;
+  padding: 7px 22px; border-radius: 20px; white-space: nowrap;
+}
+.sale-emoji { font-size: 3rem; margin-bottom: 12px; }
+.sale-title {
+  font-family: 'Bebas Neue', cursive; font-size: 2.2rem;
+  letter-spacing: 3px; color: var(--white); margin-bottom: 6px;
+}
+.sale-preventa { margin: 20px 0 8px; }
+.sale-preventa .label { font-size: 0.85rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+.sale-preventa .price-old { font-size: 1rem; color: rgba(255,255,255,0.35); text-decoration: line-through; }
+.sale-preventa .price-now {
+  font-family: 'Bebas Neue', cursive; font-size: 3.5rem;
+  color: var(--gold-light); letter-spacing: 2px;
+  display: block; line-height: 1;
+}
+.sale-preventa .price-note { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+.sale-coming {
+  margin-top: 14px; font-size: 0.88rem;
+  color: rgba(255,255,255,0.5); font-style: italic;
+}
+.sale-cta { margin-top: 28px; width: 100%; font-size: 1rem; justify-content: center; }
+
+/* ─── RESOURCES GRID ─── */
+.resources-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;
+}
+.resource-card {
+  background: linear-gradient(135deg, rgba(27,42,74,0.8) 0%, rgba(13,25,41,0.9) 100%);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 16px; padding: 32px 24px; text-align: center;
+  transition: all .3s; cursor: pointer; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.resource-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(201,162,39,0.2);
+}
+.resource-icon {
+  width: 64px; height: 64px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+}
+.icon-yt { background: rgba(255,0,0,0.15); color: #FF4444; }
+.icon-drive { background: rgba(66,133,244,0.15); color: #4285F4; }
+.icon-ig { background: rgba(225,48,108,0.15); color: #E1306C; }
+.icon-tt { background: rgba(0,0,0,0.3); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+.icon-wa { background: rgba(37,211,102,0.15); color: #25D166; }
+.resource-card h4 { font-weight: 800; font-size: 1rem; }
+.resource-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+/* ─── EXAM SECTION ─── */
+.exam-bg {
+  background: linear-gradient(180deg, var(--navy-deep) 0%, #101e36 100%);
+  border-top: 1px solid rgba(201,162,39,0.1);
+}
+.exam-modes {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px;
+}
+.exam-mode-btn {
+  background: linear-gradient(135deg, rgba(27,42,74,0.9) 0%, rgba(13,25,41,0.95) 100%);
+  border: 2px solid rgba(201,162,39,0.25);
+  border-radius: 18px; padding: 36px 24px; text-align: center;
+  cursor: pointer; transition: all .3s;
+}
+.exam-mode-btn:hover, .exam-mode-btn.active {
+  border-color: var(--gold);
+  box-shadow: 0 0 30px rgba(201,162,39,0.2);
+  transform: translateY(-4px);
+}
+.exam-mode-btn i { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 14px; display: block; }
+.exam-mode-btn h3 { font-family: 'Bebas Neue', cursive; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 6px; }
+.exam-mode-btn p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+/* EXAM UI */
+.exam-ui {
+  background: rgba(27,42,74,0.4);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 20px; overflow: hidden;
+}
+.exam-topbar {
+  background: var(--navy); padding: 16px 28px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.exam-topbar-title { font-family: 'Bebas Neue', cursive; font-size: 1.2rem; letter-spacing: 2px; color: var(--gold-light); }
+.timer-box {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+  padding: 8px 16px; border-radius: 10px;
+}
+.timer-box i { color: var(--gold); }
+.timer-box span { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; color: var(--gold-light); letter-spacing: 2px; }
+.music-toggle {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7); padding: 8px 14px; border-radius: 10px;
+  cursor: pointer; font-size: 0.82rem; font-weight: 700;
+  display: flex; align-items: center; gap: 6px; transition: all .25s;
+}
+.music-toggle:hover { color: var(--gold-light); border-color: var(--gold-light); }
+.music-toggle.on { color: var(--gold-light); border-color: var(--gold); background: rgba(201,162,39,0.1); }
+.progress-bar-wrap { background: rgba(255,255,255,0.06); height: 4px; }
+.progress-bar-fill { height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transition: width .5s; }
+.exam-body-area { padding: 36px 32px; }
+.q-meta { font-size: 0.78rem; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+.q-text { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 26px; line-height: 1.7; }
+.options-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.opt {
+  background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 16px 20px; cursor: pointer;
+  transition: all .25s; display: flex; align-items: center; gap: 14px;
+  font-size: 0.95rem; font-weight: 600;
+}
+.opt:hover { border-color: rgba(201,162,39,0.5); background: rgba(201,162,39,0.06); }
+.opt.selected { border-color: var(--gold); background: rgba(201,162,39,0.1); }
+.opt-key {
+  width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', cursive; font-size: 1.1rem; color: var(--gold-light);
+}
+.opt.selected .opt-key { background: var(--gold); color: var(--navy-deep); }
+.exam-footer-bar {
+  padding: 18px 32px; background: rgba(13,25,41,0.6);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.q-counter { font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+.btn-nav {
+  background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+  color: var(--gold-light); padding: 10px 20px; border-radius: 10px;
+  font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: all .25s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-nav:hover { background: rgba(201,162,39,0.22); }
+.btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+.btn-finish {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--navy-deep); padding: 10px 22px; border-radius: 10px;
+  font-weight: 800; font-size: 0.88rem; cursor: pointer; border: none; transition: all .25s;
+}
+.btn-finish:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+
+/* RESULTS */
+.results-summary {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px; margin-bottom: 36px;
+}
+.res-card {
+  background: rgba(27,42,74,0.6); border: 1px solid rgba(201,162,39,0.15);
+  border-radius: 14px; padding: 24px; text-align: center;
+}
+.res-card .num { font-family: 'Bebas Neue', cursive; font-size: 2.5rem; line-height: 1; display: block; margin-bottom: 6px; }
+.res-card .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.45); font-weight: 700; }
+.num.green { color: var(--success); }
+.num.red { color: var(--danger); }
+.num.gold { color: var(--gold-light); }
+.report-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px; }
+.report-item-card {
+  background: rgba(27,42,74,0.5); border-radius: 14px; padding: 20px 24px;
+  border-left: 4px solid var(--danger);
+}
+.report-item-card.ok { border-left-color: var(--success); }
+.report-item-card .ri-label {
+  font-size: 0.78rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 8px; color: var(--danger);
+}
+.report-item-card.ok .ri-label { color: var(--success); }
+.report-item-card .ri-q { font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; line-height: 1.5; }
+.report-item-card .ri-ans { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+.report-item-card .ri-correct { font-size: 0.85rem; color: var(--success); font-weight: 700; }
+
+/* ─── FLASHCARDS ─── */
+.flashcard-section { background: linear-gradient(180deg, #101e36 0%, var(--navy-deep) 100%); }
+.flashcard-controls {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;
+}
+.fc-filter-btn {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6); padding: 8px 18px; border-radius: 20px;
+  font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all .25s;
+}
+.fc-filter-btn:hover, .fc-filter-btn.active { background: rgba(201,162,39,0.15); border-color: var(--gold); color: var(--gold-light); }
+.flashcard-arena {
+  perspective: 1200px;
+  max-width: 600px; margin: 0 auto; cursor: pointer;
+}
+.flashcard {
+  width: 100%; height: 300px;
+  position: relative; transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+}
+.flashcard.flipped { transform: rotateY(180deg); }
+.fc-face {
+  position: absolute; inset: 0; border-radius: 20px;
+  backface-visibility: hidden; display: flex;
+  flex-direction: column; align-items: center; justify-content: center;
+  padding: 36px; text-align: center;
+}
+.fc-front {
+  background: linear-gradient(135deg, var(--navy) 0%, rgba(27,42,74,0.95) 100%);
+  border: 2px solid rgba(201,162,39,0.35);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+.fc-back {
+  background: linear-gradient(135deg, rgba(201,162,39,0.15) 0%, var(--navy) 100%);
+  border: 2px solid var(--gold);
+  transform: rotateY(180deg);
+  box-shadow: 0 12px 40px rgba(201,162,39,0.2);
+}
+.fc-category {
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+  background: rgba(201,162,39,0.1); padding: 5px 12px; border-radius: 20px;
+}
+.fc-front h3 { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; letter-spacing: 1px; margin-bottom: 10px; }
+.fc-front p { font-size: 0.9rem; color: rgba(255,255,255,0.5); }
+.fc-back-icon { font-size: 2.5rem; margin-bottom: 14px; }
+.fc-back p { font-size: 1rem; font-weight: 700; line-height: 1.65; color: var(--white); }
+.fc-hint { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 10px; }
+.fc-nav {
+  display: flex; align-items: center; justify-content: center;
+  gap: 20px; margin-top: 24px;
+}
+.fc-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  color: var(--white); cursor: pointer; transition: all .25s;
+  display: flex; align-items: center; justify-content: center;
+}
+.fc-btn:hover { background: rgba(201,162,39,0.2); border-color: var(--gold); color: var(--gold-light); }
+.fc-counter { font-size: 0.88rem; color: rgba(255,255,255,0.45); }
+.fc-shuffle {
+  display: block; margin: 20px auto 0;
+  background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.3);
+  color: var(--gold-light); padding: 9px 20px; border-radius: 10px;
+  font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all .25s;
+}
+.fc-shuffle:hover { background: rgba(201,162,39,0.2); }
+
+/* ─── MOTIVACIONAL QUOTES CAROUSEL ─── */
+.quotes-section { padding: 70px 5%; text-align: center; }
+.quote-card {
+  max-width: 700px; margin: 0 auto;
+  background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, rgba(27,42,74,0.6) 100%);
+  border: 1px solid rgba(201,162,39,0.25);
+  border-radius: 20px; padding: 50px 40px;
+  position: relative;
+}
+.quote-card::before { content: '"'; font-family: 'Bebas Neue', cursive; font-size: 8rem; color: rgba(201,162,39,0.15); position: absolute; top: -10px; left: 20px; line-height: 1; }
+.quote-text { font-size: clamp(1.1rem, 2.5vw, 1.35rem); font-weight: 700; line-height: 1.7; margin-bottom: 20px; position: relative; }
+.quote-author { font-size: 0.88rem; color: var(--gold); font-weight: 800; letter-spacing: 1px; }
+.quote-dots { display: flex; gap: 8px; justify-content: center; margin-top: 24px; }
+.qdot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: all .25s; }
+.qdot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #050D1A;
+  border-top: 1px solid rgba(201,162,39,0.15);
+  padding: 48px 5% 28px;
+  text-align: center;
+}
+.footer-brand {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.8rem; letter-spacing: 3px; color: var(--gold-light);
+  margin-bottom: 12px;
+}
+.footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+.footer-link { color: rgba(255,255,255,0.45); font-size: 0.85rem; text-decoration: none; transition: color .25s; }
+.footer-link:hover { color: var(--gold-light); }
+.footer-socials { display: flex; justify-content: center; gap: 14px; margin-bottom: 28px; }
+.social-btn {
+  width: 42px; height: 42px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.1); font-size: 1.1rem;
+  text-decoration: none; transition: all .25s; color: rgba(255,255,255,0.6);
+}
+.social-btn:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-3px); }
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .about-grid { grid-template-columns: 1fr; }
+  .exam-modes { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; }
+}
+@media (max-width: 480px) {
+  .exam-body-area { padding: 22px 18px; }
+  .exam-footer-bar { flex-direction: column; align-items: stretch; gap: 10px; }
+  .fc-face { padding: 24px; }
+  .flashcard { height: 320px; }
+}
+
+/* ─── ANIMATIONS ─── */
+.fade-in { animation: fadeIn .5s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ─── SCROLL INDICATOR ─── */
+.scroll-arrow {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  animation: bounce 2s ease-in-out infinite;
+  color: rgba(201,162,39,0.5); font-size: 1.4rem;
+}
+@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+/* ─── RESULTS SECTION ─── */
+.results-section {
+  background: linear-gradient(180deg, var(--navy-deep) 0%, #101e36 100%);
+  border-top: 1px solid rgba(201,162,39,0.1);
+}
+
+/* SEARCH CARD */
+.results-search-card {
+  background: linear-gradient(135deg, rgba(27,42,74,0.9) 0%, rgba(13,25,41,0.95) 100%);
+  border: 2px solid rgba(201,162,39,0.25);
+  border-radius: 20px; padding: 40px; text-align: center;
+  max-width: 500px; margin: 0 auto 30px;
+  box-shadow: 0 0 40px rgba(201,162,39,0.1);
+}
+
+.search-form {
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; align-items: center;
+}
+
+.search-input-wrap {
+  position: relative; flex: 1; min-width: 200px;
+}
+
+.search-icon {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--gold); font-size: 1rem;
+}
+
+.search-input {
+  width: 100%; padding: 12px 14px 12px 40px;
+  border: 1px solid rgba(201,162,39,0.3); border-radius: 10px;
+  background: rgba(255,255,255,0.05); color: var(--white);
+  font-size: 0.95rem; transition: all .25s;
+}
+
+.search-input:focus {
+  outline: none; border-color: var(--gold);
+  background: rgba(201,162,39,0.08);
+}
+
+.search-input::placeholder { color: rgba(255,255,255,0.35); }
+
+.search-btn { padding: 12px 28px; }
+
+.search-hint {
+  font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 12px;
+}
+
+/* STUDENT CARD */
+.student-card {
+  background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(27,42,74,0.9) 100%);
+  border: 2px solid rgba(201,162,39,0.25); border-radius: 20px;
+  padding: 32px; margin-bottom: 40px;
+  box-shadow: 0 8px 32px rgba(201,162,39,0.1);
+  animation: fadeIn .5s ease forwards;
+}
+
+.student-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 20px; margin-bottom: 24px; flex-wrap: wrap;
+}
+
+.student-header h2 {
+  font-family: 'Bebas Neue', cursive; font-size: 2rem;
+  letter-spacing: 2px; color: var(--white); margin-bottom: 6px;
+}
+
+.student-ti {
+  color: rgba(255,255,255,0.5); font-size: 0.9rem;
+}
+
+.student-status {
+  display: flex; gap: 10px;
+}
+
+.status-badge {
+  padding: 8px 16px; border-radius: 20px;
+  font-size: 0.85rem; font-weight: 700;
+  display: flex; align-items: center; gap: 6px;
+}
+
+.status-excelente {
+  background: rgba(16,185,129,0.15); color: #10B981;
+}
+
+.status-bueno {
+  background: rgba(245,158,11,0.15); color: #F59E0B;
+}
+
+.status-mejorar {
+  background: rgba(239,68,68,0.15); color: #EF4444;
+}
+
+.student-stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px; padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-item {
+  display: flex; flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.78rem; color: rgba(255,255,255,0.45);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+}
+
+.stat-value {
+  font-family: 'Bebas Neue', cursive; font-size: 1.8rem;
+  color: var(--gold-light); letter-spacing: 1px;
+}
+
+/* SUBJECTS GRID */
+.subjects-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px; margin-bottom: 50px;
+}
+
+.subject-card {
+  background: rgba(27,42,74,0.6); border: 1px solid rgba(201,162,39,0.15);
+  border-radius: 16px; padding: 20px;
+  animation: fadeIn .5s ease forwards;
+}
+
+.subject-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 12px;
+}
+
+.subject-header h4 {
+  font-weight: 700; font-size: 0.95rem;
+}
+
+.subject-score {
+  color: var(--gold-light); font-weight: 800; font-size: 0.9rem;
+}
+
+.progress-bar {
+  width: 100%; height: 8px;
+  background: rgba(255,255,255,0.06); border-radius: 10px;
+  overflow: hidden; margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%; border-radius: 10px;
+  animation: expandWidth .6s ease forwards;
+}
+
+@keyframes expandWidth { from { width: 0 !important; } }
+
+.progress-label {
+  font-size: 0.75rem; color: rgba(255,255,255,0.45);
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* CHART CONTAINER */
+.chart-container {
+  max-width: 500px; margin: 40px auto;
+  background: rgba(27,42,74,0.5); border: 1px solid rgba(201,162,39,0.15);
+  border-radius: 16px; padding: 30px;
+}
+
+/* RESULTS ACTIONS */
+.results-actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.results-actions .btn-gold, .results-actions .btn-outline {
+  font-size: 0.85rem;
+}
+
+/* MOTIVATION CARD */
+.motivation-card {
+  background: linear-gradient(135deg, rgba(201,162,39,0.15) 0%, rgba(16,185,129,0.1) 100%);
+  border: 1px solid rgba(201,162,39,0.2); border-radius: 16px;
+  padding: 24px; text-align: center; margin-top: 30px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+
+.motivation-card i {
+  color: var(--gold-light); font-size: 1.8rem;
+}
+
+.motivation-card p {
+  font-size: 1.1rem; font-weight: 700; color: var(--white);
+}
+
+/* RANKING */
+.ranking-title {
+  margin-bottom: 40px;
+}
+
+.podium {
+  display: flex; justify-content: center; align-items: flex-end;
+  gap: 20px; margin-bottom: 50px;
+}
+
+.podium-item {
+  background: rgba(27,42,74,0.7); border: 2px solid rgba(201,162,39,0.2);
+  border-radius: 12px; padding: 24px 20px;
+  text-align: center; position: relative;
+  animation: fadeIn .5s ease forwards;
+  min-width: 140px;
+}
+
+.podium-item.silver { height: 240px; }
+.podium-item.gold-medal { height: 280px; border-color: var(--gold); box-shadow: 0 0 40px rgba(201,162,39,0.25); }
+.podium-item.bronze { height: 200px; }
+
+.medal {
+  font-size: 3.5rem; margin-bottom: 8px;
+}
+
+.podium-item h4 {
+  font-weight: 700; margin-bottom: 8px; font-size: 0.95rem;
+}
+
+.podium-score {
+  font-family: 'Bebas Neue', cursive; font-size: 1.8rem;
+  color: var(--gold-light); margin-bottom: 8px;
+}
+
+.podium-label {
+  font-size: 0.75rem; color: rgba(255,255,255,0.45);
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* RANKING TABLE */
+.ranking-table {
+  background: rgba(27,42,74,0.6); border: 1px solid rgba(201,162,39,0.15);
+  border-radius: 16px; overflow: hidden;
+}
+
+.ranking-header {
+  background: rgba(13,25,41,0.8); padding: 16px;
+  display: grid; grid-template-columns: 60px 1fr 100px;
+  gap: 16px; border-bottom: 1px solid rgba(201,162,39,0.1);
+}
+
+.rank-col {
+  font-weight: 800; font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--gold);
+}
+
+.ranking-body {
+  display: flex; flex-direction: column;
+}
+
+.rank-row {
+  padding: 14px 16px; display: grid;
+  grid-template-columns: 60px 1fr 100px; gap: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  align-items: center;
+  transition: all .25s;
+}
+
+.rank-row:hover { background: rgba(201,162,39,0.08); }
+
+.rank-pos {
+  font-weight: 800; color: var(--gold-light); font-size: 1rem;
+}
+
+.rank-name {
+  color: var(--white);
+}
+
+.rank-score {
+  font-family: 'Bebas Neue', cursive; font-size: 1.1rem;
+  color: var(--gold-light); text-align: right;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .podium {
+    gap: 10px;
+  }
+  
+  .podium-item {
+    min-width: 100px; padding: 16px 12px;
+  }
+  
+  .podium-item.silver { height: 200px; }
+  .podium-item.gold-medal { height: 240px; }
+  .podium-item.bronze { height: 170px; }
+  
+  .subjects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .search-form {
+    flex-direction: column;
+  }
+  
+  .search-input-wrap {
+    min-width: auto;
+  }
+  
+  .ranking-header, .rank-row {
+    grid-template-columns: 50px 1fr 80px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-brand">
+    <span>AVES DEL SABER <span style="color:var(--gold-light)">500</span></span>
+  </div>
+  <div class="nav-links">
+    <button class="nav-link active" onclick="scrollToSection('inicio')">Inicio</button>
+    <button class="nav-link" onclick="scrollToSection('nosotros')">Nosotros</button>
+    <button class="nav-link" onclick="scrollToSection('intensivo')">Intensivo</button>
+    <button class="nav-link" onclick="scrollToSection('recursos')">Recursos</button>
+    <button class="nav-link" onclick="scrollToSection('resultados')">Resultados</button>
+    <button class="nav-link" onclick="scrollToSection('simulacros')">Simulacros</button>
+    <button class="nav-link" onclick="scrollToSection('flashcards')">Flash Tips</button>
+  </div>
+  <a href="https://wa.me/573218790121" target="_blank" class="nav-cta">
+    <i class="fa-brands fa-whatsapp"></i> Contáctanos
+  </a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="nav-link" onclick="scrollToSection('inicio');toggleMenu()">Inicio</button>
+  <button class="nav-link" onclick="scrollToSection('nosotros');toggleMenu()">Nosotros</button>
+  <button class="nav-link" onclick="scrollToSection('intensivo');toggleMenu()">Intensivo</button>
+  <button class="nav-link" onclick="scrollToSection('recursos');toggleMenu()">Recursos</button>
+  <button class="nav-link" onclick="scrollToSection('resultados');toggleMenu()">Resultados</button>
+  <button class="nav-link" onclick="scrollToSection('simulacros');toggleMenu()">Simulacros</button>
+  <button class="nav-link" onclick="scrollToSection('flashcards');toggleMenu()">Flash Tips</button>
+  <a href="https://wa.me/573218790121" target="_blank" class="btn-gold" style="justify-content:center;margin-top:8px;">
+    <i class="fa-brands fa-whatsapp"></i> Contáctanos
+  </a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section id="inicio" style="position:relative;">
+  <div class="hero">
+    <div>
+      <div class="hero-badge">🦅 Grupo Educativo Pre ICFES</div>
+      <h1 class="hero-title">AVES DEL<br><span class="gold">SABER 500</span></h1>
+      <p class="hero-sub">La preparación más completa para que vueles alto en el ICFES Saber 11.</p>
+      <p class="hero-motivational" id="heroMotivational">"Tu puntaje no es el límite — tú sí puedes llegar a 500." 🦅</p>
+      <div class="hero-btns">
+        <button class="btn-gold" onclick="scrollToSection('simulacros')"><i class="fa-solid fa-graduation-cap"></i> Hacer Simulacro</button>
+        <button class="btn-outline" onclick="scrollToSection('intensivo')"><i class="fa-solid fa-fire"></i> Ver Intensivo</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">+500</span><span class="stat-lbl">Estudiantes</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-lbl">Áreas ICFES</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-lbl">Compromiso</span></div>
+        <div class="stat"><span class="stat-num">ADS</span><span class="stat-lbl">Con vos</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker-wrap">
+  <div class="ticker-inner" id="ticker">
+    <span><i class="fa-solid fa-feather-pointed"></i> VUELA ALTO CON ADS</span>
+    <span><i class="fa-solid fa-star"></i> TU ESFUERZO TIENE RECOMPENSA</span>
+    <span><i class="fa-solid fa-bolt"></i> CADA PRÁCTICA TE ACERCA AL 500</span>
+    <span><i class="fa-solid fa-trophy"></i> LA DISCIPLINA VENCE AL TALENTO</span>
+    <span><i class="fa-solid fa-rocket"></i> HOY ESTUDIAS, MAÑANA TRIUNFAS</span>
+    <span><i class="fa-solid fa-feather-pointed"></i> VUELA ALTO CON ADS</span>
+    <span><i class="fa-solid fa-star"></i> TU ESFUERZO TIENE RECOMPENSA</span>
+    <span><i class="fa-solid fa-bolt"></i> CADA PRÁCTICA TE ACERCA AL 500</span>
+    <span><i class="fa-solid fa-trophy"></i> LA DISCIPLINA VENCE AL TALENTO</span>
+    <span><i class="fa-solid fa-rocket"></i> HOY ESTUDIAS, MAÑANA TRIUNFAS</span>
+  </div>
+</div>
+
+<!-- ─── MOTIVATIONAL QUOTES ─── -->
+<div class="quotes-section">
+  <div class="section-title">PALABRAS QUE <span class="gold">MUEVEN</span></div>
+  <div class="divider"></div>
+  <div class="quote-card">
+    <p class="quote-text" id="quoteText">"El éxito no llega por casualidad. Llega cuando la preparación se encuentra con la oportunidad. Hoy te estás preparando — mañana es tu momento."</p>
+    <div class="quote-author" id="quoteAuthor">— Equipo ADS 🦅</div>
+    <div class="quote-dots" id="quoteDots"></div>
+  </div>
+</div>
+
+<!-- ─── NOSOTROS ─── -->
+<section id="nosotros">
+  <div class="section">
+    <div class="section-title">¿QUIÉNES <span class="gold">SOMOS?</span></div>
+    <div class="divider"></div>
+    <p class="section-sub">Conoce el grupo educativo que está transformando vidas con preparación de alto nivel.</p>
+    <div class="about-grid">
+      <div class="about-visual">
+        <div style="font-size:7rem; margin-bottom:16px; animation: floatEagle 4s ease-in-out infinite;">🦅</div>
+        <h3>AVES DEL SABER 500</h3>
+        <p>Grupo Educativo Pre ICFES<br>Colombia 🇨🇴</p>
+        <div style="margin-top:20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="https://www.instagram.com/preicfes_avesdelsaber" target="_blank" class="btn-gold" style="padding:10px 18px; font-size:0.82rem;"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="http://www.tiktok.com/@preicfes_avesdelsaber" target="_blank" class="btn-outline" style="padding:10px 18px; font-size:0.82rem;"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>PREPARAMOS ÁGUILAS,<br>NO POLLITOS.</h3>
+        <p>Somos <strong>Aves del Saber 500</strong> (ADS), un grupo educativo especializado en la preparación para el examen ICFES Saber 11. Nuestro objetivo es claro: llevarte a alcanzar el puntaje más alto posible y abrirte las puertas a la universidad de tus sueños.</p>
+        <p>Con simulacros alineados al formato oficial, tips exclusivos, orientación vocacional y un equipo comprometido contigo, ADS es la comunidad educativa que necesitabas para volar alto. 🦅</p>
+        <div class="about-pills">
+          <span class="pill">📚 Lectura Crítica</span>
+          <span class="pill">🔢 Matemáticas</span>
+          <span class="pill">🌍 Sociales</span>
+          <span class="pill">🔬 Ciencias</span>
+          <span class="pill">🇬🇧 Inglés</span>
+          <span class="pill">🎯 Simulacros</span>
+          <span class="pill">🧭 Vocacional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INTENSIVO VACACIONAL ─── -->
+<section id="intensivo" class="sale-section section-full">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="section-title">INTENSIVO <span class="gold">VACACIONAL ADS</span></div>
+    <div class="divider"></div>
+    <p class="section-sub">La oferta más completa para que este periodo vacacional sea el más productivo de tu vida.</p>
+    <div class="sale-card">
+      <div class="sale-badge">💛🦅 OFERTA LIMITADA — PREVENTA ACTIVA</div>
+      <div class="sale-emoji">🚀</div>
+      <div class="sale-title">INTENSIVO VACACIONAL ADS</div>
+      <p style="color:rgba(255,255,255,0.6); font-size:0.9rem; margin-bottom:10px;">Próximamente...</p>
+      <ul style="text-align:left; list-style:none; margin: 18px 0; display:flex; flex-direction:column; gap:10px;">
+        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Simulacros intensivos por área</li>
+        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Guías de descarte PRO</li>
+        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Clases en vivo con los mejores docentes</li>
+        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Orientación vocacional personalizada</li>
+        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Acceso al Drive exclusivo ADS</li>
+        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Comunidad de estudio activa 24/7</li>
+      </ul>
+      <div class="sale-preventa">
+        <div class="label">PREVENTA ESPECIAL</div>
+        <span class="price-now">$35.000</span>
+        <div class="price-old">Precio normal: $60.000</div>
+        <div class="price-note">Ahorra $25.000 — Cupos limitados 🦅</div>
+      </div>
+      <a href="https://wa.me/573218790121?text=Hola%20ADS!%20Quiero%20info%20del%20Intensivo%20Vacacional%20%F0%9F%A6%85" target="_blank" class="btn-gold sale-cta">
+        <i class="fa-brands fa-whatsapp"></i> Quiero mi cupo en preventa
+      </a>
+      <p class="sale-coming">📱 Te atendemos por WhatsApp al <strong style="color:var(--gold-light);">321 879 0121</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RECURSOS / LINKS ─── -->
+<section id="recursos">
+  <div class="section">
+    <div class="section-title">NUESTROS <span class="gold">RECURSOS</span></div>
+    <div class="divider"></div>
+    <p class="section-sub">Todo el material que necesitas en un solo lugar. ¡Acceso directo!</p>
+    <div class="resources-grid">
+      <a href="https://whatsapp.com/channel/0029VbCVh2A65yDK8YnQs608" target="_blank" class="resource-card">
+        <div class="resource-icon icon-wa"><i class="fa-brands fa-whatsapp"></i></div>
+        <h4>Canal WhatsApp</h4>
+        <p>Novedades, tips y contenido exclusivo en tiempo real</p>
+      </a>
+      <a href="https://drive.google.com/drive/folders/128NXu-v3AMc0LUUXZhdrflXCWVJ-eDcJ?usp=sharing" target="_blank" class="resource-card">
+        <div class="resource-icon icon-drive"><i class="fa-brands fa-google-drive"></i></div>
+        <h4>Drive ADS</h4>
+        <p>Guías, talleres y material de estudio descargable</p>
+      </a>
+      <a href="https://www.instagram.com/preicfes_avesdelsaber" target="_blank" class="resource-card">
+        <div class="resource-icon icon-ig"><i class="fa-brands fa-instagram"></i></div>
+        <h4>Instagram</h4>
+        <p>@preicfes_avesdelsaber — Tips diarios y contenido educativo</p>
+      </a>
+      <a href="http://www.tiktok.com/@preicfes_avesdelsaber" target="_blank" class="resource-card">
+        <div class="resource-icon icon-tt"><i class="fa-brands fa-tiktok"></i></div>
+        <h4>TikTok</h4>
+        <p>@preicfes_avesdelsaber — Videos educativos y tips rápidos</p>
+      </a>
+      <a href="https://wa.me/573218790121" target="_blank" class="resource-card">
+        <div class="resource-icon" style="background:rgba(37,211,102,0.15); color:#25D166; font-size:1.8rem; width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center;">💬</div>
+        <h4>WhatsApp Directo</h4>
+        <p>321 879 0121 — Contacto directo con el equipo ADS</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONSULTAR RESULTADOS ─── -->
+<section id="resultados" class="results-section section-full">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="section-title">CONSULTA TUS <span class="gold">RESULTADOS</span></div>
+    <div class="divider"></div>
+    <p class="section-sub">Ingresa tu número de T.I. para ver tu desempeño completo.</p>
+
+    <div id="resultsSearchView">
+      <div class="results-search-card">
+        <div class="search-form">
+          <div class="search-input-wrap">
+            <i class="fa-solid fa-id-card search-icon"></i>
+            <input type="text" id="tiInput" placeholder="Número de T.I." maxlength="20" class="search-input">
+          </div>
+          <button class="btn-gold search-btn" onclick="consultarEstudiante()">
+            <i class="fa-solid fa-magnifying-glass"></i> Consultar
+          </button>
+        </div>
+        <p class="search-hint">Ej: 1023456789</p>
+      </div>
+    </div>
+
+    <div id="resultsView" style="display:none;">
+      <!-- DATOS DEL ESTUDIANTE -->
+      <div class="student-card">
+        <div class="student-header">
+          <div>
+            <h2 id="studentName">Nombre Estudiante</h2>
+            <p id="studentTI" class="student-ti">T.I.: 1023456789</p>
+          </div>
+          <div class="student-status" id="studentStatus">
+            <div class="status-badge status-excelente"><span>🟢</span> Excelente</div>
+          </div>
+        </div>
+        <div class="student-stats">
+          <div class="stat-item">
+            <span class="stat-label">Puntaje Global</span>
+            <span class="stat-value" id="studentTotal">425</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Posición</span>
+            <span class="stat-value" id="studentRank">#1</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Percentil</span>
+            <span class="stat-value" id="studentPercentile">98%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERIAS -->
+      <div class="subjects-grid">
+        <div class="subject-card">
+          <div class="subject-header">
+            <h4>Matemáticas</h4>
+            <span class="subject-score" id="scoreMath">85/100</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressMath" style="width:85%; background: #3B82F6;"></div>
+          </div>
+          <p class="progress-label" id="labelMath">Muy Bien</p>
+        </div>
+
+        <div class="subject-card">
+          <div class="subject-header">
+            <h4>Lectura Crítica</h4>
+            <span class="subject-score" id="scoreReading">78/100</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressReading" style="width:78%; background: #8B5CF6;"></div>
+          </div>
+          <p class="progress-label" id="labelReading">Bien</p>
+        </div>
+
+        <div class="subject-card">
+          <div class="subject-header">
+            <h4>Sociales</h4>
+            <span class="subject-score" id="scoreSocial">90/100</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressSocial" style="width:90%; background: #EC4899;"></div>
+          </div>
+          <p class="progress-label" id="labelSocial">Excelente</p>
+        </div>
+
+        <div class="subject-card">
+          <div class="subject-header">
+            <h4>Ciencias Naturales</h4>
+            <span class="subject-score" id="scoreScience">80/100</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressScience" style="width:80%; background: #10B981;"></div>
+          </div>
+          <p class="progress-label" id="labelScience">Bien</p>
+        </div>
+
+        <div class="subject-card">
+          <div class="subject-header">
+            <h4>Inglés</h4>
+            <span class="subject-score" id="scoreEnglish">88/100</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressEnglish" style="width:88%; background: #F59E0B;"></div>
+          </div>
+          <p class="progress-label" id="labelEnglish">Muy Bien</p>
+        </div>
+      </div>
+
+      <!-- GRÁFICA RADAR -->
+      <div class="chart-container">
+        <canvas id="radarChart"></canvas>
+      </div>
+
+      <!-- ACCIONES -->
+      <div class="results-actions">
+        <button class="btn-gold" onclick="downloadPDF()"><i class="fa-solid fa-download"></i> Descargar PDF</button>
+        <button class="btn-outline" onclick="shareResult()"><i class="fa-solid fa-share-nodes"></i> Compartir</button>
+        <button class="btn-outline" onclick="nuevoConsulta()"><i class="fa-solid fa-arrow-left"></i> Nueva búsqueda</button>
+      </div>
+
+      <!-- MOTIVACIÓN -->
+      <div class="motivation-card" id="motivationCard">
+        <i class="fa-solid fa-lightbulb"></i>
+        <p id="motivationText">¡Excelente trabajo!</p>
+      </div>
+    </div>
+
+    <!-- TOP 5 RANKING -->
+    <div id="rankingView" style="margin-top:80px;">
+      <div class="ranking-title">
+        <h3 style="font-family: 'Bebas Neue'; font-size: 2rem; color: var(--gold-light); letter-spacing: 2px; text-align: center; margin-bottom: 10px;">🏆 TOP 5 ADS 🏆</h3>
+        <div class="divider"></div>
+      </div>
+
+      <div class="podium">
+        <div class="podium-item silver">
+          <div class="medal">🥈</div>
+          <h4 id="rank2Name">María López</h4>
+          <p class="podium-score" id="rank2Score">410</p>
+          <span class="podium-label">2º Lugar</span>
+        </div>
+        <div class="podium-item gold-medal">
+          <div class="medal">🥇</div>
+          <h4 id="rank1Name">Juan Pérez</h4>
+          <p class="podium-score" id="rank1Score">420</p>
+          <span class="podium-label">1º Lugar</span>
+        </div>
+        <div class="podium-item bronze">
+          <div class="medal">🥉</div>
+          <h4 id="rank3Name">Carlos Ruiz</h4>
+          <p class="podium-score" id="rank3Score">405</p>
+          <span class="podium-label">3º Lugar</span>
+        </div>
+      </div>
+
+      <div class="ranking-table">
+        <div class="ranking-header">
+          <div class="rank-col rank-pos">Posición</div>
+          <div class="rank-col rank-name">Nombre</div>
+          <div class="rank-col rank-score">Puntaje</div>
+        </div>
+        <div id="rankingTableBody">
+          <!-- Llenado por JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SIMULACROS ─── -->
+<section id="simulacros" class="exam-bg section-full">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="section-title">SIMULACROS <span class="gold">EN LÍNEA</span></div>
+    <div class="divider"></div>
+    <p class="section-sub">Practica bajo presión real. Timer incluido. Música de concentración. Resultados detallados.</p>
+
+    <div id="examSelectionView">
+      <div class="exam-modes">
+        <div class="exam-mode-btn" onclick="startIcfesExam()">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h3>SIMULACRO ICFES</h3>
+          <p>20 preguntas · 5 áreas · 30 minutos · Con temporizador</p>
+        </div>
+        <div class="exam-mode-btn" onclick="startVocationalExam()">
+          <i class="fa-solid fa-compass"></i>
+          <h3>ORIENTACIÓN VOCACIONAL</h3>
+          <p>20 preguntas · Perfil profesional · Sin límite de tiempo</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:10px;">
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.35); font-style:italic;">🎵 Activa la música de concentración antes de empezar — incluida en el examen</p>
+      </div>
+    </div>
+
+    <div id="activeExamView" style="display:none;">
+      <div class="exam-ui">
+        <div class="exam-topbar">
+          <div class="exam-topbar-title" id="examTitleDisplay">Simulacro ICFES</div>
+          <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+            <button class="music-toggle" id="musicToggle" onclick="toggleMusic()"><i class="fa-solid fa-music"></i> Música OFF</button>
+            <div class="timer-box" id="timerBox">
+              <i class="fa-solid fa-clock"></i>
+              <span id="timerDisplay">30:00</span>
+            </div>
+          </div>
+        </div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBarFill" style="width:0%"></div></div>
+        <div class="exam-body-area" id="examBodyArea"></div>
+        <div class="exam-footer-bar">
+          <span class="q-counter" id="qCounter">Pregunta 1 de 20</span>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn-nav" id="btnPrev" onclick="navQ(-1)"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+            <button class="btn-nav" id="btnNext" onclick="navQ(1)">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+            <button class="btn-finish" id="btnFinish" style="display:none;" onclick="finishExam()"><i class="fa-solid fa-flag-checkered"></i> Finalizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="examResultsView" style="display:none;" class="fade-in"></div>
+  </div>
+</section>
+
+<!-- ─── FLASHCARDS ─── -->
+<section id="flashcards" class="flashcard-section section-full">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="section-title">FLASH <span class="gold">TIPS ICFES</span></div>
+    <div class="divider"></div>
+    <p class="section-sub">Consejos clave para cada área. Toca la tarjeta para revelar el tip. ¡Guárdalos en la mente!</p>
+    <div class="flashcard-controls" id="fcFilters"></div>
+    <div class="flashcard-arena" onclick="flipCard()">
+      <div class="flashcard" id="mainFlashcard">
+        <div class="fc-face fc-front">
+          <div class="fc-category" id="fcCategory">Matemáticas</div>
+          <h3 id="fcFrontTitle">Tip del Examen</h3>
+          <p id="fcFrontSub" style="font-size:0.85rem; color:rgba(255,255,255,0.45); margin-top:8px;"></p>
+          <p class="fc-hint" style="margin-top:20px;">👆 Toca para revelar el consejo</p>
+        </div>
+        <div class="fc-face fc-back">
+          <div class="fc-category" id="fcBackCategory">Consejo ADS 🦅</div>
+          <div class="fc-back-icon" id="fcBackIcon">💡</div>
+          <p id="fcBackText">Aquí aparecerá el tip.</p>
+        </div>
+      </div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="fcNav(-1)"><i class="fa-solid fa-arrow-left"></i></button>
+      <span class="fc-counter" id="fcCounter">1 / 30</span>
+      <button class="fc-btn" onclick="fcNav(1)"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+    <button class="fc-shuffle" onclick="shuffleCards()"><i class="fa-solid fa-shuffle"></i> Barajar tarjetas</button>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-brand">AVES DEL SABER <span style="color:var(--gold-light)">500</span></div>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/preicfes_avesdelsaber" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="http://www.tiktok.com/@preicfes_avesdelsaber" target="_blank" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="https://whatsapp.com/channel/0029VbCVh2A65yDK8YnQs608" target="_blank" class="social-btn" title="Canal WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://drive.google.com/drive/folders/128NXu-v3AMc0LUUXZhdrflXCWVJ-eDcJ?usp=sharing" target="_blank" class="social-btn" title="Drive"><i class="fa-brands fa-google-drive"></i></a>
+    <a href="https://wa.me/573218790121" target="_blank" class="social-btn" title="WhatsApp Directo"><i class="fa-solid fa-comment-dots"></i></a>
+  </div>
+  <div class="footer-links">
+    <a href="https://wa.me/573218790121?text=Hola%20ADS!%20Tengo%20una%20pregunta" target="_blank" class="footer-link">Contacto</a>
+    <button onclick="scrollToSection('simulacros')" class="footer-link" style="background:none; border:none; cursor:pointer;">Simulacros</button>
+    <button onclick="scrollToSection('flashcards')" class="footer-link" style="background:none; border:none; cursor:pointer;">Flash Tips</button>
+    <button onclick="scrollToSection('intensivo')" class="footer-link" style="background:none; border:none; cursor:pointer;">Intensivo</button>
+  </div>
+  <div class="footer-copy">© 2026 Aves del Saber 500 — Grupo Educativo Pre ICFES · Colombia 🦅 · Hecho con 💛</div>
+</footer>
+
+<!-- ─── AUDIO (concentración) ─── -->
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* ─── DATA ─── */
+const heroMessages = [
+  '"Tu puntaje no es el límite — tú sí puedes llegar a 500." 🦅',
+  '"Cada pregunta que practicas es un paso más cerca de tu beca." 💪',
+  '"Los que vuelan alto primero aprendieron a estudiar duro." 🚀',
+  '"No estudias para el examen. Estudias para tu futuro." 🌟',
+  '"ADS cree en ti — ahora créete tú también." 💛'
+];
+
+const quotes = [
+  { text: "El éxito no llega por casualidad. Llega cuando la preparación se encuentra con la oportunidad. Hoy te estás preparando — mañana es tu momento.", author: "— Equipo ADS 🦅" },
+  { text: "No tienes que ser el más inteligente del salón. Solo tienes que ser el más constante. La disciplina construye el futuro que el talento solo sueña.", author: "— Aves del Saber 500" },
+  { text: "Cada simulacro que haces hoy es una pregunta menos que te puede sorprender en el examen real. Practica hasta que las respuestas lleguen solas.", author: "— Equipo ADS 🦅" },
+  { text: "El ICFES no evalúa quién eres — evalúa qué tan bien te preparaste. Y tú tienes ADS de tu lado. Eso hace toda la diferencia.", author: "— Aves del Saber 500" },
+  { text: "Estudiar con esfuerzo hoy significa que mañana puedes elegir la universidad que quieras, no la que quedó disponible. Tú decides tu destino.", author: "— Equipo ADS 🦅" }
+];
+
+const flashcards = [
+  // MATEMÁTICAS
+  { cat: "Matemáticas", icon: "🔢", title: "Vértice de una parábola", sub: "Optimización rápida", tip: "Para f(x) = ax² + bx + c, el vértice (máximo o mínimo) está en x = -b/(2a). ¡Memoriza esto y resuelves el 80% de las preguntas de funciones cuadráticas!" },
+  { cat: "Matemáticas", icon: "📐", title: "Regla del descarte geométrico", sub: "Figuras y áreas", tip: "Antes de calcular, elimina opciones absurdas. Si la figura es pequeña, la respuesta enorme no puede ser correcta. ¡El ojo matemático también cuenta!" },
+  { cat: "Matemáticas", icon: "💰", title: "Interés compuesto", sub: "Finanzas básicas", tip: "Fórmula mágica: M = C(1+i)ⁿ. Capital × (1 + tasa)^años. En el ICFES siempre usan tasas anuales enteras. ¡Practica con 5%, 10% y 20%!" },
+  { cat: "Matemáticas", icon: "📊", title: "Media, Mediana y Moda", sub: "Estadística básica", tip: "Media = suma/cantidad. Mediana = valor central ordenado. Moda = el que más se repite. Una pregunta con estos 3 conceptos suele ser la más fácil del examen, ¡no la pierdas!" },
+  { cat: "Matemáticas", icon: "⚡", title: "Porcentajes rápidos", sub: "Cálculo mental", tip: "El 10% es dividir entre 10. El 5% es la mitad del 10%. El 25% es dividir entre 4. ¡Con esto puedes resolver el 70% de los problemas porcentuales sin calculadora en segundos!" },
+  { cat: "Matemáticas", icon: "🎯", title: "Factorización express", sub: "Álgebra", tip: "Diferencia de cuadrados: a²-b² = (a+b)(a-b). Trinomio: busca dos números que sumados den el coeficiente del medio y multiplicados den el término independiente. ¡Úsalo y gana tiempo!" },
+  // LECTURA CRÍTICA
+  { cat: "Lectura Crítica", icon: "📖", title: "Lee la pregunta PRIMERO", sub: "Estrategia maestra", tip: "Antes de leer el texto, lee las preguntas. Así sabes qué información buscar. Tu cerebro filtra y encuentra lo que necesitas 3 veces más rápido. ¡Cambia el juego!" },
+  { cat: "Lectura Crítica", icon: "🧠", title: "Identifica la tesis", sub: "Textos argumentativos", tip: "La tesis casi siempre está en el primer o último párrafo. Es la idea que el autor defiende. Todo el texto da argumentos para apoyarla. Encuéntrala y entenderás el texto completo." },
+  { cat: "Lectura Crítica", icon: "🔗", title: "Conectores lógicos", sub: "Comprensión textual", tip: "Sin embargo/No obstante = contraste. Por lo tanto/Luego = conclusión. Además/También = suma. Aunque = concesión. Dominar estos conectores resuelve preguntas sobre la función de los párrafos." },
+  { cat: "Lectura Crítica", icon: "🎭", title: "Inferencia vs. Explícito", sub: "Tipos de preguntas", tip: "Si dice 'según el texto' → la respuesta está escrita. Si dice 'se puede inferir' → debes deducirla. Las opciones que exageran o salen del tema SIEMPRE son incorrectas. ¡Descártalas primero!" },
+  { cat: "Lectura Crítica", icon: "⚠️", title: "El distractor perfecto", sub: "Trampa del ICFES", tip: "El ICFES pone una opción que parece correcta pero exagera la idea del texto. Si una respuesta dice 'siempre', 'nunca', 'todo' o 'nadie' — desconfía. La verdad suele ser más matizada." },
+  // SOCIALES
+  { cat: "Sociales", icon: "🏛️", title: "Las 3 ramas del poder", sub: "Constitución colombiana", tip: "Ejecutiva (Presidente), Legislativa (Congreso), Judicial (Cortes). La Tutela la resuelve la Judicial. El Congreso hace leyes. El Presidente las ejecuta. ¡Memoriza los roles y ya tienes 2-3 puntos!" },
+  { cat: "Sociales", icon: "🌍", title: "Geografía económica", sub: "Colombia y el mundo", tip: "Colombia exporta: café, petróleo, carbón, esmeraldas y flores. Las zonas francas son incentivos tributarios. El PIB mide producción nacional. ¡Estas tres ideas resuelven el 60% de las preguntas económicas!" },
+  { cat: "Sociales", icon: "⚖️", title: "Acción de Tutela", sub: "Mecanismo de protección", tip: "La Tutela protege derechos fundamentales (vida, salud, educación). Se falla en 10 días. La puede interponer cualquier persona. El ICFES la pregunta en casi TODOS los exámenes. ¡Domínala!" },
+  { cat: "Sociales", icon: "🗺️", title: "El Frente Nacional", sub: "Historia colombiana", tip: "1958-1974. Acuerdo entre liberales y conservadores para alternarse el poder cada 4 años. Causa: La Violencia. Consecuencia: exclusión política que alimentó grupos armados. Dato clave en historia reciente." },
+  // CIENCIAS
+  { cat: "Ciencias", icon: "⚗️", title: "pH ácido o básico", sub: "Química básica", tip: "pH < 7 = ácido (limón, vinagre). pH = 7 = neutro (agua). pH > 7 = básico/alcalino (jabón, bicarbonato). Más iones H⁺ = más ácido. ¡Esta pregunta aparece en el 90% de los exámenes de Ciencias!" },
+  { cat: "Ciencias", icon: "🧬", title: "Fotosíntesis resumida", sub: "Biología celular", tip: "Ecuación clave: CO₂ + H₂O + luz → glucosa + O₂. Ocurre en el cloroplasto. Los productores (plantas) son la base de toda cadena alimentaria. El ICFES ama preguntar sobre cadenas tróficas." },
+  { cat: "Ciencias", icon: "⚡", title: "Energía cinética y potencial", sub: "Física mecánica", tip: "En lo más alto → máxima energía potencial, mínima cinética. En lo más bajo → máxima cinética, mínima potencial. La energía total se conserva (sin fricción). ¡Visualiza la montaña rusa y lo entiendes todo!" },
+  { cat: "Ciencias", icon: "🔬", title: "Enlace iónico vs covalente", sub: "Química molecular", tip: "Iónico: un átomo cede electrones al otro (Na + Cl = NaCl). Covalente: comparten electrones (H₂O). Metales con no-metales → iónico. No-metales entre sí → covalente. ¡Regla de oro del ICFES!" },
+  // INGLÉS
+  { cat: "Inglés", icon: "🇬🇧", title: "Conditional Type 3", sub: "Gramática avanzada", tip: "If + had + past participle → would have + past participle. Ej: If she had studied, she would have passed. Habla de situaciones PASADAS hipotéticas. ¡El ICFES lo pregunta siempre en inglés avanzado!" },
+  { cat: "Inglés", icon: "📝", title: "Voz Pasiva", sub: "Passive Voice", tip: "Activa: She reads the book. Pasiva: The book is read by her. Estructura: objeto + verbo to be + participio pasado. En preguntas de opción múltiple, busca la que tenga el verbo to be + participio. ¡Fácil punto!" },
+  { cat: "Inglés", icon: "🎯", title: "Vocabulario por contexto", sub: "Reading strategy", tip: "No necesitas saber cada palabra. Lee la oración completa y usa el contexto para deducir el significado. Las palabras difíciles casi siempre tienen sinónimos en el mismo párrafo. ¡El contexto es tu diccionario!" },
+  { cat: "Inglés", icon: "⏰", title: "Tiempos verbales clave", sub: "Verb tenses", tip: "Simple Past: did/didn't. Present Perfect: have/has + PP. Future: will + verb. Si ves 'yesterday' → Simple Past. Si ves 'already/yet/since' → Present Perfect. ¡Las palabras clave te dicen el tiempo!" },
+  // TIPS GENERALES
+  { cat: "Tips Generales", icon: "⏱️", title: "Administra el tiempo", sub: "Estrategia de examen", tip: "Tienes ~90 segundos por pregunta en ICFES. Si una pregunta te toma más de 2 minutos, márcala y sigue. Al final vuelves. ¡Nunca te quedes atascado — el tiempo es tu recurso más valioso!" },
+  { cat: "Tips Generales", icon: "🍌", title: "El día antes del examen", sub: "Bienestar y rendimiento", tip: "NO estudies la noche anterior. Duerme mínimo 8 horas. Come bien en la mañana (proteína + carbohidratos). Lleva agua y algo liviano. Tu cerebro descansado vale más que 10 páginas repasadas." },
+  { cat: "Tips Generales", icon: "✏️", title: "Técnica de descarte PRO", sub: "Metodología ADS", tip: "Elimina primero las opciones extremas o absurdas. Luego compara las 2 que quedan con el texto o problema. Estadísticamente, el ICFES siempre tiene 1 opción obvia y 1 trampa. ¡Identifica la trampa y ganas!" },
+  { cat: "Tips Generales", icon: "🧘", title: "Maneja la ansiedad", sub: "Psicología del examen", tip: "Si sientes que te bloqueas: inhala 4 segundos, retén 4, exhala 4. Repite 3 veces. Tu corteza prefrontal se reactiva en 30 segundos. La ansiedad es normal — lo que importa es no dejar que te controle." },
+  { cat: "Tips Generales", icon: "📱", title: "La noche anterior", sub: "Protocolo ADS", tip: "Prepara todo la noche anterior: documento, lapicero, refrigerio, ruta al lugar. Llega 30 min antes. Lee las instrucciones completas antes de empezar. ¡Los errores logísticos le cuestan puntos a muchos estudiantes!" },
+  { cat: "Tips Generales", icon: "🦅", title: "Mentalidad ADS", sub: "La clave del éxito", tip: "El ICFES no mide tu inteligencia — mide tu preparación. Cada simulacro que hiciste, cada tip que leíste, cada duda que resolviste: TODO cuenta. Entra al examen sabiendo que estás listo. ¡Tú eres un Ave del Saber!" },
+];
+
+/* ─── ICFES QUESTIONS ─── */
+const icfesQuestions = [
+  { area: "Matemáticas", text: "La rentabilidad anual R(x) = -2x² + 40x - 50 (millones de pesos) de una empresa depende de los proyectos ejecutados x. ¿Cuántos proyectos maximizan la rentabilidad y cuál es ese beneficio máximo?", options: { A: "10 proyectos y beneficio de 150 millones.", B: "20 proyectos y beneficio de 200 millones.", C: "10 proyectos y beneficio de 200 millones.", D: "5 proyectos y beneficio de 100 millones." }, correct: "A" },
+  { area: "Matemáticas", text: "Un tanque cilíndrico tiene radio 3m y altura 10m. Si se llena a 9π m³/hora desde vacío, ¿cuánto tarda en llenarse?", options: { A: "6.6 horas aprox.", B: "10.0 horas en total.", C: "3.3 horas aprox.", D: "30.0 horas en total." }, correct: "B" },
+  { area: "Matemáticas", text: "La media de 5 empleados es $2.000.000. Se contrata uno nuevo con $3.200.000. ¿Cuál es la nueva media de los 6?", options: { A: "$2.200.000", B: "$2.100.000", C: "$2.600.000", D: "$2.400.000" }, correct: "A" },
+  { area: "Matemáticas", text: "$10.000.000 a interés compuesto del 10% anual. ¿Cuál es el saldo al cabo de 3 años?", options: { A: "$13.000.000", B: "$13.310.000", C: "$12.100.000", D: "$14.000.000" }, correct: "B" },
+  { area: "Lectura Crítica", text: "«Muchos hombres modernos no viven en el presente, sino que planifican perpetuamente el futuro, despojando a su existencia de plenitud tangible». ¿Cuál es la crítica fundamental del autor?", options: { A: "La carencia de metas a largo plazo.", B: "La obsesión con el porvenir que anula la vivencia del presente.", C: "El rechazo al ahorro económico.", D: "La incapacidad de prever crisis económicas." }, correct: "B" },
+  { area: "Lectura Crítica", text: "«Si las redes sociales democratizan la libre expresión, entonces todos los ciudadanos poseen igual peso político en la esfera virtual». Este enunciado es:", options: { A: "Una falacia de generalización apresurada.", B: "Una premisa condicional que requiere validación empírica.", C: "Un silogismo categórico deductivo válido.", D: "Una tesis dogmática sin refutación." }, correct: "B" },
+  { area: "Lectura Crítica", text: "Los conectores 'no obstante', 'sin embargo' y 'por el contrario' cumplen la función de:", options: { A: "Adicionar elementos complementarios.", B: "Introducir una objeción o contraargumento.", C: "Establecer la conclusión definitiva.", D: "Ejemplificar un concepto abstracto." }, correct: "B" },
+  { area: "Lectura Crítica", text: "«La tecnología expande la comunicación, pero paradójicamente fragmenta la atención humana». ¿Qué figura conceptual sintetiza mejor el fragmento?", options: { A: "Una analogía directa.", B: "Una paradoja sobre los efectos contradictorios de la tecnología.", C: "Una hipérbole que exagera los daños.", D: "Una tautología vacía." }, correct: "B" },
+  { area: "Sociales y Ciudadanas", text: "El Estado Social de Derecho implica que las instituciones deben priorizar:", options: { A: "El libre mercado sin regulaciones.", B: "La protección de los derechos fundamentales y la dignidad humana.", C: "El fortalecimiento exclusivo de las fuerzas armadas.", D: "La centralización del poder presupuestal." }, correct: "B" },
+  { area: "Sociales y Ciudadanas", text: "La principal causa del conflicto rural durante 'La Violencia' en Colombia fue:", options: { A: "La disputa por soberanía marítima.", B: "La tenencia desigual de la tierra y la polarización bipartidista.", C: "La inflación derivada de la Segunda Guerra Mundial.", D: "La implementación de TLC con Europa." }, correct: "B" },
+  { area: "Sociales y Ciudadanas", text: "El mecanismo que permite exigir la protección inmediata de derechos fundamentales vulnerados se denomina:", options: { A: "Acción Popular", B: "Acción de Tutela", C: "Referendo Derogatorio", D: "Habeas Corpus" }, correct: "B" },
+  { area: "Sociales y Ciudadanas", text: "La separación de poderes en ramas tiene como finalidad medular:", options: { A: "Acelerar la aprobación de decretos.", B: "Evitar la concentración absoluta del poder y garantizar frenos mutuos.", C: "Reducir costos burocráticos.", D: "Permitir que el Presidente controle los jueces." }, correct: "B" },
+  { area: "Ciencias Naturales", text: "Un cuerpo desciende por un plano inclinado sin fricción. Según la Conservación de la Energía Mecánica:", options: { A: "La energía potencial aumenta y la cinética disminuye.", B: "La energía potencial se transforma íntegramente en energía cinética.", C: "La energía mecánica total aumenta.", D: "Ambas energías permanecen estáticas." }, correct: "B" },
+  { area: "Ciencias Naturales", text: "Un hongo que descompone materia orgánica muerta y libera nutrientes al suelo cumple el rol de:", options: { A: "Consumidor Primario.", B: "Organismo Descomponedor.", C: "Productor Fotosintético.", D: "Consumidor Terciario." }, correct: "B" },
+  { area: "Ciencias Naturales", text: "Cuando Na cede un electrón a Cl para formar NaCl, ocurre un enlace de naturaleza:", options: { A: "Covalente Polar.", B: "Enlace Iónico.", C: "Covalente No Polar.", D: "Enlace Metálico." }, correct: "B" },
+  { area: "Ciencias Naturales", text: "Si una solución tiene concentración de iones H⁺ mayor que de OH⁻, su pH es:", options: { A: "Igual a 7 (neutro).", B: "Menor a 7 (ácido).", C: "Mayor a 7 (básico).", D: "Igual a 14 (alcalinidad extrema)." }, correct: "B" },
+  { area: "Inglés", text: "Complete: If Susan _______ harder last month, she would have entered her dream school.", options: { A: "studies", B: "had studied", C: "will study", D: "has studied" }, correct: "B" },
+  { area: "Inglés", text: "Choose the correct word: Environmentalists argue that global warming is _______ accelerating.", options: { A: "slow", B: "rapidly", C: "rapid", D: "sluggish" }, correct: "B" },
+  { area: "Inglés", text: "Select the correct passive voice sentence:", options: { A: "The ruins visited by hundreds of tourists.", B: "The ruins are visited by hundreds of tourists every summer.", C: "Hundreds of tourists visit the ruins every summer.", D: "The ruins were visit by hundreds of tourists." }, correct: "B" },
+  { area: "Inglés", text: "A person who is responsible, mature and can be trusted completely is considered...", options: { A: "Unreliable", B: "Reliable", C: "Stubborn", D: "Careless" }, correct: "B" },
+];
+
+const vocationalQuestions = [
+  { tema: "Intereses", text: "¿A qué actividad preferirías dedicarle tu tiempo libre?", options: { A: "Programar una app o ensamblar circuitos.", B: "Diseñar logotipos o piezas visuales.", C: "Organizar finanzas y metas de un equipo.", D: "Explicar conceptos complejos a otros." }, mapping: { A: ["Tec","Ing"], B: ["Dis"], C: ["Adm"], D: ["Edu"] } },
+  { tema: "Personalidad", text: "Cuando surge un conflicto en tu grupo, tú sueles:", options: { A: "Analizar las normas y proponer acuerdos justos.", B: "Escuchar las emociones y actuar de mediador.", C: "Enfocarte en soluciones prácticas basadas en datos.", D: "Estructurar un plan de contingencia." }, mapping: { A: ["Der"], B: ["Com","Edu"], C: ["Ing","Tec"], D: ["Adm"] } },
+  { tema: "Creatividad", text: "¿Cómo prefieres expresar tus ideas?", options: { A: "Con maquetas o recursos artísticos.", B: "Con discursos o artículos de opinión.", C: "Escribiendo código o algoritmos.", D: "Creando planes de negocio." }, mapping: { A: ["Dis"], B: ["Com"], C: ["Tec"], D: ["Adm"] } },
+  { tema: "Liderazgo", text: "Si fueras director de un proyecto comunitario, tu enfoque sería:", options: { A: "Garantizar la salud y bioseguridad.", B: "Supervisar el presupuesto.", C: "Capacitar a los menos experimentados.", D: "Garantizar el cumplimiento legal." }, mapping: { A: ["Sal"], B: ["Adm"], C: ["Edu"], D: ["Der"] } },
+  { tema: "Tecnología", text: "¿Cuál problemática global te apasiona más?", options: { A: "Los hackeos masivos de datos.", B: "La cura de patologías complejas.", C: "La deserción educativa.", D: "La vulneración de derechos humanos." }, mapping: { A: ["Tec"], B: ["Sal","Ing"], C: ["Edu"], D: ["Der"] } },
+  { tema: "Comunicación", text: "Al consumir contenido, te inclinas por:", options: { A: "Crónicas políticas o discursos.", B: "Avances en hardware o software.", C: "Tendencias estéticas o animación.", D: "Estudios de salud o anatomía." }, mapping: { A: ["Com","Der"], B: ["Tec","Ing"], C: ["Dis"], D: ["Sal"] } },
+  { tema: "Trabajo en equipo", text: "Tus compañeros te elogian por:", options: { A: "Resolver problemas analíticos rápido.", B: "Comunicar ideas con carisma.", C: "Mantener la calma en crisis.", D: "Estructurar documentos con precisión." }, mapping: { A: ["Ing"], B: ["Com"], C: ["Sal","Edu"], D: ["Der"] } },
+  { tema: "Habilidades", text: "¿Cuál es tu espacio laboral ideal?", options: { A: "Un laboratorio o clínica.", B: "Una oficina corporativa.", C: "Un estudio de diseño.", D: "Un bufete de abogados." }, mapping: { A: ["Sal"], B: ["Adm"], C: ["Dis"], D: ["Der"] } },
+  { tema: "Intereses", text: "¿Qué herramientas querrías dominar?", options: { A: "Lenguajes de programación y servidores.", B: "Diseño vectorial y modelado 3D.", C: "Sistemas ERP y finanzas.", D: "Plataformas educativas y pedagogía." }, mapping: { A: ["Tec"], B: ["Dis"], C: ["Adm"], D: ["Edu"] } },
+  { tema: "Habilidades", text: "Frente a un fallo en un sistema crítico:", options: { A: "Buscas el error de raíz en el código.", B: "Verificas las garantías legales.", C: "Redactas un reporte claro.", D: "Proteges la integridad física del equipo." }, mapping: { A: ["Ing","Tec"], B: ["Der"], C: ["Com"], D: ["Sal"] } },
+  { tema: "Creatividad", text: "Si escribieras un ensayo científico, elegiría como tema:", options: { A: "IA y el futuro del trabajo.", B: "Didáctica para niños con déficit de atención.", C: "Derecho penal transnacional.", D: "Tendencias cromáticas en marketing." }, mapping: { A: ["Tec"], B: ["Edu"], C: ["Der"], D: ["Dis"] } },
+  { tema: "Personalidad", text: "Te sientes impulsado principalmente por:", options: { A: "La lógica y las leyes físicas.", B: "La compasión y aliviar el dolor ajeno.", C: "La equidad social y la justicia.", D: "Crear narrativas e impacto mediático." }, mapping: { A: ["Ing"], B: ["Sal"], C: ["Der"], D: ["Com"] } },
+  { tema: "Liderazgo", text: "Cuando delegas tareas, priorizas:", options: { A: "Que cada uno entienda el objetivo pedagógico.", B: "La asignación eficiente y costos.", C: "La libertad creativa para proponer.", D: "La optimización técnica." }, mapping: { A: ["Edu"], B: ["Adm"], C: ["Dis"], D: ["Tec"] } },
+  { tema: "Tecnología", text: "¿Qué app sería de mayor utilidad para el país?", options: { A: "Conectar pacientes con médicos.", B: "Radicar tutelas fácilmente.", C: "Control financiero para microempresas.", D: "Simulador matemático con realidad aumentada." }, mapping: { A: ["Sal"], B: ["Der"], C: ["Adm"], D: ["Ing","Tec"] } },
+  { tema: "Comunicación", text: "Frente a un auditorio, hablarías de:", options: { A: "Libertad de prensa y medios.", B: "Neuroeducación en el aula.", C: "Optimización de procesos industriales.", D: "Fotografía y semiótica visual." }, mapping: { A: ["Com"], B: ["Edu"], C: ["Ing"], D: ["Dis"] } },
+  { tema: "Trabajo en equipo", text: "Cuando el equipo está desmotivado, aportas:", options: { A: "Un discurso que renueva las metas.", B: "Estructura de incentivos o descansos.", C: "Un rediseño visual del tablero de ideas.", D: "Análisis de cuellos de botella." }, mapping: { A: ["Com"], B: ["Adm"], C: ["Dis"], D: ["Tec"] } },
+  { tema: "Habilidades", text: "¿Qué pasatiempo te da más satisfacción intelectual?", options: { A: "Acertijos lógicos o ajedrez.", B: "Técnicas de salud preventiva.", C: "Debatir sobre leyes y reformas.", D: "Escribir cuentos o guiones." }, mapping: { A: ["Ing"], B: ["Sal"], C: ["Der"], D: ["Com"] } },
+  { tema: "Intereses", text: "Si pudieras tomar una materia electiva, sería:", options: { A: "Macroeconomía y Startups.", B: "Historia del Arte y Expresión Gráfica.", C: "Ciberseguridad y Redes.", D: "Psicología del Aprendizaje." }, mapping: { A: ["Adm"], B: ["Dis"], C: ["Tec"], D: ["Edu"] } },
+  { tema: "Personalidad", text: "Frente a las críticas, actúas de forma:", options: { A: "Empática, pensando en mejorar tu servicio.", B: "Objetiva, tabulando el error.", C: "Estratégica, cuidando tu reputación.", D: "Normativa, evaluando si la crítica tiene fundamento." }, mapping: { A: ["Sal","Edu"], B: ["Ing","Tec"], C: ["Adm","Com"], D: ["Der"] } },
+  { tema: "Liderazgo", text: "¿Cuál es tu superpoder o habilidad dominante?", options: { A: "Diseñar soluciones creativas.", B: "La oratoria y la persuasión.", C: "La resiliencia en alta presión.", D: "El pensamiento algorítmico." }, mapping: { A: ["Dis"], B: ["Com"], C: ["Sal"], D: ["Ing"] } },
+];
+
+/* ─── STATE ─── */
+let currentExamType = '';
+let currentQIndex = 0;
+let userAnswers = {};
+let timerInterval = null;
+let timeLeft = 1800;
+let musicOn = false;
+let fcIndex = 0;
+let fcIsFlipped = false;
+let currentFCCards = [...flashcards];
+let currentQuoteIndex = 0;
+
+const audio = document.getElementById('bgMusic');
+
+/* ─── HELPERS ─── */
+function scrollToSection(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.getElementById('link-' + id)?.classList.add('active');
+}
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+/* ─── HERO MOTIVATIONAL ROTATION ─── */
+let hmi = 0;
+setInterval(() => {
+  hmi = (hmi + 1) % heroMessages.length;
+  const el = document.getElementById('heroMotivational');
+  el.style.opacity = 0;
+  setTimeout(() => { el.textContent = heroMessages[hmi]; el.style.opacity = 1; }, 400);
+}, 5000);
+document.getElementById('heroMotivational').style.transition = 'opacity .4s';
+
+/* ─── QUOTES ─── */
+function buildQuoteDots() {
+  const dots = document.getElementById('quoteDots');
+  dots.innerHTML = '';
+  quotes.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'qdot' + (i === 0 ? ' active' : '');
+    d.onclick = () => setQuote(i);
+    dots.appendChild(d);
+  });
+}
+function setQuote(i) {
+  currentQuoteIndex = i;
+  document.getElementById('quoteText').textContent = '"' + quotes[i].text + '"';
+  document.getElementById('quoteAuthor').textContent = quotes[i].author;
+  document.querySelectorAll('.qdot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+}
+buildQuoteDots();
+setInterval(() => setQuote((currentQuoteIndex + 1) % quotes.length), 6000);
+
+/* ─── MUSIC ─── */
+function toggleMusic() {
+  musicOn = !musicOn;
+  const btn = document.getElementById('musicToggle');
+  if (musicOn) {
+    audio.volume = 0.25;
+    audio.play().catch(() => {});
+    btn.innerHTML = '<i class="fa-solid fa-music"></i> Música ON';
+    btn.classList.add('on');
+  } else {
+    audio.pause();
+    btn.innerHTML = '<i class="fa-solid fa-music"></i> Música OFF';
+    btn.classList.remove('on');
+  }
+}
+
+/* ─── EXAM ENGINE ─── */
+function startIcfesExam() {
+  currentExamType = 'icfes';
+  currentQIndex = 0; userAnswers = {}; timeLeft = 1800;
+  document.getElementById('examTitleDisplay').innerHTML = '<i class="fa-solid fa-graduation-cap"></i> Simulacro ICFES Oficial';
+  document.getElementById('timerBox').style.display = 'flex';
+  document.getElementById('examSelectionView').style.display = 'none';
+  document.getElementById('examResultsView').style.display = 'none';
+  document.getElementById('activeExamView').style.display = 'block';
+  startTimer(); renderQ();
+}
+function startVocationalExam() {
+  currentExamType = 'vocational';
+  currentQIndex = 0; userAnswers = {};
+  document.getElementById('examTitleDisplay').innerHTML = '<i class="fa-solid fa-compass"></i> Test Vocacional ADS';
+  document.getElementById('timerBox').style.display = 'none';
+  clearInterval(timerInterval);
+  document.getElementById('examSelectionView').style.display = 'none';
+  document.getElementById('examResultsView').style.display = 'none';
+  document.getElementById('activeExamView').style.display = 'block';
+  renderQ();
+}
+function startTimer() {
+  clearInterval(timerInterval);
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay();
+    if (timeLeft <= 300) document.getElementById('timerDisplay').style.color = '#EF4444';
+    if (timeLeft <= 0) { clearInterval(timerInterval); alert('⏰ Tiempo agotado. ¡Se enviará automáticamente!'); finishExam(); }
+  }, 1000);
+}
+function updateTimerDisplay() {
+  const m = Math.floor(timeLeft / 60), s = timeLeft % 60;
+  document.getElementById('timerDisplay').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+function renderQ() {
+  const qs = currentExamType === 'icfes' ? icfesQuestions : vocationalQuestions;
+  const q = qs[currentQIndex];
+  const total = qs.length;
+  const pct = ((currentQIndex + 1) / total) * 100;
+  document.getElementById('progressBarFill').style.width = pct + '%';
+  document.getElementById('qCounter').textContent = `Pregunta ${currentQIndex + 1} de ${total}`;
+  const area = q.area || q.tema;
+  const body = document.getElementById('examBodyArea');
+  body.innerHTML = `
+    <div class="q-meta">Pregunta ${currentQIndex + 1} / ${total} — ${area}</div>
+    <div class="q-text">${q.text}</div>
+    <ul class="options-list">
+      ${Object.entries(q.options).map(([k, v]) => `
+        <li class="opt${userAnswers[currentQIndex] === k ? ' selected' : ''}" onclick="selectOpt('${k}')">
+          <div class="opt-key">${k}</div>
+          <span>${v}</span>
+        </li>
+      `).join('')}
+    </ul>`;
+  document.getElementById('btnPrev').disabled = currentQIndex === 0;
+  const isLast = currentQIndex === total - 1;
+  document.getElementById('btnNext').style.display = isLast ? 'none' : 'inline-flex';
+  document.getElementById('btnFinish').style.display = isLast ? 'inline-flex' : 'none';
+}
+function selectOpt(key) {
+  userAnswers[currentQIndex] = key;
+  renderQ();
+}
+function navQ(step) {
+  const qs = currentExamType === 'icfes' ? icfesQuestions : vocationalQuestions;
+  currentQIndex = Math.max(0, Math.min(qs.length - 1, currentQIndex + step));
+  renderQ();
+}
+function finishExam() {
+  clearInterval(timerInterval);
+  audio.pause(); musicOn = false;
+  document.getElementById('activeExamView').style.display = 'none';
+  const rv = document.getElementById('examResultsView');
+  rv.style.display = 'block'; rv.innerHTML = '';
+  if (currentExamType === 'icfes') renderIcfesResults(rv);
+  else renderVocationalResults(rv);
+  rv.scrollIntoView({ behavior: 'smooth' });
+}
+function renderIcfesResults(container) {
+  let correct = 0, incorrect = 0;
+  icfesQuestions.forEach((q, i) => { if (userAnswers[i] === q.correct) correct++; else incorrect++; });
+  const score100 = Math.round((correct / icfesQuestions.length) * 100);
+  const score500 = score100 * 5;
+  const emoji = score500 >= 400 ? '🦅' : score500 >= 300 ? '💪' : '📚';
+  container.innerHTML = `
+    <div style="text-align:center; margin-bottom:32px;">
+      <div style="font-size:4rem; margin-bottom:10px;">${emoji}</div>
+      <div class="section-title" style="font-size:1.8rem;">RESULTADOS <span class="gold">DEL SIMULACRO</span></div>
+      <div class="divider"></div>
+    </div>
+    <div class="results-summary">
+      <div class="res-card"><span class="num green">${correct}</span><span class="lbl">Correctas</span></div>
+      <div class="res-card"><span class="num red">${incorrect}</span><span class="lbl">Incorrectas</span></div>
+      <div class="res-card"><span class="num" style="color:var(--white)">${score100}/100</span><span class="lbl">Resultado</span></div>
+      <div class="res-card"><span class="num gold">${score500}</span><span class="lbl">Est. ICFES /500</span></div>
+    </div>
+    <div style="margin-bottom:20px; font-family:'Bebas Neue',cursive; font-size:1.3rem; letter-spacing:1px;">REPORTE DETALLADO</div>
+    <div class="report-list" id="reportList"></div>
+    <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:20px;">
+      <button class="btn-gold" onclick="backToExamSelection()"><i class="fa-solid fa-rotate-left"></i> Nuevo simulacro</button>
+      <a href="https://wa.me/573218790121?text=Hola%20ADS!%20Acab%C3%A9%20un%20simulacro%20y%20quiero%20mejorar%20mi%20puntaje" target="_blank" class="btn-outline"><i class="fa-brands fa-whatsapp"></i> Hablar con ADS</a>
+    </div>`;
+  const rl = document.getElementById('reportList');
+  icfesQuestions.forEach((q, i) => {
+    const ua = userAnswers[i] || 'No respondida';
+    const ok = ua === q.correct;
+    const div = document.createElement('div');
+    div.className = 'report-item-card' + (ok ? ' ok' : '');
+    div.innerHTML = `
+      <div class="ri-label">${ok ? '✅ CORRECTA' : '❌ INCORRECTA'} — ${q.area}</div>
+      <div class="ri-q">P${i+1}: ${q.text}</div>
+      <div class="ri-ans"><strong>Tu respuesta:</strong> ${ua}${ua !== 'No respondida' ? ' — ' + q.options[ua] : ''}</div>
+      ${!ok ? `<div class="ri-correct"><strong>Respuesta correcta:</strong> ${q.correct} — ${q.options[q.correct]}</div>` : ''}`;
+    rl.appendChild(div);
+  });
+}
+function renderVocationalResults(container) {
+  const profiles = { Ing:{n:'Ingeniería',s:0}, Tec:{n:'Tecnología',s:0}, Adm:{n:'Administración',s:0}, Dis:{n:'Diseño y Artes',s:0}, Edu:{n:'Educación',s:0}, Sal:{n:'Salud y Medicina',s:0}, Der:{n:'Derecho',s:0}, Com:{n:'Comunicación',s:0} };
+  vocationalQuestions.forEach((q, i) => { const sel = userAnswers[i]; if (sel && q.mapping[sel]) q.mapping[sel].forEach(k => { if (profiles[k]) profiles[k].s++; }); });
+  const sorted = Object.values(profiles).sort((a,b) => b.s - a.s);
+  const max = sorted[0].s || 1;
+  container.innerHTML = `
+    <div style="text-align:center; margin-bottom:32px;">
+      <div style="font-size:4rem; margin-bottom:10px;">🧭</div>
+      <div class="section-title" style="font-size:1.8rem;">PERFIL <span class="gold">VOCACIONAL</span></div>
+      <div class="divider"></div>
+    </div>
+    <div id="vBars" style="margin-bottom:32px;"></div>
+    <div style="background:rgba(201,162,39,0.08); border:1px solid rgba(201,162,39,0.3); border-radius:16px; padding:28px; margin-bottom:28px;">
+      <div style="font-weight:800; color:var(--gold-light); margin-bottom:10px;">🦅 Recomendación ADS</div>
+      <p style="color:rgba(255,255,255,0.8); line-height:1.7;">Tu perfil dominante es <strong style="color:var(--gold-light);">${sorted[0].n}</strong> y <strong style="color:var(--gold-light);">${sorted[1].n}</strong>. Estos resultados reflejan tus intereses y habilidades más marcadas. ¡Investiga carreras en estas áreas y consulta a tu equipo ADS para orientación personalizada!</p>
+    </div>
+    <div style="display:flex; gap:14px; flex-wrap:wrap;">
+      <button class="btn-gold" onclick="backToExamSelection()"><i class="fa-solid fa-rotate-left"></i> Repetir test</button>
+      <a href="https://wa.me/573218790121?text=Hola%20ADS!%20Hice%20el%20test%20vocacional%20y%20quiero%20orientaci%C3%B3n" target="_blank" class="btn-outline"><i class="fa-brands fa-whatsapp"></i> Pedir orientación</a>
+    </div>`;
+  const vb = document.getElementById('vBars');
+  sorted.forEach(p => {
+    const pct = Math.round((p.s / max) * 100);
+    const div = document.createElement('div');
+    div.style.cssText = 'margin-bottom:18px;';
+    div.innerHTML = `<div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-weight:700;">${p.n}</span><span style="color:var(--gold-light);font-weight:800;">${pct}%</span></div><div style="background:rgba(255,255,255,0.08);height:10px;border-radius:5px;overflow:hidden;"><div id="vbar_${p.n.replace(/\s/g,'')}" style="height:100%;width:0%;background:linear-gradient(90deg,var(--navy),var(--gold-light));border-radius:5px;transition:width 1s ease;"></div></div>`;
+    vb.appendChild(div);
+    setTimeout(() => { const el = document.getElementById('vbar_' + p.n.replace(/\s/g,'')); if(el) el.style.width = pct + '%'; }, 100);
+  });
+}
+function backToExamSelection() {
+  document.getElementById('activeExamView').style.display = 'none';
+  document.getElementById('examResultsView').style.display = 'none';
+  document.getElementById('examSelectionView').style.display = 'block';
+}
+
+/* ─── FLASHCARDS ─── */
+function buildFCFilters() {
+  const cats = ['Todas', ...new Set(flashcards.map(c => c.cat))];
+  const fc = document.getElementById('fcFilters');
+  fc.innerHTML = '';
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'fc-filter-btn' + (cat === 'Todas' ? ' active' : '');
+    btn.textContent = cat === 'Todas' ? '🦅 Todas' : cat;
+    btn.onclick = () => {
+      document.querySelectorAll('.fc-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFCCards = cat === 'Todas' ? [...flashcards] : flashcards.filter(c => c.cat === cat);
+      fcIndex = 0; fcIsFlipped = false; renderFC();
+    };
+    fc.appendChild(btn);
+  });
+}
+function renderFC() {
+  const card = currentFCCards[fcIndex];
+  document.getElementById('fcCategory').textContent = card.cat;
+  document.getElementById('fcFrontTitle').textContent = card.title;
+  document.getElementById('fcFrontSub').textContent = card.sub;
+  document.getElementById('fcBackCategory').textContent = 'Consejo ADS 🦅';
+  document.getElementById('fcBackIcon').textContent = card.icon;
+  document.getElementById('fcBackText').textContent = card.tip;
+  document.getElementById('fcCounter').textContent = `${fcIndex + 1} / ${currentFCCards.length}`;
+  const fc = document.getElementById('mainFlashcard');
+  fc.classList.remove('flipped');
+  fcIsFlipped = false;
+}
+function flipCard() {
+  fcIsFlipped = !fcIsFlipped;
+  document.getElementById('mainFlashcard').classList.toggle('flipped', fcIsFlipped);
+}
+function fcNav(dir) {
+  fcIndex = (fcIndex + dir + currentFCCards.length) % currentFCCards.length;
+  fcIsFlipped = false; renderFC();
+}
+function shuffleCards() {
+  for (let i = currentFCCards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [currentFCCards[i], currentFCCards[j]] = [currentFCCards[j], currentFCCards[i]];
+  }
+  fcIndex = 0; renderFC();
+}
+buildFCFilters();
+renderFC();
+
+/* ─── DATABASE ESTUDIANTES ─── */
+const estudiantesDB = [
+  { ti: '1023456789', nombre: 'Juan Pérez', matematicas: 85, lectura: 78, sociales: 90, ciencias: 80, ingles: 88 },
+  { ti: '1087654321', nombre: 'María López', matematicas: 82, lectura: 85, sociales: 88, ciencias: 87, ingles: 81 },
+  { ti: '1098765432', nombre: 'Carlos Ruiz', matematicas: 80, lectura: 80, sociales: 85, ciencias: 82, ingles: 79 },
+  { ti: '1111111111', nombre: 'Ana Martínez', matematicas: 88, lectura: 90, sociales: 92, ciencias: 89, ingles: 91 },
+  { ti: '1222222222', nombre: 'Luis Gómez', matematicas: 78, lectura: 75, sociales: 80, ciencias: 76, ingles: 74 },
+  { ti: '1333333333', nombre: 'Sofía García', matematicas: 90, lectura: 88, sociales: 89, ciencias: 87, ingles: 89 },
+  { ti: '1444444444', nombre: 'Pedro Sánchez', matematicas: 76, lectura: 72, sociales: 78, ciencias: 75, ingles: 73 },
+];
+
+/* ─── CALCULAR TOTAL ─── */
+function calcularTotal(est) {
+  return est.matematicas + est.lectura + est.sociales + est.ciencias + est.ingles;
+}
+
+/* ─── OBTENER RANKING ─── */
+function obtenerRanking() {
+  return estudiantesDB.map(est => ({
+    ...est,
+    total: calcularTotal(est)
+  })).sort((a, b) => b.total - a.total);
+}
+
+/* ─── CONSULTAR ESTUDIANTE ─── */
+function consultarEstudiante() {
+  const ti = document.getElementById('tiInput').value.trim();
+  
+  if (!ti) {
+    alert('Por favor ingresa tu número de T.I.');
+    return;
+  }
+  
+  const estudiante = estudiantesDB.find(e => e.ti === ti);
+  
+  if (!estudiante) {
+    alert('No se encontraron resultados para el T.I.: ' + ti);
+    return;
+  }
+  
+  mostrarResultados(estudiante);
+}
+
+/* ─── MOSTRAR RESULTADOS ─── */
+function mostrarResultados(estudiante) {
+  const total = calcularTotal(estudiante);
+  const ranking = obtenerRanking();
+  const posicion = ranking.findIndex(e => e.ti === estudiante.ti) + 1;
+  const percentil = Math.round(((ranking.length - posicion) / ranking.length) * 100);
+  
+  // Determinar estado
+  let estado, statusClass;
+  if (total >= 400) { estado = '🟢 Excelente'; statusClass = 'status-excelente'; }
+  else if (total >= 350) { estado = '🟡 Bueno'; statusClass = 'status-bueno'; }
+  else { estado = '🔴 Debe mejorar'; statusClass = 'status-mejorar'; }
+  
+  // Actualizar datos del estudiante
+  document.getElementById('studentName').textContent = estudiante.nombre;
+  document.getElementById('studentTI').textContent = 'T.I.: ' + estudiante.ti;
+  document.getElementById('studentTotal').textContent = total;
+  document.getElementById('studentRank').textContent = '#' + posicion;
+  document.getElementById('studentPercentile').textContent = percentil + '%';
+  
+  const statusEl = document.getElementById('studentStatus');
+  statusEl.innerHTML = `<div class="status-badge ${statusClass}"><span>${estado.split(' ')[0]}</span> ${estado.split(' ')[1]}</div>`;
+  
+  // Actualizar materias
+  const materias = [
+    { id: 'Math', label: 'Matemáticas', score: estudiante.matematicas, color: '#3B82F6' },
+    { id: 'Reading', label: 'Lectura Crítica', score: estudiante.lectura, color: '#8B5CF6' },
+    { id: 'Social', label: 'Sociales', score: estudiante.sociales, color: '#EC4899' },
+    { id: 'Science', label: 'Ciencias Naturales', score: estudiante.ciencias, color: '#10B981' },
+    { id: 'English', label: 'Inglés', score: estudiante.ingles, color: '#F59E0B' }
+  ];
+  
+  materias.forEach(m => {
+    const porcentaje = (m.score / 100) * 100;
+    document.getElementById('score' + m.id).textContent = m.score + '/100';
+    document.getElementById('progress' + m.id).style.width = porcentaje + '%';
+    document.getElementById('progress' + m.id).style.background = m.color;
+    
+    let label = porcentaje >= 85 ? 'Excelente' : porcentaje >= 75 ? 'Muy Bien' : porcentaje >= 65 ? 'Bien' : 'Debe mejorar';
+    document.getElementById('label' + m.id).textContent = label;
+  });
+  
+  // Crear gráfica radar
+  crearGrafica(estudiante);
+  
+  // Generar mensaje de motivación
+  generarMotivacion(total);
+  
+  // Mostrar resultados
+  document.getElementById('resultsSearchView').style.display = 'none';
+  document.getElementById('resultsView').style.display = 'block';
+  
+  // Mostrar ranking
+  llenarRanking(ranking);
+  
+  // Scroll a resultados
+  setTimeout(() => {
+    document.getElementById('resultados').scrollIntoView({ behavior: 'smooth' });
+  }, 100);
+}
+
+/* ─── CREAR GRÁFICA RADAR ─── */
+function crearGrafica(estudiante) {
+  const ctx = document.getElementById('radarChart').getContext('2d');
+  
+  // Destruir gráfica anterior si existe
+  if (window.radarChartInstance) {
+    window.radarChartInstance.destroy();
+  }
+  
+  window.radarChartInstance = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: ['Matemáticas', 'Lectura Crítica', 'Sociales', 'Ciencias', 'Inglés'],
+      datasets: [{
+        label: 'Tu desempeño',
+        data: [estudiante.matematicas, estudiante.lectura, estudiante.sociales, estudiante.ciencias, estudiante.ingles],
+        borderColor: '#C9A227',
+        backgroundColor: 'rgba(201, 162, 39, 0.15)',
+        borderWidth: 2,
+        pointBackgroundColor: '#C9A227',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 7
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      scales: {
+        r: {
+          beginAtZero: true,
+          max: 100,
+          ticks: {
+            color: 'rgba(255,255,255,0.5)',
+            font: { family: "'Nunito', sans-serif", size: 11 }
+          },
+          grid: { color: 'rgba(201,162,39,0.1)' },
+          pointLabels: { color: 'rgba(255,255,255,0.8)', font: { size: 12, weight: '700' } }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(13, 25, 41, 0.9)',
+          titleColor: '#C9A227',
+          bodyColor: '#fff',
+          borderColor: '#C9A227',
+          borderWidth: 1,
+          padding: 12,
+          titleFont: { size: 14, weight: '700' },
+          bodyFont: { size: 12 }
+        }
+      }
+    }
+  });
+}
+
+/* ─── GENERAR MOTIVACIÓN ─── */
+function generarMotivacion(total) {
+  const motivaciones = {
+    excelente: [
+      '¡Excelente trabajo! 🌟 Vas directo a la universidad de tus sueños.',
+      '🏆 ¡Eres un águila volando alto! Sigue así y conquistarás todo.',
+      '💎 Tus resultados hablan por ti. ¡Sigue practicando!',
+      '🚀 ¡Eres imparable! Cada punto cuenta en tu favor.'
+    ],
+    bueno: [
+      '¡Vas por buen camino! 🦅 Sigue practicando y lo conseguirás.',
+      '👏 Buen desempeño. Prepárate un poco más y será aún mejor.',
+      '💪 Estás en la dirección correcta. Refuerza las áreas más débiles.',
+      '📈 Vas mejorando. La constancia es la clave del éxito.'
+    ],
+    mejorar: [
+      'Sigue practicando. 🦅 Cada esfuerzo te acerca más al 500.',
+      '💪 No desistas. Tienes el potencial, solo necesitas más enfoque.',
+      '🎯 Identifica tus debilidades y atácalas con todo.',
+      '🌱 Eres una semilla de éxito. Cultívate y brillarás.'
+    ]
+  };
+  
+  let categoria, mensaje;
+  if (total >= 400) {
+    categoria = 'excelente';
+    mensaje = motivaciones.excelente[Math.floor(Math.random() * motivaciones.excelente.length)];
+  } else if (total >= 350) {
+    categoria = 'bueno';
+    mensaje = motivaciones.bueno[Math.floor(Math.random() * motivaciones.bueno.length)];
+  } else {
+    categoria = 'mejorar';
+    mensaje = motivaciones.mejorar[Math.floor(Math.random() * motivaciones.mejorar.length)];
+  }
+  
+  document.getElementById('motivationText').textContent = mensaje;
+}
+
+/* ─── LLENAR RANKING ─── */
+function llenarRanking(ranking) {
+  // Top 3
+  document.getElementById('rank1Name').textContent = ranking[0].nombre;
+  document.getElementById('rank1Score').textContent = ranking[0].total;
+  
+  if (ranking.length > 1) {
+    document.getElementById('rank2Name').textContent = ranking[1].nombre;
+    document.getElementById('rank2Score').textContent = ranking[1].total;
+  }
+  
+  if (ranking.length > 2) {
+    document.getElementById('rank3Name').textContent = ranking[2].nombre;
+    document.getElementById('rank3Score').textContent = ranking[2].total;
+  }
+  
+  // Tabla completa
+  const tbody = document.getElementById('rankingTableBody');
+  tbody.innerHTML = '';
+  
+  ranking.forEach((est, idx) => {
+    const row = document.createElement('div');
+    row.className = 'rank-row';
+    row.innerHTML = `
+      <div class="rank-pos">${idx + 1}</div>
+      <div class="rank-name">${est.nombre}</div>
+      <div class="rank-score">${est.total}</div>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+/* ─── NUEVA CONSULTA ─── */
+function nuevoConsulta() {
+  document.getElementById('tiInput').value = '';
+  document.getElementById('resultsSearchView').style.display = 'block';
+  document.getElementById('resultsView').style.display = 'none';
+  document.getElementById('tiInput').focus();
+}
+
+/* ─── DESCARGAR PDF ─── */
+function downloadPDF() {
+  const nombre = document.getElementById('studentName').textContent;
+  const ti = document.getElementById('studentTI').textContent.split(': ')[1];
+  const total = document.getElementById('studentTotal').textContent;
+  const rank = document.getElementById('studentRank').textContent;
+  
+  const contenido = `
+AVES DEL SABER 500 - REPORTE DE RESULTADOS
+═══════════════════════════════════════════
+
+DATOS DEL ESTUDIANTE
+Nombre: ${nombre}
+T.I.: ${ti}
+Puntaje Global: ${total}
+Posición en Ranking: ${rank}
+
+DESEMPEÑO POR MATERIA
+Matemáticas: ${document.getElementById('scoreMath').textContent}
+Lectura Crítica: ${document.getElementById('scoreReading').textContent}
+Sociales: ${document.getElementById('scoreSocial').textContent}
+Ciencias Naturales: ${document.getElementById('scoreScience').textContent}
+Inglés: ${document.getElementById('scoreEnglish').textContent}
+
+Mensaje Motivacional:
+${document.getElementById('motivationText').textContent}
+
+═══════════════════════════════════════════
+Generado por: Aves del Saber 500
+Contacto: +57 321 879 0121
+  `;
+  
+  const blob = new Blob([contenido], { type: 'text/plain' });
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'ResultadosADS_' + ti + '.txt';
+  a.click();
+  window.URL.revokeObjectURL(url);
+}
+
+/* ─── COMPARTIR RESULTADO ─── */
+function shareResult() {
+  const nombre = document.getElementById('studentName').textContent;
+  const total = document.getElementById('studentTotal').textContent;
+  const rank = document.getElementById('studentRank').textContent;
+  
+  const mensaje = `🦅 ¡Mira mis resultados en Aves del Saber 500! 🏆\n\nNombre: ${nombre}\nPuntaje: ${total}\nPosición: ${rank}\n\n¡Quiero llegar al 500 con ADS! 💛\n\nUne-te: https://wa.me/573218790121`;
+  
+  const url = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+}
+
+/* ─── SCROLL NAV HIGHLIGHT ─── */
+window.addEventListener('scroll', () => {
+  const sections = ['inicio','nosotros','intensivo','recursos','resultados','simulacros','flashcards'];
+  const scrollY = window.scrollY + 100;
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (scrollY >= el.offsetTop && scrollY < el.offsetTop + el.offsetHeight) {
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    }
+  });
+});
+</script>
+
+<!-- CHART.JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

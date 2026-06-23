@@ -1,0 +1,92 @@
+[
+  {
+    "ti": "1023456789",
+    "nombre": "Juan Pérez García",
+    "matematicas": 85,
+    "lectura": 78,
+    "sociales": 90,
+    "ciencias": 80,
+    "ingles": 88
+  },
+  {
+    "ti": "1087654321",
+    "nombre": "María López Rodríguez",
+    "matematicas": 82,
+    "lectura": 85,
+    "sociales": 88,
+    "ciencias": 87,
+    "ingles": 81
+  },
+  {
+    "ti": "1098765432",
+    "nombre": "Carlos Ruiz Martínez",
+    "matematicas": 80,
+    "lectura": 80,
+    "sociales": 85,
+    "ciencias": 82,
+    "ingles": 79
+  },
+  {
+    "ti": "1111111111",
+    "nombre": "Ana María Martínez Flores",
+    "matematicas": 88,
+    "lectura": 90,
+    "sociales": 92,
+    "ciencias": 89,
+    "ingles": 91
+  },
+  {
+    "ti": "1222222222",
+    "nombre": "Luis Fernando Gómez Sánchez",
+    "matematicas": 78,
+    "lectura": 75,
+    "sociales": 80,
+    "ciencias": 76,
+    "ingles": 74
+  },
+  {
+    "ti": "1333333333",
+    "nombre": "Sofía Elena García López",
+    "matematicas": 90,
+    "lectura": 88,
+    "sociales": 89,
+    "ciencias": 87,
+    "ingles": 89
+  },
+  {
+    "ti": "1444444444",
+    "nombre": "Pedro Andrés Sánchez Díaz",
+    "matematicas": 76,
+    "lectura": 72,
+    "sociales": 78,
+    "ciencias": 75,
+    "ingles": 73
+  },
+  {
+    "ti": "1555555555",
+    "nombre": "Laura Catalina Vargas Mendoza",
+    "matematicas": 84,
+    "lectura": 83,
+    "sociales": 86,
+    "ciencias": 85,
+    "ingles": 82
+  },
+  {
+    "ti": "1666666666",
+    "nombre": "Alejandro José Ramírez Castro",
+    "matematicas": 79,
+    "lectura": 77,
+    "sociales": 82,
+    "ciencias": 78,
+    "ingles": 76
+  },
+  {
+    "ti": "1777777777",
+    "nombre": "Valentina Isabela Moreno Ruiz",
+    "matematicas": 91,
+    "lectura": 89,
+    "sociales": 93,
+    "ciencias": 90,
+    "ingles": 92
+  }
+]
