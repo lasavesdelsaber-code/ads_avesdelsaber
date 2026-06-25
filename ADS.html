@@ -10,19 +10,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root {
-  --navy: #1B2A4A;
-  --navy-deep: #0D1929;
-  --gold: #C9A227;
-  --gold-light: #F0C84A;
-  --gold-pale: #FFF3CC;
-  --cream: #F5F0E8;
+  --navy: #D6EAF8;
+  --navy-deep: #EAF4FC;
+  --gold: #5B9BD5;
+  --gold-light: #8FC6EE;
+  --gold-pale: #EAF6FF;
+  --cream: #F5FAFE;
   --white: #FFFFFF;
-  --gray: #6B7280;
-  --gray-light: #F3F4F6;
-  --success: #10B981;
-  --danger: #EF4444;
-  --shadow: 0 8px 32px rgba(13,25,41,0.18);
-  --shadow-gold: 0 4px 24px rgba(201,162,39,0.25);
+  --gray: #6B8299;
+  --gray-light: #EAF2F8;
+  --success: #5CB88A;
+  --danger: #E2807E;
+  --ink: #2D4159;
+  --blue-deep: #2D6CA3;
+  --shadow: 0 8px 32px rgba(91,155,213,0.18);
+  --shadow-gold: 0 4px 24px rgba(91,155,213,0.3);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +34,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Nunito', sans-serif;
   background: var(--navy-deep);
-  color: var(--white);
+  color: var(--ink);
   overflow-x: hidden;
 }
 
@@ -47,29 +49,29 @@ body {
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 5%;
   height: 68px;
-  background: rgba(13,25,41,0.92);
+  background: rgba(234,243,251,0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(201,162,39,0.2);
+  border-bottom: 1px solid rgba(91,155,213,0.2);
 }
 .nav-brand {
   font-family: 'Bebas Neue', cursive;
   font-size: 1.5rem;
   letter-spacing: 2px;
-  color: var(--gold-light);
+  color: var(--blue-deep);
   display: flex; align-items: center; gap: 10px;
 }
 .nav-brand img { height: 38px; }
 .nav-links { display: flex; gap: 6px; }
 .nav-link {
   font-size: 0.82rem; font-weight: 700; letter-spacing: 1px;
-  text-transform: uppercase; color: rgba(255,255,255,0.75);
+  text-transform: uppercase; color: rgba(45,65,90,0.75);
   padding: 7px 12px; border-radius: 6px; cursor: pointer;
   transition: all .25s; text-decoration: none; border: none; background: none;
 }
-.nav-link:hover { color: var(--gold-light); background: rgba(201,162,39,0.12); }
-.nav-link.active { color: var(--gold-light); }
+.nav-link:hover { color: var(--blue-deep); background: rgba(91,155,213,0.12); }
+.nav-link.active { color: var(--blue-deep); }
 .nav-cta {
-  background: var(--gold); color: var(--navy-deep);
+  background: var(--gold); color: var(--ink);
   font-size: 0.82rem; font-weight: 800; letter-spacing: 1px;
   padding: 8px 16px; border-radius: 8px; text-decoration: none;
   transition: all .25s; white-space: nowrap;
@@ -80,7 +82,7 @@ body {
 .mobile-menu {
   display: none; flex-direction: column; gap: 4px;
   position: fixed; top: 68px; left: 0; right: 0; z-index: 999;
-  background: var(--navy-deep); padding: 16px 5%; border-bottom: 1px solid rgba(201,162,39,0.15);
+  background: var(--navy-deep); padding: 16px 5%; border-bottom: 1px solid rgba(91,155,213,0.15);
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu .nav-link { font-size: 0.9rem; padding: 10px 14px; }
@@ -93,8 +95,8 @@ body {
 .hero {
   min-height: 100vh;
   background:
-    radial-gradient(ellipse at 70% 40%, rgba(201,162,39,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 10% 80%, rgba(27,42,74,0.8) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 40%, rgba(91,155,213,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 80%, rgba(214,234,248,0.8) 0%, transparent 50%),
     var(--navy-deep);
   display: flex; align-items: center; justify-content: center;
   text-align: center;
@@ -104,14 +106,14 @@ body {
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A227' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235B9BD5' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   pointer-events: none;
 }
 .hero-eagle {
   width: 200px; height: 200px;
   margin: 0 auto 24px;
   animation: floatEagle 4s ease-in-out infinite;
-  filter: drop-shadow(0 12px 32px rgba(201,162,39,0.35));
+  filter: drop-shadow(0 12px 32px rgba(91,155,213,0.35));
 }
 @keyframes floatEagle {
   0%, 100% { transform: translateY(0px); }
@@ -119,9 +121,9 @@ body {
 }
 .hero-badge {
   display: inline-block;
-  background: rgba(201,162,39,0.15);
-  border: 1px solid rgba(201,162,39,0.4);
-  color: var(--gold-light);
+  background: rgba(91,155,213,0.15);
+  border: 1px solid rgba(91,155,213,0.4);
+  color: var(--blue-deep);
   font-size: 0.78rem; font-weight: 800; letter-spacing: 2px;
   text-transform: uppercase; padding: 6px 16px; border-radius: 20px;
   margin-bottom: 18px;
@@ -133,46 +135,46 @@ body {
   letter-spacing: 3px;
   margin-bottom: 14px;
 }
-.hero-title .gold { color: var(--gold-light); }
+.hero-title .gold { color: var(--blue-deep); }
 .hero-sub {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
-  color: rgba(255,255,255,0.75);
+  color: rgba(45,65,90,0.75);
   max-width: 580px; margin: 0 auto 16px;
   font-style: italic;
 }
 .hero-motivational {
   font-size: clamp(1.1rem, 2.8vw, 1.5rem);
   font-weight: 900;
-  color: var(--gold-light);
+  color: var(--blue-deep);
   margin-bottom: 32px;
   letter-spacing: 1px;
 }
 .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
 .btn-gold {
   background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-  color: var(--navy-deep);
+  color: var(--ink);
   font-weight: 800; font-size: 0.95rem; letter-spacing: 1px;
   padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
   transition: all .3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
   box-shadow: var(--shadow-gold);
 }
-.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(201,162,39,0.45); }
+.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(91,155,213,0.45); }
 .btn-outline {
-  background: transparent; color: var(--white);
-  border: 2px solid rgba(255,255,255,0.35);
+  background: transparent; color: var(--ink);
+  border: 2px solid rgba(45,65,90,0.35);
   font-weight: 700; font-size: 0.95rem;
   padding: 14px 28px; border-radius: 10px; cursor: pointer;
   transition: all .3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
 }
-.btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-3px); }
+.btn-outline:hover { border-color: var(--gold-light); color: var(--blue-deep); transform: translateY(-3px); }
 .hero-stats {
   display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(45,65,90,0.1);
   padding-top: 32px;
 }
 .stat { text-align: center; }
-.stat-num { font-family: 'Bebas Neue', cursive; font-size: 2.2rem; color: var(--gold-light); display: block; }
-.stat-lbl { font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+.stat-num { font-family: 'Bebas Neue', cursive; font-size: 2.2rem; color: var(--blue-deep); display: block; }
+.stat-lbl { font-size: 0.8rem; color: rgba(45,65,90,0.55); text-transform: uppercase; letter-spacing: 1px; }
 
 /* ─── MOTIVATIONAL TICKER ─── */
 .ticker-wrap {
@@ -184,7 +186,7 @@ body {
   display: inline-flex; gap: 80px;
   animation: tickerMove 30s linear infinite;
 }
-.ticker-inner span { font-weight: 800; color: var(--navy-deep); font-size: 0.88rem; letter-spacing: 1px; }
+.ticker-inner span { font-weight: 800; color: var(--ink); font-size: 0.88rem; letter-spacing: 1px; }
 .ticker-inner span i { margin-right: 8px; }
 @keyframes tickerMove {
   0% { transform: translateX(0); }
@@ -203,9 +205,9 @@ body {
   letter-spacing: 2px;
   text-align: center; margin-bottom: 8px;
 }
-.section-title .gold { color: var(--gold-light); }
+.section-title .gold { color: var(--blue-deep); }
 .section-sub {
-  text-align: center; color: rgba(255,255,255,0.55);
+  text-align: center; color: rgba(45,65,90,0.55);
   font-size: 1rem; margin-bottom: 50px;
 }
 .divider {
@@ -219,8 +221,8 @@ body {
   display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
 }
 .about-visual {
-  background: linear-gradient(135deg, var(--navy) 0%, rgba(27,42,74,0.5) 100%);
-  border: 1px solid rgba(201,162,39,0.25);
+  background: linear-gradient(135deg, var(--navy) 0%, rgba(214,234,248,0.5) 100%);
+  border: 1px solid rgba(91,155,213,0.25);
   border-radius: 20px; padding: 40px 30px; text-align: center;
   position: relative; overflow: hidden;
 }
@@ -229,60 +231,60 @@ body {
   position: absolute; top: -20px; right: -20px;
   font-size: 8rem; opacity: 0.06;
 }
-.about-visual-img { width: 160px; margin-bottom: 20px; filter: drop-shadow(0 8px 20px rgba(201,162,39,0.3)); }
+.about-visual-img { width: 160px; margin-bottom: 20px; filter: drop-shadow(0 8px 20px rgba(91,155,213,0.3)); }
 .about-visual h3 {
   font-family: 'Bebas Neue', cursive; font-size: 1.8rem;
-  letter-spacing: 2px; color: var(--gold-light); margin-bottom: 8px;
+  letter-spacing: 2px; color: var(--blue-deep); margin-bottom: 8px;
 }
-.about-visual p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+.about-visual p { color: rgba(45,65,90,0.6); font-size: 0.9rem; }
 .about-text h3 {
   font-family: 'Bebas Neue', cursive; font-size: 2rem; letter-spacing: 2px;
-  color: var(--gold-light); margin-bottom: 14px;
+  color: var(--blue-deep); margin-bottom: 14px;
 }
-.about-text p { color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 14px; font-size: 1rem; }
+.about-text p { color: rgba(45,65,90,0.75); line-height: 1.8; margin-bottom: 14px; font-size: 1rem; }
 .about-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 .pill {
-  background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
-  color: var(--gold-light); font-size: 0.82rem; font-weight: 700;
+  background: rgba(91,155,213,0.12); border: 1px solid rgba(91,155,213,0.3);
+  color: var(--blue-deep); font-size: 0.82rem; font-weight: 700;
   padding: 6px 14px; border-radius: 20px; letter-spacing: 0.5px;
 }
 
 /* ─── VENTA CARD ─── */
 .sale-section {
-  background: linear-gradient(135deg, var(--navy) 0%, #0D1929 100%);
-  border-top: 1px solid rgba(201,162,39,0.15);
-  border-bottom: 1px solid rgba(201,162,39,0.15);
+  background: linear-gradient(135deg, var(--navy) 0%, #EAF4FC 100%);
+  border-top: 1px solid rgba(91,155,213,0.15);
+  border-bottom: 1px solid rgba(91,155,213,0.15);
 }
 .sale-card {
-  background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(27,42,74,0.9) 100%);
+  background: linear-gradient(135deg, rgba(91,155,213,0.08) 0%, rgba(214,234,248,0.9) 100%);
   border: 2px solid var(--gold);
   border-radius: 24px; padding: 50px 40px; text-align: center;
   max-width: 600px; margin: 0 auto; position: relative;
-  box-shadow: 0 0 60px rgba(201,162,39,0.15);
+  box-shadow: 0 0 60px rgba(91,155,213,0.15);
 }
 .sale-badge {
   position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
-  background: var(--gold); color: var(--navy-deep);
+  background: var(--gold); color: var(--ink);
   font-weight: 800; font-size: 0.82rem; letter-spacing: 2px;
   padding: 7px 22px; border-radius: 20px; white-space: nowrap;
 }
 .sale-emoji { font-size: 3rem; margin-bottom: 12px; }
 .sale-title {
   font-family: 'Bebas Neue', cursive; font-size: 2.2rem;
-  letter-spacing: 3px; color: var(--white); margin-bottom: 6px;
+  letter-spacing: 3px; color: var(--ink); margin-bottom: 6px;
 }
 .sale-preventa { margin: 20px 0 8px; }
-.sale-preventa .label { font-size: 0.85rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
-.sale-preventa .price-old { font-size: 1rem; color: rgba(255,255,255,0.35); text-decoration: line-through; }
+.sale-preventa .label { font-size: 0.85rem; color: rgba(45,65,90,0.55); text-transform: uppercase; letter-spacing: 1px; }
+.sale-preventa .price-old { font-size: 1rem; color: rgba(45,65,90,0.35); text-decoration: line-through; }
 .sale-preventa .price-now {
   font-family: 'Bebas Neue', cursive; font-size: 3.5rem;
-  color: var(--gold-light); letter-spacing: 2px;
+  color: var(--blue-deep); letter-spacing: 2px;
   display: block; line-height: 1;
 }
-.sale-preventa .price-note { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+.sale-preventa .price-note { font-size: 0.8rem; color: rgba(45,65,90,0.5); }
 .sale-coming {
   margin-top: 14px; font-size: 0.88rem;
-  color: rgba(255,255,255,0.5); font-style: italic;
+  color: rgba(45,65,90,0.5); font-style: italic;
 }
 .sale-cta { margin-top: 28px; width: 100%; font-size: 1rem; justify-content: center; }
 
@@ -291,8 +293,8 @@ body {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;
 }
 .resource-card {
-  background: linear-gradient(135deg, rgba(27,42,74,0.8) 0%, rgba(13,25,41,0.9) 100%);
-  border: 1px solid rgba(201,162,39,0.2);
+  background: linear-gradient(135deg, rgba(214,234,248,0.8) 0%, rgba(234,243,251,0.9) 100%);
+  border: 1px solid rgba(91,155,213,0.2);
   border-radius: 16px; padding: 32px 24px; text-align: center;
   transition: all .3s; cursor: pointer; text-decoration: none; color: inherit;
   display: flex; flex-direction: column; align-items: center; gap: 14px;
@@ -300,7 +302,7 @@ body {
 .resource-card:hover {
   transform: translateY(-6px);
   border-color: var(--gold);
-  box-shadow: 0 12px 40px rgba(201,162,39,0.2);
+  box-shadow: 0 12px 40px rgba(91,155,213,0.2);
 }
 .resource-icon {
   width: 64px; height: 64px; border-radius: 16px;
@@ -310,98 +312,98 @@ body {
 .icon-yt { background: rgba(255,0,0,0.15); color: #FF4444; }
 .icon-drive { background: rgba(66,133,244,0.15); color: #4285F4; }
 .icon-ig { background: rgba(225,48,108,0.15); color: #E1306C; }
-.icon-tt { background: rgba(0,0,0,0.3); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+.icon-tt { background: rgba(0,0,0,0.3); color: #fff; border: 1px solid rgba(45,65,90,0.15); }
 .icon-wa { background: rgba(37,211,102,0.15); color: #25D166; }
 .resource-card h4 { font-weight: 800; font-size: 1rem; }
-.resource-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+.resource-card p { font-size: 0.82rem; color: rgba(45,65,90,0.5); }
 
 /* ─── EXAM SECTION ─── */
 .exam-bg {
-  background: linear-gradient(180deg, var(--navy-deep) 0%, #101e36 100%);
-  border-top: 1px solid rgba(201,162,39,0.1);
+  background: linear-gradient(180deg, var(--navy-deep) 0%, #FFFFFF 100%);
+  border-top: 1px solid rgba(91,155,213,0.1);
 }
 .exam-modes {
   display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px;
 }
 .exam-mode-btn {
-  background: linear-gradient(135deg, rgba(27,42,74,0.9) 0%, rgba(13,25,41,0.95) 100%);
-  border: 2px solid rgba(201,162,39,0.25);
+  background: linear-gradient(135deg, rgba(214,234,248,0.9) 0%, rgba(234,243,251,0.95) 100%);
+  border: 2px solid rgba(91,155,213,0.25);
   border-radius: 18px; padding: 36px 24px; text-align: center;
   cursor: pointer; transition: all .3s;
 }
 .exam-mode-btn:hover, .exam-mode-btn.active {
   border-color: var(--gold);
-  box-shadow: 0 0 30px rgba(201,162,39,0.2);
+  box-shadow: 0 0 30px rgba(91,155,213,0.2);
   transform: translateY(-4px);
 }
-.exam-mode-btn i { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 14px; display: block; }
+.exam-mode-btn i { font-size: 2.5rem; color: var(--blue-deep); margin-bottom: 14px; display: block; }
 .exam-mode-btn h3 { font-family: 'Bebas Neue', cursive; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 6px; }
-.exam-mode-btn p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+.exam-mode-btn p { font-size: 0.85rem; color: rgba(45,65,90,0.5); }
 
 /* EXAM UI */
 .exam-ui {
-  background: rgba(27,42,74,0.4);
-  border: 1px solid rgba(201,162,39,0.2);
+  background: rgba(214,234,248,0.4);
+  border: 1px solid rgba(91,155,213,0.2);
   border-radius: 20px; overflow: hidden;
 }
 .exam-topbar {
   background: var(--navy); padding: 16px 28px;
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
 }
-.exam-topbar-title { font-family: 'Bebas Neue', cursive; font-size: 1.2rem; letter-spacing: 2px; color: var(--gold-light); }
+.exam-topbar-title { font-family: 'Bebas Neue', cursive; font-size: 1.2rem; letter-spacing: 2px; color: var(--blue-deep); }
 .timer-box {
   display: flex; align-items: center; gap: 8px;
-  background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+  background: rgba(91,155,213,0.12); border: 1px solid rgba(91,155,213,0.3);
   padding: 8px 16px; border-radius: 10px;
 }
-.timer-box i { color: var(--gold); }
-.timer-box span { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; color: var(--gold-light); letter-spacing: 2px; }
+.timer-box i { color: var(--blue-deep); }
+.timer-box span { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; color: var(--blue-deep); letter-spacing: 2px; }
 .music-toggle {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.7); padding: 8px 14px; border-radius: 10px;
+  background: rgba(45,65,90,0.06); border: 1px solid rgba(45,65,90,0.15);
+  color: rgba(45,65,90,0.7); padding: 8px 14px; border-radius: 10px;
   cursor: pointer; font-size: 0.82rem; font-weight: 700;
   display: flex; align-items: center; gap: 6px; transition: all .25s;
 }
-.music-toggle:hover { color: var(--gold-light); border-color: var(--gold-light); }
-.music-toggle.on { color: var(--gold-light); border-color: var(--gold); background: rgba(201,162,39,0.1); }
-.progress-bar-wrap { background: rgba(255,255,255,0.06); height: 4px; }
+.music-toggle:hover { color: var(--blue-deep); border-color: var(--gold-light); }
+.music-toggle.on { color: var(--blue-deep); border-color: var(--gold); background: rgba(91,155,213,0.1); }
+.progress-bar-wrap { background: rgba(45,65,90,0.06); height: 4px; }
 .progress-bar-fill { height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transition: width .5s; }
 .exam-body-area { padding: 36px 32px; }
-.q-meta { font-size: 0.78rem; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
-.q-text { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 26px; line-height: 1.7; }
+.q-meta { font-size: 0.78rem; font-weight: 800; color: var(--blue-deep); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+.q-text { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 26px; line-height: 1.7; }
 .options-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .opt {
-  background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.1);
+  background: rgba(45,65,90,0.04); border: 2px solid rgba(45,65,90,0.1);
   border-radius: 12px; padding: 16px 20px; cursor: pointer;
   transition: all .25s; display: flex; align-items: center; gap: 14px;
   font-size: 0.95rem; font-weight: 600;
 }
-.opt:hover { border-color: rgba(201,162,39,0.5); background: rgba(201,162,39,0.06); }
-.opt.selected { border-color: var(--gold); background: rgba(201,162,39,0.1); }
+.opt:hover { border-color: rgba(91,155,213,0.5); background: rgba(91,155,213,0.06); }
+.opt.selected { border-color: var(--gold); background: rgba(91,155,213,0.1); }
 .opt-key {
   width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
-  background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+  background: rgba(91,155,213,0.12); border: 1px solid rgba(91,155,213,0.3);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Bebas Neue', cursive; font-size: 1.1rem; color: var(--gold-light);
+  font-family: 'Bebas Neue', cursive; font-size: 1.1rem; color: var(--blue-deep);
 }
-.opt.selected .opt-key { background: var(--gold); color: var(--navy-deep); }
+.opt.selected .opt-key { background: var(--gold); color: var(--ink); }
 .exam-footer-bar {
-  padding: 18px 32px; background: rgba(13,25,41,0.6);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 18px 32px; background: rgba(234,243,251,0.6);
+  border-top: 1px solid rgba(45,65,90,0.06);
   display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
 }
-.q-counter { font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+.q-counter { font-size: 0.85rem; color: rgba(45,65,90,0.45); }
 .btn-nav {
-  background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
-  color: var(--gold-light); padding: 10px 20px; border-radius: 10px;
+  background: rgba(91,155,213,0.12); border: 1px solid rgba(91,155,213,0.3);
+  color: var(--blue-deep); padding: 10px 20px; border-radius: 10px;
   font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: all .25s;
   display: inline-flex; align-items: center; gap: 8px;
 }
-.btn-nav:hover { background: rgba(201,162,39,0.22); }
+.btn-nav:hover { background: rgba(91,155,213,0.22); }
 .btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
 .btn-finish {
   background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-  color: var(--navy-deep); padding: 10px 22px; border-radius: 10px;
+  color: var(--ink); padding: 10px 22px; border-radius: 10px;
   font-weight: 800; font-size: 0.88rem; cursor: pointer; border: none; transition: all .25s;
 }
 .btn-finish:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
@@ -412,17 +414,17 @@ body {
   gap: 16px; margin-bottom: 36px;
 }
 .res-card {
-  background: rgba(27,42,74,0.6); border: 1px solid rgba(201,162,39,0.15);
+  background: rgba(214,234,248,0.6); border: 1px solid rgba(91,155,213,0.15);
   border-radius: 14px; padding: 24px; text-align: center;
 }
 .res-card .num { font-family: 'Bebas Neue', cursive; font-size: 2.5rem; line-height: 1; display: block; margin-bottom: 6px; }
-.res-card .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.45); font-weight: 700; }
+.res-card .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(45,65,90,0.45); font-weight: 700; }
 .num.green { color: var(--success); }
 .num.red { color: var(--danger); }
-.num.gold { color: var(--gold-light); }
+.num.gold { color: var(--blue-deep); }
 .report-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px; }
 .report-item-card {
-  background: rgba(27,42,74,0.5); border-radius: 14px; padding: 20px 24px;
+  background: rgba(214,234,248,0.5); border-radius: 14px; padding: 20px 24px;
   border-left: 4px solid var(--danger);
 }
 .report-item-card.ok { border-left-color: var(--success); }
@@ -432,20 +434,20 @@ body {
 }
 .report-item-card.ok .ri-label { color: var(--success); }
 .report-item-card .ri-q { font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; line-height: 1.5; }
-.report-item-card .ri-ans { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+.report-item-card .ri-ans { font-size: 0.85rem; color: rgba(45,65,90,0.6); margin-bottom: 4px; }
 .report-item-card .ri-correct { font-size: 0.85rem; color: var(--success); font-weight: 700; }
 
 /* ─── FLASHCARDS ─── */
-.flashcard-section { background: linear-gradient(180deg, #101e36 0%, var(--navy-deep) 100%); }
+.flashcard-section { background: linear-gradient(180deg, #FFFFFF 0%, var(--navy-deep) 100%); }
 .flashcard-controls {
   display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;
 }
 .fc-filter-btn {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.6); padding: 8px 18px; border-radius: 20px;
+  background: rgba(45,65,90,0.05); border: 1px solid rgba(45,65,90,0.12);
+  color: rgba(45,65,90,0.6); padding: 8px 18px; border-radius: 20px;
   font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all .25s;
 }
-.fc-filter-btn:hover, .fc-filter-btn.active { background: rgba(201,162,39,0.15); border-color: var(--gold); color: var(--gold-light); }
+.fc-filter-btn:hover, .fc-filter-btn.active { background: rgba(91,155,213,0.15); border-color: var(--gold); color: var(--blue-deep); }
 .flashcard-arena {
   perspective: 1200px;
   max-width: 600px; margin: 0 auto; cursor: pointer;
@@ -464,86 +466,86 @@ body {
   padding: 36px; text-align: center;
 }
 .fc-front {
-  background: linear-gradient(135deg, var(--navy) 0%, rgba(27,42,74,0.95) 100%);
-  border: 2px solid rgba(201,162,39,0.35);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  background: linear-gradient(135deg, var(--navy) 0%, rgba(214,234,248,0.95) 100%);
+  border: 2px solid rgba(91,155,213,0.35);
+  box-shadow: 0 12px 40px rgba(91,155,213,0.25);
 }
 .fc-back {
-  background: linear-gradient(135deg, rgba(201,162,39,0.15) 0%, var(--navy) 100%);
+  background: linear-gradient(135deg, rgba(91,155,213,0.15) 0%, var(--navy) 100%);
   border: 2px solid var(--gold);
   transform: rotateY(180deg);
-  box-shadow: 0 12px 40px rgba(201,162,39,0.2);
+  box-shadow: 0 12px 40px rgba(91,155,213,0.2);
 }
 .fc-category {
   font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 14px;
-  background: rgba(201,162,39,0.1); padding: 5px 12px; border-radius: 20px;
+  color: var(--blue-deep); margin-bottom: 14px;
+  background: rgba(91,155,213,0.1); padding: 5px 12px; border-radius: 20px;
 }
 .fc-front h3 { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; letter-spacing: 1px; margin-bottom: 10px; }
-.fc-front p { font-size: 0.9rem; color: rgba(255,255,255,0.5); }
+.fc-front p { font-size: 0.9rem; color: rgba(45,65,90,0.5); }
 .fc-back-icon { font-size: 2.5rem; margin-bottom: 14px; }
-.fc-back p { font-size: 1rem; font-weight: 700; line-height: 1.65; color: var(--white); }
-.fc-hint { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 10px; }
+.fc-back p { font-size: 1rem; font-weight: 700; line-height: 1.65; color: var(--ink); }
+.fc-hint { font-size: 0.75rem; color: rgba(45,65,90,0.4); margin-top: 10px; }
 .fc-nav {
   display: flex; align-items: center; justify-content: center;
   gap: 20px; margin-top: 24px;
 }
 .fc-btn {
   width: 44px; height: 44px; border-radius: 50%;
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-  color: var(--white); cursor: pointer; transition: all .25s;
+  background: rgba(45,65,90,0.06); border: 1px solid rgba(45,65,90,0.12);
+  color: var(--ink); cursor: pointer; transition: all .25s;
   display: flex; align-items: center; justify-content: center;
 }
-.fc-btn:hover { background: rgba(201,162,39,0.2); border-color: var(--gold); color: var(--gold-light); }
-.fc-counter { font-size: 0.88rem; color: rgba(255,255,255,0.45); }
+.fc-btn:hover { background: rgba(91,155,213,0.2); border-color: var(--gold); color: var(--blue-deep); }
+.fc-counter { font-size: 0.88rem; color: rgba(45,65,90,0.45); }
 .fc-shuffle {
   display: block; margin: 20px auto 0;
-  background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.3);
-  color: var(--gold-light); padding: 9px 20px; border-radius: 10px;
+  background: rgba(91,155,213,0.1); border: 1px solid rgba(91,155,213,0.3);
+  color: var(--blue-deep); padding: 9px 20px; border-radius: 10px;
   font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all .25s;
 }
-.fc-shuffle:hover { background: rgba(201,162,39,0.2); }
+.fc-shuffle:hover { background: rgba(91,155,213,0.2); }
 
 /* ─── MOTIVACIONAL QUOTES CAROUSEL ─── */
 .quotes-section { padding: 70px 5%; text-align: center; }
 .quote-card {
   max-width: 700px; margin: 0 auto;
-  background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, rgba(27,42,74,0.6) 100%);
-  border: 1px solid rgba(201,162,39,0.25);
+  background: linear-gradient(135deg, rgba(91,155,213,0.1) 0%, rgba(214,234,248,0.6) 100%);
+  border: 1px solid rgba(91,155,213,0.25);
   border-radius: 20px; padding: 50px 40px;
   position: relative;
 }
-.quote-card::before { content: '"'; font-family: 'Bebas Neue', cursive; font-size: 8rem; color: rgba(201,162,39,0.15); position: absolute; top: -10px; left: 20px; line-height: 1; }
+.quote-card::before { content: '"'; font-family: 'Bebas Neue', cursive; font-size: 8rem; color: rgba(91,155,213,0.15); position: absolute; top: -10px; left: 20px; line-height: 1; }
 .quote-text { font-size: clamp(1.1rem, 2.5vw, 1.35rem); font-weight: 700; line-height: 1.7; margin-bottom: 20px; position: relative; }
-.quote-author { font-size: 0.88rem; color: var(--gold); font-weight: 800; letter-spacing: 1px; }
+.quote-author { font-size: 0.88rem; color: var(--blue-deep); font-weight: 800; letter-spacing: 1px; }
 .quote-dots { display: flex; gap: 8px; justify-content: center; margin-top: 24px; }
-.qdot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: all .25s; }
+.qdot { width: 8px; height: 8px; border-radius: 50%; background: rgba(45,65,90,0.2); cursor: pointer; transition: all .25s; }
 .qdot.active { background: var(--gold); width: 24px; border-radius: 4px; }
 
 /* ─── FOOTER ─── */
 footer {
-  background: #050D1A;
-  border-top: 1px solid rgba(201,162,39,0.15);
+  background: #CFE6F8;
+  border-top: 1px solid rgba(91,155,213,0.15);
   padding: 48px 5% 28px;
   text-align: center;
 }
 .footer-brand {
   font-family: 'Bebas Neue', cursive;
-  font-size: 1.8rem; letter-spacing: 3px; color: var(--gold-light);
+  font-size: 1.8rem; letter-spacing: 3px; color: var(--blue-deep);
   margin-bottom: 12px;
 }
 .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
-.footer-link { color: rgba(255,255,255,0.45); font-size: 0.85rem; text-decoration: none; transition: color .25s; }
-.footer-link:hover { color: var(--gold-light); }
+.footer-link { color: rgba(45,65,90,0.45); font-size: 0.85rem; text-decoration: none; transition: color .25s; }
+.footer-link:hover { color: var(--blue-deep); }
 .footer-socials { display: flex; justify-content: center; gap: 14px; margin-bottom: 28px; }
 .social-btn {
   width: 42px; height: 42px; border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(255,255,255,0.1); font-size: 1.1rem;
-  text-decoration: none; transition: all .25s; color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(45,65,90,0.1); font-size: 1.1rem;
+  text-decoration: none; transition: all .25s; color: rgba(45,65,90,0.6);
 }
-.social-btn:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-3px); }
-.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+.social-btn:hover { border-color: var(--gold); color: var(--blue-deep); transform: translateY(-3px); }
+.footer-copy { font-size: 0.78rem; color: rgba(45,65,90,0.25); }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
@@ -568,23 +570,23 @@ footer {
 .scroll-arrow {
   position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
   animation: bounce 2s ease-in-out infinite;
-  color: rgba(201,162,39,0.5); font-size: 1.4rem;
+  color: rgba(91,155,213,0.5); font-size: 1.4rem;
 }
 @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
 /* ─── RESULTS SECTION ─── */
 .results-section {
-  background: linear-gradient(180deg, var(--navy-deep) 0%, #101e36 100%);
-  border-top: 1px solid rgba(201,162,39,0.1);
+  background: linear-gradient(180deg, var(--navy-deep) 0%, #FFFFFF 100%);
+  border-top: 1px solid rgba(91,155,213,0.1);
 }
 
 /* SEARCH CARD */
 .results-search-card {
-  background: linear-gradient(135deg, rgba(27,42,74,0.9) 0%, rgba(13,25,41,0.95) 100%);
-  border: 2px solid rgba(201,162,39,0.25);
+  background: linear-gradient(135deg, rgba(214,234,248,0.9) 0%, rgba(234,243,251,0.95) 100%);
+  border: 2px solid rgba(91,155,213,0.25);
   border-radius: 20px; padding: 40px; text-align: center;
   max-width: 500px; margin: 0 auto 30px;
-  box-shadow: 0 0 40px rgba(201,162,39,0.1);
+  box-shadow: 0 0 40px rgba(91,155,213,0.1);
 }
 
 .search-form {
@@ -597,35 +599,35 @@ footer {
 
 .search-icon {
   position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
-  color: var(--gold); font-size: 1rem;
+  color: var(--blue-deep); font-size: 1rem;
 }
 
 .search-input {
   width: 100%; padding: 12px 14px 12px 40px;
-  border: 1px solid rgba(201,162,39,0.3); border-radius: 10px;
-  background: rgba(255,255,255,0.05); color: var(--white);
+  border: 1px solid rgba(91,155,213,0.3); border-radius: 10px;
+  background: rgba(45,65,90,0.05); color: var(--ink);
   font-size: 0.95rem; transition: all .25s;
 }
 
 .search-input:focus {
   outline: none; border-color: var(--gold);
-  background: rgba(201,162,39,0.08);
+  background: rgba(91,155,213,0.08);
 }
 
-.search-input::placeholder { color: rgba(255,255,255,0.35); }
+.search-input::placeholder { color: rgba(45,65,90,0.35); }
 
 .search-btn { padding: 12px 28px; }
 
 .search-hint {
-  font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 12px;
+  font-size: 0.8rem; color: rgba(45,65,90,0.35); margin-top: 12px;
 }
 
 /* STUDENT CARD */
 .student-card {
-  background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(27,42,74,0.9) 100%);
-  border: 2px solid rgba(201,162,39,0.25); border-radius: 20px;
+  background: linear-gradient(135deg, rgba(91,155,213,0.08) 0%, rgba(214,234,248,0.9) 100%);
+  border: 2px solid rgba(91,155,213,0.25); border-radius: 20px;
   padding: 32px; margin-bottom: 40px;
-  box-shadow: 0 8px 32px rgba(201,162,39,0.1);
+  box-shadow: 0 8px 32px rgba(91,155,213,0.1);
   animation: fadeIn .5s ease forwards;
 }
 
@@ -636,11 +638,11 @@ footer {
 
 .student-header h2 {
   font-family: 'Bebas Neue', cursive; font-size: 2rem;
-  letter-spacing: 2px; color: var(--white); margin-bottom: 6px;
+  letter-spacing: 2px; color: var(--ink); margin-bottom: 6px;
 }
 
 .student-ti {
-  color: rgba(255,255,255,0.5); font-size: 0.9rem;
+  color: rgba(45,65,90,0.5); font-size: 0.9rem;
 }
 
 .student-status {
@@ -654,21 +656,21 @@ footer {
 }
 
 .status-excelente {
-  background: rgba(16,185,129,0.15); color: #10B981;
+  background: rgba(92,184,138,0.15); color: #5CB88A;
 }
 
 .status-bueno {
-  background: rgba(245,158,11,0.15); color: #F59E0B;
+  background: rgba(224,164,88,0.15); color: #E0A458;
 }
 
 .status-mejorar {
-  background: rgba(239,68,68,0.15); color: #EF4444;
+  background: rgba(226,128,126,0.15); color: #E2807E;
 }
 
 .student-stats {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 20px; padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(45,65,90,0.1);
 }
 
 .stat-item {
@@ -676,13 +678,13 @@ footer {
 }
 
 .stat-label {
-  font-size: 0.78rem; color: rgba(255,255,255,0.45);
+  font-size: 0.78rem; color: rgba(45,65,90,0.45);
   text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
 }
 
 .stat-value {
   font-family: 'Bebas Neue', cursive; font-size: 1.8rem;
-  color: var(--gold-light); letter-spacing: 1px;
+  color: var(--blue-deep); letter-spacing: 1px;
 }
 
 /* SUBJECTS GRID */
@@ -692,7 +694,7 @@ footer {
 }
 
 .subject-card {
-  background: rgba(27,42,74,0.6); border: 1px solid rgba(201,162,39,0.15);
+  background: rgba(214,234,248,0.6); border: 1px solid rgba(91,155,213,0.15);
   border-radius: 16px; padding: 20px;
   animation: fadeIn .5s ease forwards;
 }
@@ -707,12 +709,12 @@ footer {
 }
 
 .subject-score {
-  color: var(--gold-light); font-weight: 800; font-size: 0.9rem;
+  color: var(--blue-deep); font-weight: 800; font-size: 0.9rem;
 }
 
 .progress-bar {
   width: 100%; height: 8px;
-  background: rgba(255,255,255,0.06); border-radius: 10px;
+  background: rgba(45,65,90,0.06); border-radius: 10px;
   overflow: hidden; margin-bottom: 8px;
 }
 
@@ -724,14 +726,14 @@ footer {
 @keyframes expandWidth { from { width: 0 !important; } }
 
 .progress-label {
-  font-size: 0.75rem; color: rgba(255,255,255,0.45);
+  font-size: 0.75rem; color: rgba(45,65,90,0.45);
   text-transform: uppercase; letter-spacing: 0.5px;
 }
 
 /* CHART CONTAINER */
 .chart-container {
   max-width: 500px; margin: 40px auto;
-  background: rgba(27,42,74,0.5); border: 1px solid rgba(201,162,39,0.15);
+  background: rgba(214,234,248,0.5); border: 1px solid rgba(91,155,213,0.15);
   border-radius: 16px; padding: 30px;
 }
 
@@ -747,18 +749,18 @@ footer {
 
 /* MOTIVATION CARD */
 .motivation-card {
-  background: linear-gradient(135deg, rgba(201,162,39,0.15) 0%, rgba(16,185,129,0.1) 100%);
-  border: 1px solid rgba(201,162,39,0.2); border-radius: 16px;
+  background: linear-gradient(135deg, rgba(91,155,213,0.15) 0%, rgba(92,184,138,0.1) 100%);
+  border: 1px solid rgba(91,155,213,0.2); border-radius: 16px;
   padding: 24px; text-align: center; margin-top: 30px;
   display: flex; align-items: center; justify-content: center; gap: 12px;
 }
 
 .motivation-card i {
-  color: var(--gold-light); font-size: 1.8rem;
+  color: var(--blue-deep); font-size: 1.8rem;
 }
 
 .motivation-card p {
-  font-size: 1.1rem; font-weight: 700; color: var(--white);
+  font-size: 1.1rem; font-weight: 700; color: var(--ink);
 }
 
 /* RANKING */
@@ -772,7 +774,7 @@ footer {
 }
 
 .podium-item {
-  background: rgba(27,42,74,0.7); border: 2px solid rgba(201,162,39,0.2);
+  background: rgba(214,234,248,0.7); border: 2px solid rgba(91,155,213,0.2);
   border-radius: 12px; padding: 24px 20px;
   text-align: center; position: relative;
   animation: fadeIn .5s ease forwards;
@@ -780,7 +782,7 @@ footer {
 }
 
 .podium-item.silver { height: 240px; }
-.podium-item.gold-medal { height: 280px; border-color: var(--gold); box-shadow: 0 0 40px rgba(201,162,39,0.25); }
+.podium-item.gold-medal { height: 280px; border-color: var(--gold); box-shadow: 0 0 40px rgba(91,155,213,0.25); }
 .podium-item.bronze { height: 200px; }
 
 .medal {
@@ -793,30 +795,30 @@ footer {
 
 .podium-score {
   font-family: 'Bebas Neue', cursive; font-size: 1.8rem;
-  color: var(--gold-light); margin-bottom: 8px;
+  color: var(--blue-deep); margin-bottom: 8px;
 }
 
 .podium-label {
-  font-size: 0.75rem; color: rgba(255,255,255,0.45);
+  font-size: 0.75rem; color: rgba(45,65,90,0.45);
   text-transform: uppercase; letter-spacing: 0.5px;
 }
 
 /* RANKING TABLE */
 .ranking-table {
-  background: rgba(27,42,74,0.6); border: 1px solid rgba(201,162,39,0.15);
+  background: rgba(214,234,248,0.6); border: 1px solid rgba(91,155,213,0.15);
   border-radius: 16px; overflow: hidden;
 }
 
 .ranking-header {
-  background: rgba(13,25,41,0.8); padding: 16px;
+  background: rgba(234,243,251,0.8); padding: 16px;
   display: grid; grid-template-columns: 60px 1fr 100px;
-  gap: 16px; border-bottom: 1px solid rgba(201,162,39,0.1);
+  gap: 16px; border-bottom: 1px solid rgba(91,155,213,0.1);
 }
 
 .rank-col {
   font-weight: 800; font-size: 0.8rem;
   text-transform: uppercase; letter-spacing: 1px;
-  color: var(--gold);
+  color: var(--blue-deep);
 }
 
 .ranking-body {
@@ -826,24 +828,24 @@ footer {
 .rank-row {
   padding: 14px 16px; display: grid;
   grid-template-columns: 60px 1fr 100px; gap: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(45,65,90,0.05);
   align-items: center;
   transition: all .25s;
 }
 
-.rank-row:hover { background: rgba(201,162,39,0.08); }
+.rank-row:hover { background: rgba(91,155,213,0.08); }
 
 .rank-pos {
-  font-weight: 800; color: var(--gold-light); font-size: 1rem;
+  font-weight: 800; color: var(--blue-deep); font-size: 1rem;
 }
 
 .rank-name {
-  color: var(--white);
+  color: var(--ink);
 }
 
 .rank-score {
   font-family: 'Bebas Neue', cursive; font-size: 1.1rem;
-  color: var(--gold-light); text-align: right;
+  color: var(--blue-deep); text-align: right;
 }
 
 /* RESPONSIVE */
@@ -876,6 +878,130 @@ footer {
     grid-template-columns: 50px 1fr 80px;
   }
 }
+
+/* ════════════════ PANEL ADMIN (integrado) ════════════════ */
+#adminOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  background: var(--navy-deep);
+}
+
+#loginView {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; padding: 20px;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(91,155,213,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(143,198,238,0.18) 0%, transparent 55%),
+    var(--navy-deep);
+}
+.login-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(91,155,213,0.2);
+  border-radius: 24px;
+  padding: 44px 36px;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(91,155,213,0.25);
+  animation: loginFadeIn .6s ease forwards;
+}
+@keyframes loginFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.login-badge {
+  width: 84px; height: 84px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.4rem;
+  box-shadow: 0 10px 28px rgba(91,155,213,0.35);
+  animation: loginFloat 3.5s ease-in-out infinite;
+}
+@keyframes loginFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.login-input-wrap { position: relative; }
+.login-input-wrap i {
+  position: absolute; left: 14px; top: 38px;
+  color: var(--gold); font-size: 0.95rem;
+}
+.login-input-wrap input { padding-left: 38px !important; }
+.login-btn { width: 100%; justify-content: center; margin-top: 22px; font-size: 0.95rem; padding: 13px 20px; }
+.login-back { display:block; text-align:center; margin-top:18px; color: rgba(45,65,90,0.5); font-size:0.85rem; text-decoration:none; }
+
+.admin-container { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+.sidebar { background: var(--navy); padding: 30px 20px; border-right: 1px solid rgba(91,155,213,0.2); }
+.sidebar-logo { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; color: var(--blue-deep); letter-spacing: 2px; margin-bottom: 30px; display: flex; align-items: center; gap: 8px; }
+.sidebar-menu { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.sidebar-item { padding: 12px 16px; border-radius: 8px; cursor: pointer; transition: all .25s; color: rgba(45,65,90,0.6); border-left: 3px solid transparent; }
+.sidebar-item:hover, .sidebar-item.active { background: rgba(91,155,213,0.1); border-left-color: var(--gold); color: var(--blue-deep); }
+.sidebar-item i { margin-right: 10px; width: 20px; }
+.main-content { padding: 30px; overflow-y: auto; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(91,155,213,0.2); }
+.admin-title { font-family: 'Bebas Neue', cursive; font-size: 2rem; letter-spacing: 2px; color: var(--blue-deep); }
+.logout-btn { background: rgba(226,128,126,0.15); border: 1px solid rgba(226,128,126,0.3); color: #E2807E; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: all .25s; }
+.logout-btn:hover { background: rgba(226,128,126,0.25); border-color: #E2807E; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; margin-bottom: 6px; font-weight: 700; font-size: 0.9rem; color: rgba(45,65,90,0.8); }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid rgba(91,155,213,0.3); border-radius: 8px;
+  background: rgba(45,65,90,0.05); color: var(--ink); font-family: 'Nunito', sans-serif; transition: all .25s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); background: rgba(91,155,213,0.08); }
+.form-group input::placeholder { color: rgba(45,65,90,0.3); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.btn { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.9rem; transition: all .25s; display: inline-flex; align-items: center; gap: 8px; }
+.btn-primary { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: var(--ink); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,155,213,0.3); }
+.btn-secondary { background: rgba(91,155,213,0.15); border: 1px solid rgba(91,155,213,0.3); color: var(--blue-deep); }
+.btn-secondary:hover { background: rgba(91,155,213,0.25); }
+.btn-danger { background: rgba(226,128,126,0.15); border: 1px solid rgba(226,128,126,0.3); color: #E2807E; }
+.btn-danger:hover { background: rgba(226,128,126,0.25); }
+.btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.table-container { background: rgba(214,234,248,0.4); border: 1px solid rgba(91,155,213,0.2); border-radius: 12px; overflow: hidden; margin-bottom: 30px; overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; }
+.table thead { background: rgba(234,243,251,0.8); border-bottom: 1px solid rgba(91,155,213,0.2); }
+.table th { padding: 16px; text-align: left; font-weight: 800; font-size: 0.85rem; color: var(--blue-deep); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+.table td { padding: 14px 16px; border-bottom: 1px solid rgba(45,65,90,0.05); color: rgba(45,65,90,0.8); }
+.table tbody tr:hover { background: rgba(91,155,213,0.08); }
+.table-actions { display: flex; gap: 8px; }
+.btn-sm { padding: 6px 12px; font-size: 0.8rem; }
+.card { background: rgba(214,234,248,0.5); border: 1px solid rgba(91,155,213,0.2); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+.card-title { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; letter-spacing: 1px; color: var(--blue-deep); margin-bottom: 16px; }
+.alert { padding: 14px 16px; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.alert-success { background: rgba(92,184,138,0.15); border: 1px solid rgba(92,184,138,0.3); color: #5CB88A; }
+.alert-error { background: rgba(226,128,126,0.15); border: 1px solid rgba(226,128,126,0.3); color: #E2807E; }
+.alert i { font-size: 1.2rem; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.stat-card { background: linear-gradient(135deg, rgba(214,234,248,0.8) 0%, rgba(234,243,251,0.9) 100%); border: 1px solid rgba(91,155,213,0.2); border-radius: 12px; padding: 24px; text-align: center; }
+.stat-value { font-family: 'Bebas Neue', cursive; font-size: 2.5rem; color: var(--blue-deep); line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 0.85rem; color: rgba(45,65,90,0.5); text-transform: uppercase; letter-spacing: 1px; }
+.materia-bar-row { margin-bottom: 16px; }
+.materia-bar-label { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.materia-bar-track { height: 14px; background: rgba(214,234,248,0.6); border-radius: 7px; overflow: hidden; }
+.materia-bar-fill { height: 100%; border-radius: 7px; transition: width .6s ease; }
+.upload-drop { border: 2px dashed rgba(91,155,213,0.4); border-radius: 12px; padding: 28px; text-align: center; cursor: pointer; transition: all .25s; }
+.upload-drop:hover { background: rgba(91,155,213,0.06); border-color: var(--gold); }
+.upload-drop i { font-size: 2rem; color: var(--gold); margin-bottom: 8px; }
+#exportCodeBox { width: 100%; min-height: 160px; font-family: monospace; font-size: 0.78rem; }
+
+@media (max-width: 768px) {
+  .admin-container { grid-template-columns: 1fr; }
+  .sidebar { display: flex; flex-direction: row; overflow-x: auto; padding: 14px; gap: 6px; }
+  .sidebar-logo { display: none; }
+  .sidebar-menu { flex-direction: row; }
+  .sidebar-item { white-space: nowrap; font-size: 0.85rem; }
+  .main-content { padding: 18px; }
+  .form-row { grid-template-columns: 1fr; }
+  .admin-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
 </style>
 </head>
 <body>
@@ -883,7 +1009,7 @@ footer {
 <!-- ─── NAVBAR ─── -->
 <nav class="navbar" id="navbar">
   <div class="nav-brand">
-    <span>AVES DEL SABER <span style="color:var(--gold-light)">500</span></span>
+    <span>AVES DEL SABER <span style="color: var(--blue-deep)">500</span></span>
   </div>
   <div class="nav-links">
     <button class="nav-link active" onclick="scrollToSection('inicio')">Inicio</button>
@@ -1008,14 +1134,14 @@ footer {
       <div class="sale-badge">💛🦅 OFERTA LIMITADA — PREVENTA ACTIVA</div>
       <div class="sale-emoji">🚀</div>
       <div class="sale-title">INTENSIVO VACACIONAL ADS</div>
-      <p style="color:rgba(255,255,255,0.6); font-size:0.9rem; margin-bottom:10px;">Próximamente...</p>
+      <p style="color:rgba(45,65,90,0.6); font-size:0.9rem; margin-bottom:10px;">Próximamente...</p>
       <ul style="text-align:left; list-style:none; margin: 18px 0; display:flex; flex-direction:column; gap:10px;">
-        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Simulacros intensivos por área</li>
-        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Guías de descarte PRO</li>
-        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Clases en vivo con los mejores docentes</li>
-        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Orientación vocacional personalizada</li>
-        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Acceso al Drive exclusivo ADS</li>
-        <li style="font-size:0.92rem; color:rgba(255,255,255,0.8);"><span style="color:var(--gold-light); margin-right:8px;">✅</span> Comunidad de estudio activa 24/7</li>
+        <li style="font-size:0.92rem; color:rgba(45,65,90,0.8);"><span style="color: var(--blue-deep); margin-right:8px;">✅</span> Simulacros intensivos por área</li>
+        <li style="font-size:0.92rem; color:rgba(45,65,90,0.8);"><span style="color: var(--blue-deep); margin-right:8px;">✅</span> Guías de descarte PRO</li>
+        <li style="font-size:0.92rem; color:rgba(45,65,90,0.8);"><span style="color: var(--blue-deep); margin-right:8px;">✅</span> Clases en vivo con los mejores docentes</li>
+        <li style="font-size:0.92rem; color:rgba(45,65,90,0.8);"><span style="color: var(--blue-deep); margin-right:8px;">✅</span> Orientación vocacional personalizada</li>
+        <li style="font-size:0.92rem; color:rgba(45,65,90,0.8);"><span style="color: var(--blue-deep); margin-right:8px;">✅</span> Acceso al Drive exclusivo ADS</li>
+        <li style="font-size:0.92rem; color:rgba(45,65,90,0.8);"><span style="color: var(--blue-deep); margin-right:8px;">✅</span> Comunidad de estudio activa 24/7</li>
       </ul>
       <div class="sale-preventa">
         <div class="label">PREVENTA ESPECIAL</div>
@@ -1026,7 +1152,7 @@ footer {
       <a href="https://wa.me/573218790121?text=Hola%20ADS!%20Quiero%20info%20del%20Intensivo%20Vacacional%20%F0%9F%A6%85" target="_blank" class="btn-gold sale-cta">
         <i class="fa-brands fa-whatsapp"></i> Quiero mi cupo en preventa
       </a>
-      <p class="sale-coming">📱 Te atendemos por WhatsApp al <strong style="color:var(--gold-light);">321 879 0121</strong></p>
+      <p class="sale-coming">📱 Te atendemos por WhatsApp al <strong style="color: var(--blue-deep);">321 879 0121</strong></p>
     </div>
   </div>
 </section>
@@ -1072,20 +1198,20 @@ footer {
   <div class="section" style="padding-top:0; padding-bottom:0;">
     <div class="section-title">CONSULTA TUS <span class="gold">RESULTADOS</span></div>
     <div class="divider"></div>
-    <p class="section-sub">Ingresa tu número de T.I. para ver tu desempeño completo.</p>
+    <p class="section-sub">Ingresa tu número de T.I. o tu correo para ver tu desempeño completo.</p>
 
     <div id="resultsSearchView">
       <div class="results-search-card">
         <div class="search-form">
           <div class="search-input-wrap">
             <i class="fa-solid fa-id-card search-icon"></i>
-            <input type="text" id="tiInput" placeholder="Número de T.I." maxlength="20" class="search-input">
+            <input type="text" id="tiInput" placeholder="T.I. o correo" maxlength="60" class="search-input">
           </div>
           <button class="btn-gold search-btn" onclick="consultarEstudiante()">
             <i class="fa-solid fa-magnifying-glass"></i> Consultar
           </button>
         </div>
-        <p class="search-hint">Ej: 1023456789</p>
+        <p class="search-hint">Ej: 1023456789 o juan.perez@gmail.com</p>
       </div>
     </div>
 
@@ -1125,7 +1251,7 @@ footer {
             <span class="subject-score" id="scoreMath">85/100</span>
           </div>
           <div class="progress-bar">
-            <div class="progress-fill" id="progressMath" style="width:85%; background: #3B82F6;"></div>
+            <div class="progress-fill" id="progressMath" style="width:85%; background: #6FA8DC;"></div>
           </div>
           <p class="progress-label" id="labelMath">Muy Bien</p>
         </div>
@@ -1136,7 +1262,7 @@ footer {
             <span class="subject-score" id="scoreReading">78/100</span>
           </div>
           <div class="progress-bar">
-            <div class="progress-fill" id="progressReading" style="width:78%; background: #8B5CF6;"></div>
+            <div class="progress-fill" id="progressReading" style="width:78%; background: #B7B5E0;"></div>
           </div>
           <p class="progress-label" id="labelReading">Bien</p>
         </div>
@@ -1147,7 +1273,7 @@ footer {
             <span class="subject-score" id="scoreSocial">90/100</span>
           </div>
           <div class="progress-bar">
-            <div class="progress-fill" id="progressSocial" style="width:90%; background: #EC4899;"></div>
+            <div class="progress-fill" id="progressSocial" style="width:90%; background: #8FCFE0;"></div>
           </div>
           <p class="progress-label" id="labelSocial">Excelente</p>
         </div>
@@ -1158,7 +1284,7 @@ footer {
             <span class="subject-score" id="scoreScience">80/100</span>
           </div>
           <div class="progress-bar">
-            <div class="progress-fill" id="progressScience" style="width:80%; background: #10B981;"></div>
+            <div class="progress-fill" id="progressScience" style="width:80%; background: #5CB88A;"></div>
           </div>
           <p class="progress-label" id="labelScience">Bien</p>
         </div>
@@ -1169,7 +1295,7 @@ footer {
             <span class="subject-score" id="scoreEnglish">88/100</span>
           </div>
           <div class="progress-bar">
-            <div class="progress-fill" id="progressEnglish" style="width:88%; background: #F59E0B;"></div>
+            <div class="progress-fill" id="progressEnglish" style="width:88%; background: #E0A458;"></div>
           </div>
           <p class="progress-label" id="labelEnglish">Muy Bien</p>
         </div>
@@ -1197,7 +1323,7 @@ footer {
     <!-- TOP 5 RANKING -->
     <div id="rankingView" style="margin-top:80px;">
       <div class="ranking-title">
-        <h3 style="font-family: 'Bebas Neue'; font-size: 2rem; color: var(--gold-light); letter-spacing: 2px; text-align: center; margin-bottom: 10px;">🏆 TOP 5 ADS 🏆</h3>
+        <h3 style="font-family: 'Bebas Neue'; font-size: 2rem; color: var(--blue-deep); letter-spacing: 2px; text-align: center; margin-bottom: 10px;">🏆 TOP 5 ADS 🏆</h3>
         <div class="divider"></div>
       </div>
 
@@ -1257,7 +1383,7 @@ footer {
         </div>
       </div>
       <div style="text-align:center; margin-top:10px;">
-        <p style="font-size:0.85rem; color:rgba(255,255,255,0.35); font-style:italic;">🎵 Activa la música de concentración antes de empezar — incluida en el examen</p>
+        <p style="font-size:0.85rem; color:rgba(45,65,90,0.35); font-style:italic;">🎵 Activa la música de concentración antes de empezar — incluida en el examen</p>
       </div>
     </div>
 
@@ -1302,7 +1428,7 @@ footer {
         <div class="fc-face fc-front">
           <div class="fc-category" id="fcCategory">Matemáticas</div>
           <h3 id="fcFrontTitle">Tip del Examen</h3>
-          <p id="fcFrontSub" style="font-size:0.85rem; color:rgba(255,255,255,0.45); margin-top:8px;"></p>
+          <p id="fcFrontSub" style="font-size:0.85rem; color:rgba(45,65,90,0.45); margin-top:8px;"></p>
           <p class="fc-hint" style="margin-top:20px;">👆 Toca para revelar el consejo</p>
         </div>
         <div class="fc-face fc-back">
@@ -1323,7 +1449,7 @@ footer {
 
 <!-- ─── FOOTER ─── -->
 <footer>
-  <div class="footer-brand">AVES DEL SABER <span style="color:var(--gold-light)">500</span></div>
+  <div class="footer-brand">AVES DEL SABER <span style="color: var(--blue-deep)">500</span></div>
   <div class="footer-socials">
     <a href="https://www.instagram.com/preicfes_avesdelsaber" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
     <a href="http://www.tiktok.com/@preicfes_avesdelsaber" target="_blank" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
@@ -1336,9 +1462,179 @@ footer {
     <button onclick="scrollToSection('simulacros')" class="footer-link" style="background:none; border:none; cursor:pointer;">Simulacros</button>
     <button onclick="scrollToSection('flashcards')" class="footer-link" style="background:none; border:none; cursor:pointer;">Flash Tips</button>
     <button onclick="scrollToSection('intensivo')" class="footer-link" style="background:none; border:none; cursor:pointer;">Intensivo</button>
+    <button onclick="abrirAdminPanel()" class="footer-link" style="background:none; border:none; cursor:pointer; opacity:0.5;" title="Admin"><i class="fa-solid fa-lock"></i></button>
   </div>
   <div class="footer-copy">© 2026 Aves del Saber 500 — Grupo Educativo Pre ICFES · Colombia 🦅 · Hecho con 💛</div>
 </footer>
+
+<!-- ─── PANEL ADMIN (oculto, requiere contraseña) ─── -->
+<div id="adminOverlay">
+  <div id="loginView">
+    <div class="login-card">
+      <div style="text-align: center; margin-bottom: 28px;">
+        <div class="login-badge">🦅</div>
+        <div style="font-family: 'Bebas Neue'; font-size: 1.6rem; color: var(--blue-deep); letter-spacing: 2px; margin-bottom: 6px;">AVES DEL SABER</div>
+        <p style="color: rgba(45,65,90,0.5); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">Panel Administrador</p>
+      </div>
+      <div id="loginAlert"></div>
+      <div class="form-group login-input-wrap">
+        <label>Usuario</label>
+        <i class="fa-solid fa-user"></i>
+        <input type="text" id="loginUser" placeholder="Tu usuario">
+      </div>
+      <div class="form-group login-input-wrap">
+        <label>Contraseña</label>
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" id="loginPass" placeholder="Tu contraseña">
+      </div>
+      <button class="btn btn-primary login-btn" onclick="login()">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i> Ingresar
+      </button>
+      <a href="javascript:void(0)" class="login-back" onclick="cerrarAdminPanel()">← Volver al sitio</a>
+    </div>
+  </div>
+
+  <div id="adminView" style="display: none;">
+    <div class="admin-container">
+      <div class="sidebar">
+        <div class="sidebar-logo"><span>🦅 ADS</span></div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item active" onclick="switchTab('dashboard', this)"><i class="fa-solid fa-chart-line"></i> Dashboard</li>
+          <li class="sidebar-item" onclick="switchTab('agregar', this)"><i class="fa-solid fa-user-plus"></i> Agregar</li>
+          <li class="sidebar-item" onclick="switchTab('editar', this)"><i class="fa-solid fa-user-edit"></i> Editar</li>
+          <li class="sidebar-item" onclick="switchTab('resultados', this)"><i class="fa-solid fa-file-excel"></i> Subir Excel</li>
+          <li class="sidebar-item" onclick="switchTab('estudiantes', this)"><i class="fa-solid fa-users"></i> Estudiantes</li>
+          <li class="sidebar-item" onclick="switchTab('rendimiento', this)"><i class="fa-solid fa-chart-pie"></i> Rendimiento</li>
+        </ul>
+      </div>
+
+      <div class="main-content">
+        <div class="admin-header">
+          <div class="admin-title">📊 PANEL DE CONTROL</div>
+          <button class="logout-btn" onclick="logout()"><i class="fa-solid fa-sign-out-alt"></i> Cerrar sesión</button>
+        </div>
+
+        <!-- DASHBOARD -->
+        <div id="dashboardTab" class="tab-content active">
+          <div class="stats-grid">
+            <div class="stat-card"><div class="stat-value" id="totalEstudiantes">0</div><div class="stat-label">Total de Estudiantes</div></div>
+            <div class="stat-card"><div class="stat-value" id="promedioPuntaje">0</div><div class="stat-label">Promedio de Puntaje</div></div>
+            <div class="stat-card"><div class="stat-value" id="puntuacionAlta">0</div><div class="stat-label">Puntuación Más Alta</div></div>
+          </div>
+          <div class="card">
+            <div class="card-title">🏆 Top 5 Estudiantes</div>
+            <div class="table-container">
+              <table class="table">
+                <thead><tr><th>Posición</th><th>Nombre</th><th>T.I.</th><th>Puntaje</th></tr></thead>
+                <tbody id="topEstudiantesBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- AGREGAR -->
+        <div id="agregarTab" class="tab-content">
+          <div class="card">
+            <div class="card-title">➕ Agregar Nuevo Estudiante</div>
+            <div id="addAlert"></div>
+            <div class="form-group"><label>Nombre Completo</label><input type="text" id="addNombre" placeholder="Ej: Juan Pérez"></div>
+            <div class="form-row">
+              <div class="form-group"><label>Número de T.I.</label><input type="text" id="addTI" placeholder="Ej: 1023456789"></div>
+              <div class="form-group"><label>Correo</label><input type="text" id="addCorreo" placeholder="correo@gmail.com"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Matemáticas</label><input type="number" id="addMath" placeholder="0-100" min="0" max="100"></div>
+              <div class="form-group"><label>Lectura Crítica</label><input type="number" id="addReading" placeholder="0-100" min="0" max="100"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Sociales</label><input type="number" id="addSocial" placeholder="0-100" min="0" max="100"></div>
+              <div class="form-group"><label>Ciencias Naturales</label><input type="number" id="addScience" placeholder="0-100" min="0" max="100"></div>
+            </div>
+            <div class="form-group"><label>Inglés</label><input type="number" id="addEnglish" placeholder="0-100" min="0" max="100"></div>
+            <div class="btn-group">
+              <button class="btn btn-primary" onclick="agregarEstudiante()"><i class="fa-solid fa-check"></i> Guardar Estudiante</button>
+              <button class="btn btn-secondary" onclick="limpiarFormulario()"><i class="fa-solid fa-times"></i> Limpiar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDITAR -->
+        <div id="editarTab" class="tab-content">
+          <div class="card">
+            <div class="card-title">✏️ Editar Estudiante</div>
+            <div id="editAlert"></div>
+            <div class="form-group"><label>Buscar por T.I. o correo</label><input type="text" id="searchTI" placeholder="Ingresa T.I. o correo" oninput="buscarEstudianteEditar()"></div>
+            <div id="editForm" style="display: none;">
+              <div class="form-group"><label>Nombre Completo</label><input type="text" id="editNombre" placeholder="Nombre"></div>
+              <div class="form-group"><label>Correo</label><input type="text" id="editCorreo" placeholder="correo@gmail.com"></div>
+              <div class="form-row">
+                <div class="form-group"><label>Matemáticas</label><input type="number" id="editMath" placeholder="0-100" min="0" max="100"></div>
+                <div class="form-group"><label>Lectura Crítica</label><input type="number" id="editReading" placeholder="0-100" min="0" max="100"></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Sociales</label><input type="number" id="editSocial" placeholder="0-100" min="0" max="100"></div>
+                <div class="form-group"><label>Ciencias Naturales</label><input type="number" id="editScience" placeholder="0-100" min="0" max="100"></div>
+              </div>
+              <div class="form-group"><label>Inglés</label><input type="number" id="editEnglish" placeholder="0-100" min="0" max="100"></div>
+              <div class="btn-group">
+                <button class="btn btn-primary" onclick="guardarCambios()"><i class="fa-solid fa-save"></i> Guardar Cambios</button>
+                <button class="btn btn-danger" onclick="eliminarEstudiante()"><i class="fa-solid fa-trash"></i> Eliminar Estudiante</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBIR EXCEL -->
+        <div id="resultadosTab" class="tab-content">
+          <div class="card">
+            <div class="card-title">📤 Subir Resultados desde Excel</div>
+            <p style="color: rgba(45,65,90,0.6); margin-bottom: 16px;">El Excel debe tener columnas: <strong>Nombre, TI, Correo, Matematicas, Lectura, Sociales, Ciencias, Ingles</strong>. Si un T.I. o correo ya existe, se actualiza; si no, se agrega.</p>
+            <label class="upload-drop" style="display:block;">
+              <i class="fa-solid fa-file-excel"></i>
+              <div style="font-weight:700; color: var(--ink);">Toca para elegir tu archivo .xlsx</div>
+              <input type="file" accept=".xlsx,.xls,.csv" id="excelInput" style="display:none;" onchange="subirExcel(this)">
+            </label>
+            <div id="uploadAlert" style="margin-top:16px;"></div>
+            <hr style="border:none; border-top:1px solid rgba(91,155,213,0.2); margin:24px 0;">
+            <div class="card-title" style="font-size:1.1rem;">O pega datos en formato JSON</div>
+            <div class="form-group">
+              <textarea id="jsonData" placeholder='[{"ti":"1023456789","correo":"juan@gmail.com","nombre":"Nombre","matematicas":85,"lectura":78,"sociales":90,"ciencias":80,"ingles":88}]' rows="6"></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="subirJSON()"><i class="fa-solid fa-upload"></i> Subir Datos JSON</button>
+          </div>
+        </div>
+
+        <!-- ESTUDIANTES -->
+        <div id="estudiantesTab" class="tab-content">
+          <div class="card">
+            <div class="card-title">👥 Lista de Estudiantes</div>
+            <div class="table-container">
+              <table class="table">
+                <thead><tr><th>Nombre</th><th>T.I.</th><th>Correo</th><th>Puntaje Total</th><th>Acciones</th></tr></thead>
+                <tbody id="estudiantesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">💾 Hacer permanente para todos los visitantes</div>
+            <p style="color: rgba(45,65,90,0.6); margin-bottom: 14px;">Los cambios que haces aquí se guardan solo en este navegador. Para que TODOS los visitantes vean los datos actualizados, copia este código y pégalo en el archivo ADS.html (reemplazando el arreglo <code>estudiantesDB</code>), y vuelve a subirlo a GitHub.</p>
+            <button class="btn btn-secondary" onclick="generarCodigoExport()" style="margin-bottom:12px;"><i class="fa-solid fa-code"></i> Generar código actualizado</button>
+            <textarea id="exportCodeBox" readonly style="display:none;"></textarea>
+          </div>
+        </div>
+
+        <!-- RENDIMIENTO -->
+        <div id="rendimientoTab" class="tab-content">
+          <div class="card">
+            <div class="card-title">📈 Rendimiento Promedio por Materia</div>
+            <p style="color: rgba(45,65,90,0.6); margin-bottom: 16px;">Calculado en vivo con los <span id="cantEstudiantesRend">0</span> estudiantes registrados.</p>
+            <div id="materiasBars"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ─── AUDIO (concentración) ─── -->
 <audio id="bgMusic" loop>
@@ -1546,7 +1842,7 @@ function startTimer() {
   timerInterval = setInterval(() => {
     timeLeft--;
     updateTimerDisplay();
-    if (timeLeft <= 300) document.getElementById('timerDisplay').style.color = '#EF4444';
+    if (timeLeft <= 300) document.getElementById('timerDisplay').style.color = '#E2807E';
     if (timeLeft <= 0) { clearInterval(timerInterval); alert('⏰ Tiempo agotado. ¡Se enviará automáticamente!'); finishExam(); }
   }, 1000);
 }
@@ -1613,7 +1909,7 @@ function renderIcfesResults(container) {
     <div class="results-summary">
       <div class="res-card"><span class="num green">${correct}</span><span class="lbl">Correctas</span></div>
       <div class="res-card"><span class="num red">${incorrect}</span><span class="lbl">Incorrectas</span></div>
-      <div class="res-card"><span class="num" style="color:var(--white)">${score100}/100</span><span class="lbl">Resultado</span></div>
+      <div class="res-card"><span class="num" style="color: var(--ink)">${score100}/100</span><span class="lbl">Resultado</span></div>
       <div class="res-card"><span class="num gold">${score500}</span><span class="lbl">Est. ICFES /500</span></div>
     </div>
     <div style="margin-bottom:20px; font-family:'Bebas Neue',cursive; font-size:1.3rem; letter-spacing:1px;">REPORTE DETALLADO</div>
@@ -1648,9 +1944,9 @@ function renderVocationalResults(container) {
       <div class="divider"></div>
     </div>
     <div id="vBars" style="margin-bottom:32px;"></div>
-    <div style="background:rgba(201,162,39,0.08); border:1px solid rgba(201,162,39,0.3); border-radius:16px; padding:28px; margin-bottom:28px;">
-      <div style="font-weight:800; color:var(--gold-light); margin-bottom:10px;">🦅 Recomendación ADS</div>
-      <p style="color:rgba(255,255,255,0.8); line-height:1.7;">Tu perfil dominante es <strong style="color:var(--gold-light);">${sorted[0].n}</strong> y <strong style="color:var(--gold-light);">${sorted[1].n}</strong>. Estos resultados reflejan tus intereses y habilidades más marcadas. ¡Investiga carreras en estas áreas y consulta a tu equipo ADS para orientación personalizada!</p>
+    <div style="background:rgba(91,155,213,0.08); border:1px solid rgba(91,155,213,0.3); border-radius:16px; padding:28px; margin-bottom:28px;">
+      <div style="font-weight:800; color: var(--blue-deep); margin-bottom:10px;">🦅 Recomendación ADS</div>
+      <p style="color:rgba(45,65,90,0.8); line-height:1.7;">Tu perfil dominante es <strong style="color: var(--blue-deep);">${sorted[0].n}</strong> y <strong style="color: var(--blue-deep);">${sorted[1].n}</strong>. Estos resultados reflejan tus intereses y habilidades más marcadas. ¡Investiga carreras en estas áreas y consulta a tu equipo ADS para orientación personalizada!</p>
     </div>
     <div style="display:flex; gap:14px; flex-wrap:wrap;">
       <button class="btn-gold" onclick="backToExamSelection()"><i class="fa-solid fa-rotate-left"></i> Repetir test</button>
@@ -1661,7 +1957,7 @@ function renderVocationalResults(container) {
     const pct = Math.round((p.s / max) * 100);
     const div = document.createElement('div');
     div.style.cssText = 'margin-bottom:18px;';
-    div.innerHTML = `<div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-weight:700;">${p.n}</span><span style="color:var(--gold-light);font-weight:800;">${pct}%</span></div><div style="background:rgba(255,255,255,0.08);height:10px;border-radius:5px;overflow:hidden;"><div id="vbar_${p.n.replace(/\s/g,'')}" style="height:100%;width:0%;background:linear-gradient(90deg,var(--navy),var(--gold-light));border-radius:5px;transition:width 1s ease;"></div></div>`;
+    div.innerHTML = `<div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-weight:700;">${p.n}</span><span style="color: var(--blue-deep);font-weight:800;">${pct}%</span></div><div style="background:rgba(45,65,90,0.08);height:10px;border-radius:5px;overflow:hidden;"><div id="vbar_${p.n.replace(/\s/g,'')}" style="height:100%;width:0%;background:linear-gradient(90deg,var(--navy),var(--gold-light));border-radius:5px;transition:width 1s ease;"></div></div>`;
     vb.appendChild(div);
     setTimeout(() => { const el = document.getElementById('vbar_' + p.n.replace(/\s/g,'')); if(el) el.style.width = pct + '%'; }, 100);
   });
@@ -1722,15 +2018,30 @@ buildFCFilters();
 renderFC();
 
 /* ─── DATABASE ESTUDIANTES ─── */
-const estudiantesDB = [
-  { ti: '1023456789', nombre: 'Juan Pérez', matematicas: 85, lectura: 78, sociales: 90, ciencias: 80, ingles: 88 },
-  { ti: '1087654321', nombre: 'María López', matematicas: 82, lectura: 85, sociales: 88, ciencias: 87, ingles: 81 },
-  { ti: '1098765432', nombre: 'Carlos Ruiz', matematicas: 80, lectura: 80, sociales: 85, ciencias: 82, ingles: 79 },
-  { ti: '1111111111', nombre: 'Ana Martínez', matematicas: 88, lectura: 90, sociales: 92, ciencias: 89, ingles: 91 },
-  { ti: '1222222222', nombre: 'Luis Gómez', matematicas: 78, lectura: 75, sociales: 80, ciencias: 76, ingles: 74 },
-  { ti: '1333333333', nombre: 'Sofía García', matematicas: 90, lectura: 88, sociales: 89, ciencias: 87, ingles: 89 },
-  { ti: '1444444444', nombre: 'Pedro Sánchez', matematicas: 76, lectura: 72, sociales: 78, ciencias: 75, ingles: 73 },
+let estudiantesDB = [
+  { ti: '1023456789', correo: 'juan.perez@gmail.com', nombre: 'Juan Pérez', matematicas: 85, lectura: 78, sociales: 90, ciencias: 80, ingles: 88 },
+  { ti: '1087654321', correo: 'maria.lopez@gmail.com', nombre: 'María López', matematicas: 82, lectura: 85, sociales: 88, ciencias: 87, ingles: 81 },
+  { ti: '1098765432', correo: 'carlos.ruiz@gmail.com', nombre: 'Carlos Ruiz', matematicas: 80, lectura: 80, sociales: 85, ciencias: 82, ingles: 79 },
+  { ti: '1111111111', correo: 'ana.martinez@gmail.com', nombre: 'Ana Martínez', matematicas: 88, lectura: 90, sociales: 92, ciencias: 89, ingles: 91 },
+  { ti: '1222222222', correo: 'luis.gomez@gmail.com', nombre: 'Luis Gómez', matematicas: 78, lectura: 75, sociales: 80, ciencias: 76, ingles: 74 },
+  { ti: '1333333333', correo: 'sofia.garcia@gmail.com', nombre: 'Sofía García', matematicas: 90, lectura: 88, sociales: 89, ciencias: 87, ingles: 89 },
+  { ti: '1444444444', correo: 'pedro.sanchez@gmail.com', nombre: 'Pedro Sánchez', matematicas: 76, lectura: 72, sociales: 78, ciencias: 75, ingles: 73 },
 ];
+
+// Si el admin ya guardó cambios en este navegador, los carga (ver función guardarEnNavegador)
+(function cargarDesdeNavegador() {
+  try {
+    const guardado = localStorage.getItem('adsEstudiantesDB');
+    if (guardado) {
+      const parsed = JSON.parse(guardado);
+      if (Array.isArray(parsed) && parsed.length) estudiantesDB = parsed;
+    }
+  } catch (e) { /* ignorar si hay datos corruptos */ }
+})();
+
+function guardarEnNavegador() {
+  try { localStorage.setItem('adsEstudiantesDB', JSON.stringify(estudiantesDB)); } catch (e) {}
+}
 
 /* ─── CALCULAR TOTAL ─── */
 function calcularTotal(est) {
@@ -1747,17 +2058,19 @@ function obtenerRanking() {
 
 /* ─── CONSULTAR ESTUDIANTE ─── */
 function consultarEstudiante() {
-  const ti = document.getElementById('tiInput').value.trim();
+  const valor = document.getElementById('tiInput').value.trim().toLowerCase();
   
-  if (!ti) {
-    alert('Por favor ingresa tu número de T.I.');
+  if (!valor) {
+    alert('Por favor ingresa tu número de T.I. o tu correo.');
     return;
   }
   
-  const estudiante = estudiantesDB.find(e => e.ti === ti);
+  const estudiante = estudiantesDB.find(e =>
+    e.ti === valor || (e.correo && e.correo.toLowerCase() === valor)
+  );
   
   if (!estudiante) {
-    alert('No se encontraron resultados para el T.I.: ' + ti);
+    alert('No se encontraron resultados para: ' + valor);
     return;
   }
   
@@ -1789,11 +2102,11 @@ function mostrarResultados(estudiante) {
   
   // Actualizar materias
   const materias = [
-    { id: 'Math', label: 'Matemáticas', score: estudiante.matematicas, color: '#3B82F6' },
-    { id: 'Reading', label: 'Lectura Crítica', score: estudiante.lectura, color: '#8B5CF6' },
-    { id: 'Social', label: 'Sociales', score: estudiante.sociales, color: '#EC4899' },
-    { id: 'Science', label: 'Ciencias Naturales', score: estudiante.ciencias, color: '#10B981' },
-    { id: 'English', label: 'Inglés', score: estudiante.ingles, color: '#F59E0B' }
+    { id: 'Math', label: 'Matemáticas', score: estudiante.matematicas, color: '#6FA8DC' },
+    { id: 'Reading', label: 'Lectura Crítica', score: estudiante.lectura, color: '#B7B5E0' },
+    { id: 'Social', label: 'Sociales', score: estudiante.sociales, color: '#8FCFE0' },
+    { id: 'Science', label: 'Ciencias Naturales', score: estudiante.ciencias, color: '#5CB88A' },
+    { id: 'English', label: 'Inglés', score: estudiante.ingles, color: '#E0A458' }
   ];
   
   materias.forEach(m => {
@@ -1841,10 +2154,10 @@ function crearGrafica(estudiante) {
       datasets: [{
         label: 'Tu desempeño',
         data: [estudiante.matematicas, estudiante.lectura, estudiante.sociales, estudiante.ciencias, estudiante.ingles],
-        borderColor: '#C9A227',
-        backgroundColor: 'rgba(201, 162, 39, 0.15)',
+        borderColor: '#5B9BD5',
+        backgroundColor: 'rgba(91,155,213, 0.15)',
         borderWidth: 2,
-        pointBackgroundColor: '#C9A227',
+        pointBackgroundColor: '#5B9BD5',
         pointBorderColor: '#fff',
         pointBorderWidth: 2,
         pointRadius: 5,
@@ -1859,20 +2172,20 @@ function crearGrafica(estudiante) {
           beginAtZero: true,
           max: 100,
           ticks: {
-            color: 'rgba(255,255,255,0.5)',
+            color: 'rgba(45,65,90,0.5)',
             font: { family: "'Nunito', sans-serif", size: 11 }
           },
-          grid: { color: 'rgba(201,162,39,0.1)' },
-          pointLabels: { color: 'rgba(255,255,255,0.8)', font: { size: 12, weight: '700' } }
+          grid: { color: 'rgba(91,155,213,0.1)' },
+          pointLabels: { color: 'rgba(45,65,90,0.8)', font: { size: 12, weight: '700' } }
         }
       },
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: 'rgba(13, 25, 41, 0.9)',
-          titleColor: '#C9A227',
-          bodyColor: '#fff',
-          borderColor: '#C9A227',
+          backgroundColor: '#FFFFFF',
+          titleColor: '#2D6CA3',
+          bodyColor: '#2D4159',
+          borderColor: '#5B9BD5',
           borderWidth: 1,
           padding: 12,
           titleFont: { size: 14, weight: '700' },
@@ -2014,21 +2327,285 @@ function shareResult() {
   window.open(url, '_blank');
 }
 
-/* ─── SCROLL NAV HIGHLIGHT ─── */
-window.addEventListener('scroll', () => {
-  const sections = ['inicio','nosotros','intensivo','recursos','resultados','simulacros','flashcards'];
-  const scrollY = window.scrollY + 100;
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (scrollY >= el.offsetTop && scrollY < el.offsetTop + el.offsetHeight) {
-      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    }
+/* ════════════════ PANEL ADMIN (integrado) ════════════════ */
+const ADMIN_USER = 'admin';
+const ADMIN_PASS = 'ads2024';
+let currentEditKey = null;
+
+function abrirAdminPanel() {
+  document.getElementById('adminOverlay').style.display = 'block';
+  document.getElementById('loginView').style.display = 'flex';
+  document.getElementById('adminView').style.display = 'none';
+  document.body.style.overflow = 'hidden';
+}
+function cerrarAdminPanel() {
+  document.getElementById('adminOverlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+if (window.location.hash === '#admin') abrirAdminPanel();
+
+function login() {
+  const user = document.getElementById('loginUser').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  if (user === ADMIN_USER && pass === ADMIN_PASS) {
+    document.getElementById('loginView').style.display = 'none';
+    document.getElementById('adminView').style.display = 'block';
+    document.getElementById('loginAlert').innerHTML = '';
+    cargarDashboardAdmin();
+    llenarTablaEstudiantesAdmin();
+    calcularRendimientoMaterias();
+  } else {
+    document.getElementById('loginAlert').innerHTML = '<div class="alert alert-error"><i class="fa-solid fa-circle-exclamation"></i> Usuario o contraseña incorrectos</div>';
+  }
+}
+function logout() {
+  cerrarAdminPanel();
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+}
+
+function switchTab(tabName, element) {
+  document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
+  document.getElementById(tabName + 'Tab').classList.add('active');
+  element.classList.add('active');
+  if (tabName === 'rendimiento') calcularRendimientoMaterias();
+}
+
+function mostrarAlertaAdmin(elementId, tipo, mensaje) {
+  const icon = tipo === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation';
+  document.getElementById(elementId).innerHTML = `<div class="alert alert-${tipo}"><i class="fa-solid ${icon}"></i> ${mensaje}</div>`;
+  setTimeout(() => { document.getElementById(elementId).innerHTML = ''; }, 4000);
+}
+
+function cargarDashboardAdmin() {
+  const ranking = obtenerRanking();
+  document.getElementById('totalEstudiantes').textContent = estudiantesDB.length;
+  const promedio = ranking.length ? Math.round(ranking.reduce((sum, e) => sum + e.total, 0) / ranking.length) : 0;
+  document.getElementById('promedioPuntaje').textContent = promedio;
+  document.getElementById('puntuacionAlta').textContent = ranking.length ? ranking[0].total : 0;
+
+  const tbody = document.getElementById('topEstudiantesBody');
+  tbody.innerHTML = '';
+  ranking.slice(0, 5).forEach((est, idx) => {
+    tbody.innerHTML += `<tr><td>${idx + 1}</td><td>${est.nombre}</td><td>${est.ti}</td><td><strong>${est.total}</strong></td></tr>`;
   });
-});
+}
+
+function llenarTablaEstudiantesAdmin() {
+  const ranking = obtenerRanking();
+  const tbody = document.getElementById('estudiantesTableBody');
+  tbody.innerHTML = '';
+  ranking.forEach(est => {
+    tbody.innerHTML += `<tr>
+      <td>${est.nombre}</td><td>${est.ti}</td><td>${est.correo || '—'}</td><td><strong>${est.total}</strong></td>
+      <td class="table-actions">
+        <button class="btn btn-secondary btn-sm" onclick="editarEstudianteAdmin('${est.ti}')"><i class="fa-solid fa-edit"></i></button>
+        <button class="btn btn-danger btn-sm" onclick="confirmarEliminarAdmin('${est.ti}')"><i class="fa-solid fa-trash"></i></button>
+      </td>
+    </tr>`;
+  });
+}
+
+function agregarEstudiante() {
+  const nombre = document.getElementById('addNombre').value.trim();
+  const ti = document.getElementById('addTI').value.trim();
+  const correo = document.getElementById('addCorreo').value.trim();
+  const math = parseInt(document.getElementById('addMath').value) || 0;
+  const reading = parseInt(document.getElementById('addReading').value) || 0;
+  const social = parseInt(document.getElementById('addSocial').value) || 0;
+  const science = parseInt(document.getElementById('addScience').value) || 0;
+  const english = parseInt(document.getElementById('addEnglish').value) || 0;
+
+  if (!nombre || !ti) { mostrarAlertaAdmin('addAlert', 'error', 'Completa al menos nombre y T.I.'); return; }
+  if (estudiantesDB.find(e => e.ti === ti)) { mostrarAlertaAdmin('addAlert', 'error', 'Este T.I. ya existe'); return; }
+
+  estudiantesDB.push({ ti, correo, nombre, matematicas: math, lectura: reading, sociales: social, ciencias: science, ingles: english });
+  guardarEnNavegador();
+  mostrarAlertaAdmin('addAlert', 'success', 'Estudiante agregado correctamente');
+  limpiarFormulario();
+  cargarDashboardAdmin();
+  llenarTablaEstudiantesAdmin();
+}
+
+function limpiarFormulario() {
+  ['addNombre','addTI','addCorreo','addMath','addReading','addSocial','addScience','addEnglish'].forEach(id => document.getElementById(id).value = '');
+}
+
+function buscarEstudianteEditar() {
+  const valor = document.getElementById('searchTI').value.trim().toLowerCase();
+  const est = estudiantesDB.find(e => e.ti === valor || (e.correo && e.correo.toLowerCase() === valor));
+  if (est) {
+    currentEditKey = est.ti;
+    document.getElementById('editNombre').value = est.nombre;
+    document.getElementById('editCorreo').value = est.correo || '';
+    document.getElementById('editMath').value = est.matematicas;
+    document.getElementById('editReading').value = est.lectura;
+    document.getElementById('editSocial').value = est.sociales;
+    document.getElementById('editScience').value = est.ciencias;
+    document.getElementById('editEnglish').value = est.ingles;
+    document.getElementById('editForm').style.display = 'block';
+  } else {
+    document.getElementById('editForm').style.display = 'none';
+  }
+}
+
+function editarEstudianteAdmin(ti) {
+  document.getElementById('searchTI').value = ti;
+  buscarEstudianteEditar();
+  switchTab('editar', document.querySelectorAll('.sidebar-item')[2]);
+}
+
+function guardarCambios() {
+  const est = estudiantesDB.find(e => e.ti === currentEditKey);
+  if (!est) return;
+  est.nombre = document.getElementById('editNombre').value;
+  est.correo = document.getElementById('editCorreo').value.trim();
+  est.matematicas = parseInt(document.getElementById('editMath').value) || 0;
+  est.lectura = parseInt(document.getElementById('editReading').value) || 0;
+  est.sociales = parseInt(document.getElementById('editSocial').value) || 0;
+  est.ciencias = parseInt(document.getElementById('editScience').value) || 0;
+  est.ingles = parseInt(document.getElementById('editEnglish').value) || 0;
+  guardarEnNavegador();
+  mostrarAlertaAdmin('editAlert', 'success', 'Estudiante actualizado correctamente');
+  cargarDashboardAdmin();
+  llenarTablaEstudiantesAdmin();
+}
+
+function eliminarEstudiante() {
+  if (confirm('¿Estás seguro de que deseas eliminar este estudiante?')) {
+    estudiantesDB = estudiantesDB.filter(e => e.ti !== currentEditKey);
+    guardarEnNavegador();
+    mostrarAlertaAdmin('editAlert', 'success', 'Estudiante eliminado correctamente');
+    document.getElementById('editForm').style.display = 'none';
+    document.getElementById('searchTI').value = '';
+    cargarDashboardAdmin();
+    llenarTablaEstudiantesAdmin();
+  }
+}
+function confirmarEliminarAdmin(ti) {
+  if (confirm('¿Estás seguro de que deseas eliminar este estudiante?')) {
+    estudiantesDB = estudiantesDB.filter(e => e.ti !== ti);
+    guardarEnNavegador();
+    cargarDashboardAdmin();
+    llenarTablaEstudiantesAdmin();
+  }
+}
+
+/* ─── SUBIR EXCEL ─── */
+function buscarColumna(row, posibles) {
+  const keys = Object.keys(row);
+  for (const p of posibles) {
+    const found = keys.find(k => k.toLowerCase().replace(/[^a-z]/g, '') === p);
+    if (found) return row[found];
+  }
+  return undefined;
+}
+
+function subirExcel(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = new Uint8Array(e.target.result);
+      const workbook = XLSX.read(data, { type: 'array' });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(sheet);
+      let agregados = 0, actualizados = 0;
+
+      rows.forEach(row => {
+        const ti = String(buscarColumna(row, ['ti','cedula','documento']) || '').trim();
+        const correo = String(buscarColumna(row, ['correo','email']) || '').trim();
+        const nombre = String(buscarColumna(row, ['nombre','nombres']) || '').trim();
+        const matematicas = parseInt(buscarColumna(row, ['matematicas','matematica','math'])) || 0;
+        const lectura = parseInt(buscarColumna(row, ['lectura','lecturacritica'])) || 0;
+        const sociales = parseInt(buscarColumna(row, ['sociales','social'])) || 0;
+        const ciencias = parseInt(buscarColumna(row, ['ciencias','cienciasnaturales','science'])) || 0;
+        const ingles = parseInt(buscarColumna(row, ['ingles','english'])) || 0;
+        if (!ti && !correo) return;
+
+        const existente = estudiantesDB.find(e => (ti && e.ti === ti) || (correo && e.correo && e.correo.toLowerCase() === correo.toLowerCase()));
+        if (existente) {
+          Object.assign(existente, { nombre: nombre || existente.nombre, correo: correo || existente.correo, matematicas, lectura, sociales, ciencias, ingles });
+          actualizados++;
+        } else {
+          estudiantesDB.push({ ti, correo, nombre, matematicas, lectura, sociales, ciencias, ingles });
+          agregados++;
+        }
+      });
+
+      guardarEnNavegador();
+      mostrarAlertaAdmin('uploadAlert', 'success', `Listo: ${agregados} agregados, ${actualizados} actualizados.`);
+      cargarDashboardAdmin();
+      llenarTablaEstudiantesAdmin();
+      input.value = '';
+    } catch (err) {
+      mostrarAlertaAdmin('uploadAlert', 'error', 'No se pudo leer el archivo. Verifica el formato.');
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function subirJSON() {
+  try {
+    const datos = JSON.parse(document.getElementById('jsonData').value);
+    if (!Array.isArray(datos)) throw new Error();
+    datos.forEach(d => {
+      const existente = estudiantesDB.find(e => e.ti === d.ti);
+      if (existente) Object.assign(existente, d);
+      else estudiantesDB.push(d);
+    });
+    guardarEnNavegador();
+    mostrarAlertaAdmin('uploadAlert', 'success', `${datos.length} registros procesados correctamente.`);
+    document.getElementById('jsonData').value = '';
+    cargarDashboardAdmin();
+    llenarTablaEstudiantesAdmin();
+  } catch (e) {
+    mostrarAlertaAdmin('uploadAlert', 'error', 'El JSON no es válido. Revisa el formato.');
+  }
+}
+
+/* ─── RENDIMIENTO POR MATERIA ─── */
+function calcularRendimientoMaterias() {
+  document.getElementById('cantEstudiantesRend').textContent = estudiantesDB.length;
+  const materias = [
+    { key: 'matematicas', label: 'Matemáticas', color: '#6FA8DC' },
+    { key: 'lectura', label: 'Lectura Crítica', color: '#B7B5E0' },
+    { key: 'sociales', label: 'Sociales', color: '#8FCFE0' },
+    { key: 'ciencias', label: 'Ciencias Naturales', color: '#5CB88A' },
+    { key: 'ingles', label: 'Inglés', color: '#E0A458' },
+  ];
+  const cont = document.getElementById('materiasBars');
+  cont.innerHTML = '';
+  if (!estudiantesDB.length) return;
+
+  materias.forEach(m => {
+    const promedio = Math.round(estudiantesDB.reduce((sum, e) => sum + (e[m.key] || 0), 0) / estudiantesDB.length);
+    cont.innerHTML += `
+      <div class="materia-bar-row">
+        <div class="materia-bar-label"><span>${m.label}</span><span>${promedio}/100</span></div>
+        <div class="materia-bar-track"><div class="materia-bar-fill" style="width:${promedio}%; background:${m.color};"></div></div>
+      </div>`;
+  });
+}
+
+/* ─── EXPORTAR CÓDIGO PARA HACER PERMANENTE ─── */
+function generarCodigoExport() {
+  const lineas = estudiantesDB.map(e =>
+    `  { ti: '${e.ti}', correo: '${e.correo || ''}', nombre: '${e.nombre.replace(/'/g, "\\'")}', matematicas: ${e.matematicas}, lectura: ${e.lectura}, sociales: ${e.sociales}, ciencias: ${e.ciencias}, ingles: ${e.ingles} },`
+  ).join('\n');
+  const codigo = `let estudiantesDB = [\n${lineas}\n];`;
+  const box = document.getElementById('exportCodeBox');
+  box.value = codigo;
+  box.style.display = 'block';
+  box.focus();
+  box.select();
+}
+
 </script>
 
-<!-- CHART.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
